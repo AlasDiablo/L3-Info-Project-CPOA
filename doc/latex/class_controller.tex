@@ -1,0 +1,122 @@
+\hypertarget{class_controller}{}\doxysection{Controller Class Reference}
+\label{class_controller}\index{Controller@{Controller}}
+
+
+Classe permettant de controller les données.  
+
+
+
+
+{\ttfamily \#include $<$controller.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_controller_a9eaa5720e0efcdf1c5ce74dfe66c68e3}{Controller}} (\mbox{\hyperlink{classmodel_1_1_data}{model\+::\+Data}} $\ast$data, \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_a53147af84c116a1550f6faddb7c4792a}{create\+PC}} (std\+::string user\+Name, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Créer un nouveau point de collecte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_af334f9c1bc0bc68f395849a92954ee0a}{create\+User}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Créer un nouveau utilisateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_ad9a55b4803d749d29022890e651d8481}{change\+User}} (std\+::string name, std\+::string new\+Name)
+\begin{DoxyCompactList}\small\item\em Modifie un utilisateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_a1baa5ea4a49441cde939a7935552fb69}{change\+PC}} (std\+::string name, std\+::string new\+Name)
+\begin{DoxyCompactList}\small\item\em Modifie un point de collecte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de controller les données. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_controller_a9eaa5720e0efcdf1c5ce74dfe66c68e3}\label{class_controller_a9eaa5720e0efcdf1c5ce74dfe66c68e3}} 
+\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{Controller()}{Controller()}}
+{\footnotesize\ttfamily Controller\+::\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_data}{model\+::\+Data}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Les données a controller \\
+\hline
+{\em window} & La fenetre a actualiser \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_controller_a1baa5ea4a49441cde939a7935552fb69}\label{class_controller_a1baa5ea4a49441cde939a7935552fb69}} 
+\index{Controller@{Controller}!changePC@{changePC}}
+\index{changePC@{changePC}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{changePC()}{changePC()}}
+{\footnotesize\ttfamily void Controller\+::change\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{new\+Name }\end{DoxyParamCaption})}
+
+
+
+Modifie un point de collecte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom du point de collecte \\
+\hline
+{\em new\+Name} & le nouveau nom du point de collecte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_ad9a55b4803d749d29022890e651d8481}\label{class_controller_ad9a55b4803d749d29022890e651d8481}} 
+\index{Controller@{Controller}!changeUser@{changeUser}}
+\index{changeUser@{changeUser}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{changeUser()}{changeUser()}}
+{\footnotesize\ttfamily void Controller\+::change\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{new\+Name }\end{DoxyParamCaption})}
+
+
+
+Modifie un utilisateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom de l\textquotesingle{}utilisateur \\
+\hline
+{\em new\+Name} & le nouveau nom de l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_a53147af84c116a1550f6faddb7c4792a}\label{class_controller_a53147af84c116a1550f6faddb7c4792a}} 
+\index{Controller@{Controller}!createPC@{createPC}}
+\index{createPC@{createPC}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{createPC()}{createPC()}}
+{\footnotesize\ttfamily void Controller\+::create\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{user\+Name,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Créer un nouveau point de collecte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & le nom du créateur \\
+\hline
+{\em name} & le nom du point de collecte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_af334f9c1bc0bc68f395849a92954ee0a}\label{class_controller_af334f9c1bc0bc68f395849a92954ee0a}} 
+\index{Controller@{Controller}!createUser@{createUser}}
+\index{createUser@{createUser}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily void Controller\+::create\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Créer un nouveau utilisateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom de l\textquotesingle{}tuilisateur \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{controller_8h}{controller.\+h}}\item 
+\mbox{\hyperlink{controller_8cpp}{controller.\+cpp}}\end{DoxyCompactItemize}

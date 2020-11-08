@@ -1,0 +1,271 @@
+\hypertarget{classmodel_1_1_data}{}\doxysection{model\+::Data Class Reference}
+\label{classmodel_1_1_data}\index{model::Data@{model::Data}}
+
+
+Classe utilisé pour acceder a toutes les données.  
+
+
+
+
+{\ttfamily \#include $<$data.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmodel_1_1_data_ab84ea9e2a46546b39590f9385fec1419}\label{classmodel_1_1_data_ab84ea9e2a46546b39590f9385fec1419}} 
+\mbox{\hyperlink{classmodel_1_1_data_ab84ea9e2a46546b39590f9385fec1419}{Data}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classmodel_1_1_data_ade003655de489350981b89ddf5977ddb}{get\+User\+Size}} ()
+\begin{DoxyCompactList}\small\item\em récupere le nombre d\textquotesingle{}utilisateur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodel_1_1_user}{model\+::\+User}} $\ast$ \mbox{\hyperlink{classmodel_1_1_data_a0a730edd9d33ba978abea7699b8ca276}{get\+User}} (int i)
+\begin{DoxyCompactList}\small\item\em récupere l\textquotesingle{}utilisateur à l\textquotesingle{}index i \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodel_1_1_user}{model\+::\+User}} $\ast$ \mbox{\hyperlink{classmodel_1_1_data_a27e8f1b32b41a348b800f72a45b12cf4}{get\+User}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em récupere l\textquotesingle{}utilisateur avec le nom name \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_user}{model\+::\+User}} $>$ \mbox{\hyperlink{classmodel_1_1_data_a181a9c1ccf85cb1f0f7455f6f4a34063}{get\+User}} ()
+\begin{DoxyCompactList}\small\item\em récupere une liste des utilisateurs \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classmodel_1_1_data_a3a062cafcf9590c2e0158058790a6a0c}{get\+P\+C\+Size}} ()
+\begin{DoxyCompactList}\small\item\em récupere le nombre de point de collecte \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodel_1_1_p_c}{model\+::\+PC}} $\ast$ \mbox{\hyperlink{classmodel_1_1_data_a66cfbe43a4ef303833603d38acb6f93d}{get\+PC}} (int i)
+\begin{DoxyCompactList}\small\item\em récupere le point de collecte à l\textquotesingle{}index i \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodel_1_1_p_c}{model\+::\+PC}} $\ast$ \mbox{\hyperlink{classmodel_1_1_data_afd3832d3dcbc8ecbbe4e681d34fda8c8}{get\+PC}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em récupere le point de collecte avec le nom name \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_p_c}{model\+::\+PC}} $>$ \mbox{\hyperlink{classmodel_1_1_data_a1ad815a8dd31ba2b56a186d2f782da95}{get\+PC}} ()
+\begin{DoxyCompactList}\small\item\em récupere une liste des points de collecte \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_af7c8cc170e9f8f8f37694b97515378f9}{add\+User}} (\mbox{\hyperlink{classmodel_1_1_user}{User}} u)
+\begin{DoxyCompactList}\small\item\em ajoute un utilisateur \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_a6e0c92744e871fa7efca6cf0e01235de}{add\+PC}} (\mbox{\hyperlink{classmodel_1_1_p_c}{PC}} p)
+\begin{DoxyCompactList}\small\item\em ajoute un point de collecte \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_ad34dbb3e144580ec8370118f5cb19359}{remove\+User}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em retire l\textquotesingle{}utilisateur avec le nom name \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_a0f0ba81f06896c8fa5b8417c96ee180c}{remove\+PC}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em retire le point de collecte avec le nom name \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_a2a034fa0c3e6412b9eb93393eab00e7a}{remove\+User}} (int i)
+\begin{DoxyCompactList}\small\item\em retire l\textquotesingle{}utilisateur a l\textquotesingle{}index i \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_a2fe4ed8ede8c75b3dc09c199422cfe1f}{remove\+PC}} (int i)
+\begin{DoxyCompactList}\small\item\em retire le point de collecte avec le nom name \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe utilisé pour acceder a toutes les données. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1_data_a6e0c92744e871fa7efca6cf0e01235de}\label{classmodel_1_1_data_a6e0c92744e871fa7efca6cf0e01235de}} 
+\index{model::Data@{model::Data}!addPC@{addPC}}
+\index{addPC@{addPC}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{addPC()}{addPC()}}
+{\footnotesize\ttfamily void model\+::\+Data\+::add\+PC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_p_c}{PC}}}]{p }\end{DoxyParamCaption})}
+
+
+
+ajoute un point de collecte 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le point de collecte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_af7c8cc170e9f8f8f37694b97515378f9}\label{classmodel_1_1_data_af7c8cc170e9f8f8f37694b97515378f9}} 
+\index{model::Data@{model::Data}!addUser@{addUser}}
+\index{addUser@{addUser}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{addUser()}{addUser()}}
+{\footnotesize\ttfamily void model\+::\+Data\+::add\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_user}{User}}}]{u }\end{DoxyParamCaption})}
+
+
+
+ajoute un utilisateur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_a1ad815a8dd31ba2b56a186d2f782da95}\label{classmodel_1_1_data_a1ad815a8dd31ba2b56a186d2f782da95}} 
+\index{model::Data@{model::Data}!getPC@{getPC}}
+\index{getPC@{getPC}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getPC()}{getPC()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_p_c}{model\+::\+PC}} $>$ model\+::\+Data\+::get\+PC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+récupere une liste des points de collecte 
+
+\begin{DoxyReturn}{Returns}
+une liste des points de collecte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a66cfbe43a4ef303833603d38acb6f93d}\label{classmodel_1_1_data_a66cfbe43a4ef303833603d38acb6f93d}} 
+\index{model::Data@{model::Data}!getPC@{getPC}}
+\index{getPC@{getPC}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getPC()}{getPC()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_p_c}{model\+::\+PC}} $\ast$ model\+::\+Data\+::get\+PC (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+récupere le point de collecte à l\textquotesingle{}index i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le point de collecte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_afd3832d3dcbc8ecbbe4e681d34fda8c8}\label{classmodel_1_1_data_afd3832d3dcbc8ecbbe4e681d34fda8c8}} 
+\index{model::Data@{model::Data}!getPC@{getPC}}
+\index{getPC@{getPC}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getPC()}{getPC()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_p_c}{model\+::\+PC}} $\ast$ model\+::\+Data\+::get\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+récupere le point de collecte avec le nom name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le point de collecte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a3a062cafcf9590c2e0158058790a6a0c}\label{classmodel_1_1_data_a3a062cafcf9590c2e0158058790a6a0c}} 
+\index{model::Data@{model::Data}!getPCSize@{getPCSize}}
+\index{getPCSize@{getPCSize}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getPCSize()}{getPCSize()}}
+{\footnotesize\ttfamily unsigned int model\+::\+Data\+::get\+P\+C\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+récupere le nombre de point de collecte 
+
+\begin{DoxyReturn}{Returns}
+le nombre de point de collecte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a181a9c1ccf85cb1f0f7455f6f4a34063}\label{classmodel_1_1_data_a181a9c1ccf85cb1f0f7455f6f4a34063}} 
+\index{model::Data@{model::Data}!getUser@{getUser}}
+\index{getUser@{getUser}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_user}{model\+::\+User}} $>$ model\+::\+Data\+::get\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+récupere une liste des utilisateurs 
+
+\begin{DoxyReturn}{Returns}
+une liste des utilisateurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a0a730edd9d33ba978abea7699b8ca276}\label{classmodel_1_1_data_a0a730edd9d33ba978abea7699b8ca276}} 
+\index{model::Data@{model::Data}!getUser@{getUser}}
+\index{getUser@{getUser}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_user}{model\+::\+User}} $\ast$ model\+::\+Data\+::get\+User (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+récupere l\textquotesingle{}utilisateur à l\textquotesingle{}index i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a27e8f1b32b41a348b800f72a45b12cf4}\label{classmodel_1_1_data_a27e8f1b32b41a348b800f72a45b12cf4}} 
+\index{model::Data@{model::Data}!getUser@{getUser}}
+\index{getUser@{getUser}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_user}{model\+::\+User}} $\ast$ model\+::\+Data\+::get\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+récupere l\textquotesingle{}utilisateur avec le nom name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_ade003655de489350981b89ddf5977ddb}\label{classmodel_1_1_data_ade003655de489350981b89ddf5977ddb}} 
+\index{model::Data@{model::Data}!getUserSize@{getUserSize}}
+\index{getUserSize@{getUserSize}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getUserSize()}{getUserSize()}}
+{\footnotesize\ttfamily unsigned int model\+::\+Data\+::get\+User\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+récupere le nombre d\textquotesingle{}utilisateur 
+
+\begin{DoxyReturn}{Returns}
+le nombre d\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a2fe4ed8ede8c75b3dc09c199422cfe1f}\label{classmodel_1_1_data_a2fe4ed8ede8c75b3dc09c199422cfe1f}} 
+\index{model::Data@{model::Data}!removePC@{removePC}}
+\index{removePC@{removePC}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{removePC()}{removePC()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void model\+::\+Data\+::remove\+PC (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+retire le point de collecte avec le nom name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_a0f0ba81f06896c8fa5b8417c96ee180c}\label{classmodel_1_1_data_a0f0ba81f06896c8fa5b8417c96ee180c}} 
+\index{model::Data@{model::Data}!removePC@{removePC}}
+\index{removePC@{removePC}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{removePC()}{removePC()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void model\+::\+Data\+::remove\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+retire le point de collecte avec le nom name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_a2a034fa0c3e6412b9eb93393eab00e7a}\label{classmodel_1_1_data_a2a034fa0c3e6412b9eb93393eab00e7a}} 
+\index{model::Data@{model::Data}!removeUser@{removeUser}}
+\index{removeUser@{removeUser}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void model\+::\+Data\+::remove\+User (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+retire l\textquotesingle{}utilisateur a l\textquotesingle{}index i 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_ad34dbb3e144580ec8370118f5cb19359}\label{classmodel_1_1_data_ad34dbb3e144580ec8370118f5cb19359}} 
+\index{model::Data@{model::Data}!removeUser@{removeUser}}
+\index{removeUser@{removeUser}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void model\+::\+Data\+::remove\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+retire l\textquotesingle{}utilisateur avec le nom name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{data_8h}{data.\+h}}\item 
+\mbox{\hyperlink{data_8cpp}{data.\+cpp}}\end{DoxyCompactItemize}
