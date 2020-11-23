@@ -72,3 +72,9 @@ void Controller::changePC(std::string name, std::string newName)
     data->addPC(newPC);
     window->refresh();
 }
+
+void Controller::deletePC(std::string name)
+{
+    data->removePC(name);
+    window->refresh();
+}

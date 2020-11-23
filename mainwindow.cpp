@@ -28,11 +28,14 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     b_ChangeUser->setGeometry(340, 40, 100, 30);
     b_ChangePC = new QPushButton("change PC", this);
     b_ChangePC->setGeometry(340, 10, 100, 30);
+    b_DeletePC = new QPushButton("delete PC", this);
+    b_DeletePC->setGeometry(10, 70, 100, 30);
 
     connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
     connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
     connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
+    connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
 
     le_UserName = new QLineEdit(this);
     le_UserName->setGeometry(120, 40, 100, 30);
@@ -102,6 +105,13 @@ void MainWindow::handlerChangePC()
     QString qtNewName = le_ChangePCName->text();
     std::string newName = qtNewName.toUtf8().constData();
     ctrl->changePC(name, newName);
+}
+
+void MainWindow::handlerDeletePC()
+{
+    QString qtName = le_PCName->text();
+    std::string name = qtName.toUtf8().constData();
+    ctrl->deletePC(name);
 }
 
 void MainWindow::refresh()

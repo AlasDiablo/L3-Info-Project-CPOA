@@ -29,6 +29,7 @@ private:
     QPushButton *b_CreateUser; /**< Bouton pour créer un utilisateur */
     QPushButton *b_ChangeUser; /**< Bouton pour changer un utilisateur */
     QPushButton *b_ChangePC; /**< Bouton pour changer un point de collecte */
+    QPushButton *b_DeletePC; /**< Bouton pour supprimer un point de collecte */
 
     QLineEdit *le_UserName; /**< champ de texte pour le nom d'utilisateur */
     QLineEdit *le_PCName; /**< champ de texte pour le point de collecte */
@@ -60,6 +61,11 @@ private slots:
      * @brief handlerChangePC
      */
     void handlerChangePC();
+
+    /**
+     * @brief handlerDeletePC
+     */
+    void handlerDeletePC();
 public:
     /**
      * @brief Constructeur

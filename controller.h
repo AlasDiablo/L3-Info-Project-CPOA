@@ -56,6 +56,8 @@ public:
      * @param newName le nouveau nom du point de collecte
      */
     void changePC(std::string name, std::string newName);
+
+    void deletePC(std::string name);
 };
 
 #endif // CONTROLLER_H
