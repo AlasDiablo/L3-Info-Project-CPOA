@@ -10,6 +10,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         controller.cpp \
+        controllerpc.cpp \
         data.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -24,6 +25,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     controller.h \
+    controllerpc.h \
     data.h \
     mainwindow.h \
     pc.h \

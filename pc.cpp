@@ -10,6 +10,7 @@
 model::PC::PC()
 {
     this->name = "";
+    this->creator = User();
 }
 
 model::PC::PC(std::string name, User creator)

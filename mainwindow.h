@@ -12,6 +12,7 @@
 #include "pc.h"
 #include "data.h"
 #include "controller.h"
+#include "controllerpc.h"
 
 #include <QMainWindow>
 #include <QPushButton>
@@ -40,6 +41,7 @@ private:
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
 
     Controller *ctrl; /**< Controlleur */
+    ControllerPC *ctrlPC; /**< Controlleur */
     model::Data *data; /**< Données */
 private slots:
     /**
