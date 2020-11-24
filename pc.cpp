@@ -42,10 +42,8 @@ void model::PC::addProducteur(Productor producteur)
 void model::PC::removeProducteur(Productor producteur) {
     for(unsigned int i=0; i< productors.size(); i++) {
         model::Productor *tmp = &productors.at(i);
-        if(tmp->getName().compare(name)==0)
+        if(tmp->getName().compare(producteur.getName())==0)
         {
-            if(i < 0 || (unsigned)i >= productors.size())
-                return ;
             productors.erase(productors.begin()+i);
             break;
         }
