@@ -26,6 +26,26 @@ void ControllerPC::createPC(std::string userName, std::string name)
     window->refresh();
 }
 
+void ControllerPC::addProductor(std::string name, model::Productor productor) {
+    model::PC *pcPtr = data->getPC(name);
+    if(pcPtr == nullptr)
+    {
+        return;
+    } else {
+        pcPtr->addProducteur(productor);
+    }
+}
+
+void ControllerPC::removeProductor(std::string name, model::Productor productor) {
+    model::PC *pcPtr = data->getPC(name);
+    if(pcPtr == nullptr)
+    {
+        return;
+    } else {
+        pcPtr->removeProducteur(productor);
+    }
+}
+
 void ControllerPC::changePC(std::string name, std::string newName)
 {
     model::PC *pcPtr = data->getPC(name);

@@ -4,11 +4,13 @@
 /**
  * @file pc.h
  * @brief PC Class
- * @author Safyrus
- * @version 1.1
+ * @author Safyrus & AlasDiablo
+ * @version 1.2
  */
 
 #include "user.h"
+#include "productor.h"
+#include <vector>
 
 /** @namespace model
  * namespace regroupant toutes les structures de données
@@ -23,6 +25,7 @@ namespace model {
     private:
         User creator; /**< Créateur du point de collecte */
         std::string name; /**< Nom du point de collecte */
+        std::vector<model::Productor> productors;
     public:
         /**
          * @brief Constructeur
@@ -53,6 +56,18 @@ namespace model {
          * @return le nom du créateur
          */
         std::string getCreatorName();
+
+        /**
+         * @brief Ajout d'un producteur au pc
+         * @param producteur
+         */
+        void addProducteur(Productor producteur);
+
+        /**
+         * @brief Supprestion d'un producteur
+         * @param producteur
+         */
+        void removeProducteur(Productor producteur);
     };
 }
 
