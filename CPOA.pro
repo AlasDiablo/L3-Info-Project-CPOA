@@ -14,6 +14,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         pc.cpp \
+        producteur.cpp \
         user.cpp
 
 # Default rules for deployment.
@@ -26,6 +27,7 @@ HEADERS += \
     data.h \
     mainwindow.h \
     pc.h \
+    productor.h \
     user.h
 
 DISTFILES += \
