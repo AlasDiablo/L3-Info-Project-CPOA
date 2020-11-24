@@ -1,7 +1,7 @@
 /**
  * @file pc.cpp
  * @brief PC Class
- * @author Safyrus
+ * @author Safyrus & AlasDiablo
  * @version 1.2
  */
 
@@ -32,4 +32,22 @@ std::string model::PC::getName()
 std::string model::PC::getCreatorName()
 {
     return this->creator.getName();
+}
+
+void model::PC::addProducteur(Productor producteur)
+{
+    productors.push_back(producteur);
+}
+
+void model::PC::removeProducteur(Productor producteur) {
+    for(unsigned int i=0; i< productors.size(); i++) {
+        model::Productor *tmp = &productors.at(i);
+        if(tmp->getName().compare(name)==0)
+        {
+            if(i < 0 || (unsigned)i >= productors.size())
+                return ;
+            productors.erase(productors.begin()+i);
+            break;
+        }
+    }
 }
