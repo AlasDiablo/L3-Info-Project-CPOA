@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 {
     data = new model::Data();
     ctrl = new Controller(data, this);
+    ctrlPC = new ControllerPC(data, this);
 
     resize(450, 400);
 
@@ -71,6 +72,18 @@ MainWindow::~MainWindow()
     {
         delete le_PCName;
     }
+    if(data != nullptr)
+    {
+        delete data;
+    }
+    if(ctrl != nullptr)
+    {
+        delete ctrl;
+    }
+    if(ctrlPC != nullptr)
+    {
+        delete ctrlPC;
+    }
 }
 
 void MainWindow::handlerCreateUser()
@@ -86,7 +99,7 @@ void MainWindow::handlerCreatePC()
     std::string userNameStr = userName.toUtf8().constData();
     QString name = le_PCName->text();
     std::string nameStr = name.toUtf8().constData();
-    ctrl->createPC(userNameStr, nameStr);
+    ctrlPC->createPC(userNameStr, nameStr);
 }
 
 void MainWindow::handlerChangeUser()
@@ -104,14 +117,14 @@ void MainWindow::handlerChangePC()
     std::string name = qtName.toUtf8().constData();
     QString qtNewName = le_ChangePCName->text();
     std::string newName = qtNewName.toUtf8().constData();
-    ctrl->changePC(name, newName);
+    ctrlPC->changePC(name, newName);
 }
 
 void MainWindow::handlerDeletePC()
 {
     QString qtName = le_PCName->text();
     std::string name = qtName.toUtf8().constData();
-    ctrl->deletePC(name);
+    ctrlPC->deletePC(name);
 }
 
 void MainWindow::refresh()
