@@ -10,6 +10,7 @@
 
 #include "user.h"
 #include "pc.h"
+#include "admin.h"
 
 #include <vector>
 
@@ -26,6 +27,7 @@ namespace model {
     private:
         std::vector<model::User> users; /**< Liste des utilisateurs */
         std::vector<model::PC> pcs; /**< Liste des points de collecte */
+        std::vector<model::Admin> admins; /**< Liste des Administrateurs */
     public:
         /**
          * @brief Constructeur
@@ -119,6 +121,18 @@ namespace model {
          * @param i l'index
          */
         void removePC(int i);
+
+        void addAdmin(model::Admin a);
+
+        void removeAdmin(std::string name);
+
+        void removeAdmin(int i);
+
+        model::Admin* getAdmin(int i);
+
+        model::Admin* getAdmin(std::string name);
+
+        std::vector<model::Admin> getAdmin();
     };
 }
 

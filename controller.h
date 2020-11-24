@@ -5,7 +5,7 @@
  * @file controller.h
  * @brief Controller Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "data.h"
@@ -42,6 +42,8 @@ public:
      * @param newName le nouveau nom de l'utilisateur
      */
     void changeUser(std::string name, std::string newName);
+
+    void createAdmin(std::string name);
 };
 
 #endif // CONTROLLER_H

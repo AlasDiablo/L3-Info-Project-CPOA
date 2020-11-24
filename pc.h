@@ -5,10 +5,11 @@
  * @file pc.h
  * @brief PC Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "user.h"
+#include "admin.h"
 
 /** @namespace model
  * namespace regroupant toutes les structures de données
@@ -23,6 +24,7 @@ namespace model {
     private:
         User creator; /**< Créateur du point de collecte */
         std::string name; /**< Nom du point de collecte */
+        bool check;
     public:
         /**
          * @brief Constructeur
@@ -53,6 +55,8 @@ namespace model {
          * @return le nom du créateur
          */
         std::string getCreatorName();
+
+        void setCheck(Admin a, bool check);
     };
 }
 

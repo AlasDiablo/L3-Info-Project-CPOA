@@ -1,5 +1,12 @@
 # Changelog
 
+## Itération 2
+
+### Ajout
+
+- de la fonctionnalité "Supprimer un PC"
+
+
 ## Itération 1
 
 ### Ajout

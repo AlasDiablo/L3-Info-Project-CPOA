@@ -116,3 +116,51 @@ void model::Data::removePC(int i)
         return ;
     pcs.erase(pcs.begin()+i);
 }
+
+void model::Data::addAdmin(model::Admin a)
+{
+    admins.push_back(a);
+}
+
+void model::Data::removeAdmin(std::string name)
+{
+    for(unsigned int i=0; i< admins.size(); i++) {
+        model::Admin *tmp = &admins.at(i);
+        if(tmp->getName().compare(name)==0)
+        {
+            removeAdmin(i);
+            break;
+        }
+    }
+}
+
+void model::Data::removeAdmin(int i)
+{
+    if(i < 0 || (unsigned)i >= admins.size())
+        return ;
+    admins.erase(admins.begin()+i);
+}
+
+model::Admin* model::Data::getAdmin(int i)
+{
+    if(i < 0 || (unsigned)i >= admins.size())
+        return nullptr;
+    return &admins.at(i);
+}
+
+model::Admin* model::Data::getAdmin(std::string name)
+{
+    for(unsigned int i=0; i< users.size(); i++) {
+        model::Admin *tmp = &admins.at(i);
+        if(tmp->getName().compare(name)==0)
+        {
+            return tmp;
+        }
+    }
+    return nullptr;
+}
+
+std::vector<model::Admin> model::Data::getAdmin()
+{
+    return admins;
+}

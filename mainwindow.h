@@ -5,7 +5,7 @@
  * @file mainwindow.h
  * @brief MainWindow Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "user.h"
@@ -31,14 +31,17 @@ private:
     QPushButton *b_ChangeUser; /**< Bouton pour changer un utilisateur */
     QPushButton *b_ChangePC; /**< Bouton pour changer un point de collecte */
     QPushButton *b_DeletePC; /**< Bouton pour supprimer un point de collecte */
+    QPushButton *b_CreateAdmin; /**< Bouton pour créer un Admin */
 
     QLineEdit *le_UserName; /**< champ de texte pour le nom d'utilisateur */
     QLineEdit *le_PCName; /**< champ de texte pour le point de collecte */
     QLineEdit *le_ChangeUserName; /**< champ de texte pour le nom d'utilisateur */
     QLineEdit *le_ChangePCName; /**<  */
+    QLineEdit *le_AdminName; /**<  */
 
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
+    QLabel *l_admins; /**< Texte affichant la liste des administrateurs */
 
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */
@@ -68,6 +71,11 @@ private slots:
      * @brief handlerDeletePC
      */
     void handlerDeletePC();
+
+    /**
+     * @brief handlerCreateAdmin
+     */
+    void handlerCreateAdmin();
 public:
     /**
      * @brief Constructeur

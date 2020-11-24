@@ -2,7 +2,7 @@
  * @file controller.cpp
  * @brief Controller Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "controller.h"
@@ -42,5 +42,18 @@ void Controller::changeUser(std::string name, std::string newName)
             data->addPC(tmp);
         }
     }
+    window->refresh();
+}
+
+void Controller::createAdmin(std::string name)
+{
+    model::Admin *a = data->getAdmin(name);
+    if(a != nullptr)
+    {
+        return;
+    }
+    model::Admin admin(name);
+    data->addAdmin(admin);
+
     window->refresh();
 }

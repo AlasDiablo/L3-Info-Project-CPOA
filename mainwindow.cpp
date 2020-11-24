@@ -2,7 +2,7 @@
  * @file mainwindow.cpp
  * @brief MainWindow Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "mainwindow.h"
@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     ctrl = new Controller(data, this);
     ctrlPC = new ControllerPC(data, this);
 
-    resize(450, 400);
+    resize(640, 400);
 
     b_CreatePC = new QPushButton("create PC", this);
     b_CreatePC->setGeometry(10, 10, 100, 30);
@@ -31,12 +31,15 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     b_ChangePC->setGeometry(340, 10, 100, 30);
     b_DeletePC = new QPushButton("delete PC", this);
     b_DeletePC->setGeometry(10, 70, 100, 30);
+    b_CreateAdmin = new QPushButton("create Admin", this);
+    b_CreateAdmin->setGeometry(340, 70, 100, 30);
 
     connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
     connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
     connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
     connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
+    connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
 
     le_UserName = new QLineEdit(this);
     le_UserName->setGeometry(120, 40, 100, 30);
@@ -48,10 +51,15 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     le_ChangePCName = new QLineEdit(this);
     le_ChangePCName->setGeometry(230, 10, 100, 30);
 
+    le_AdminName = new QLineEdit(this);
+    le_AdminName->setGeometry(230, 70, 100, 30);
+
     l_pcs = new QLabel(this);
     l_pcs->setGeometry(10, 100, 240, 200);
     l_users = new QLabel(this);
     l_users->setGeometry(250, 100, 240, 200);
+    l_admins = new QLabel(this);
+    l_admins->setGeometry(490, 100, 240, 200);
 }
 
 MainWindow::~MainWindow()
@@ -64,6 +72,23 @@ MainWindow::~MainWindow()
     {
         delete b_CreateUser;
     }
+    if(b_CreateAdmin != nullptr)
+    {
+        delete b_CreateAdmin;
+    }
+    if(b_ChangePC != nullptr)
+    {
+        delete b_ChangePC;
+    }
+    if(b_ChangeUser != nullptr)
+    {
+        delete b_ChangeUser;
+    }
+    if(b_DeletePC != nullptr)
+    {
+        delete b_DeletePC;
+    }
+
     if(le_UserName != nullptr)
     {
         delete le_UserName;
@@ -72,6 +97,19 @@ MainWindow::~MainWindow()
     {
         delete le_PCName;
     }
+    if(le_AdminName != nullptr)
+    {
+        delete le_AdminName;
+    }
+    if(le_ChangePCName != nullptr)
+    {
+        delete le_ChangePCName;
+    }
+    if(le_ChangeUserName != nullptr)
+    {
+        delete le_ChangeUserName;
+    }
+
     if(data != nullptr)
     {
         delete data;
@@ -127,6 +165,13 @@ void MainWindow::handlerDeletePC()
     ctrlPC->deletePC(name);
 }
 
+void MainWindow::handlerCreateAdmin()
+{
+    QString qtName = le_AdminName->text();
+    std::string name = qtName.toUtf8().constData();
+    ctrl->createAdmin(name);
+}
+
 void MainWindow::refresh()
 {
     QString qs = "";
@@ -154,4 +199,16 @@ void MainWindow::refresh()
         qs += '\n';
     }
     l_pcs->setText(qs);
+
+    qs = "";
+    std::vector<model::Admin> admins = data->getAdmin();
+    size = admins.size();
+    for (int i=0; i<size; i++) {
+        model::Admin admin = admins.at(i);
+        qs += std::to_string(i).c_str();
+        qs += ": ";
+        qs += admin.getName().c_str();
+        qs += '\n';
+    }
+    l_admins->setText(qs);
 }

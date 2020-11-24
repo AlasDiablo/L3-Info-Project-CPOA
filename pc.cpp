@@ -2,7 +2,7 @@
  * @file pc.cpp
  * @brief PC Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "pc.h"
