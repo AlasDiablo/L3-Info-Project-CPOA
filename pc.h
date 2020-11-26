@@ -82,6 +82,8 @@ namespace model {
          * @param producteur
          */
         void removeProducteur(Productor producteur);
+
+        std::vector<model::Productor> getProds();
     };
 }
 

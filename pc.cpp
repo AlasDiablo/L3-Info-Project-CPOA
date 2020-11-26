@@ -59,3 +59,8 @@ bool model::PC::getCheck()
 {
     return check;
 }
+
+std::vector<model::Productor> model::PC::getProds()
+{
+    return productors;
+}

@@ -33,16 +33,16 @@ private:
     QPushButton *b_DeletePC; /**< Bouton pour supprimer un point de collecte */
     QPushButton *b_CreateAdmin; /**< Bouton pour créer un Admin */
     QPushButton *b_CheckPC; /**< Bouton pour valider un PC */
+    QPushButton *b_AddProdPC; /**< Bouton pour ajouter un Producteur a un  PC */
+    QPushButton *b_RemoveProdPC; /**< Bouton pour retirer un Producteur d'un PC */
 
-    QLineEdit *le_UserName; /**< champ de texte pour le nom d'utilisateur */
-    QLineEdit *le_PCName; /**< champ de texte pour le point de collecte */
-    QLineEdit *le_ChangeUserName; /**< champ de texte pour le nom d'utilisateur */
-    QLineEdit *le_ChangePCName; /**<  */
-    QLineEdit *le_AdminName; /**<  */
+    QLineEdit *le_main; /**< champ de texte principale pour créer ou supprimer */
+    QLineEdit *le_change; /**< champ de texte pour modifier */
 
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
     QLabel *l_admins; /**< Texte affichant la liste des administrateurs */
+    QLabel *l_prods; /**< Texte affichant la liste des producteurs */
 
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */
@@ -84,6 +84,16 @@ private slots:
      * @brief handlerCheckPC
      */
     void handlerCheckPC();
+
+    /**
+     * @brief handlerAddProdPC
+     */
+    void handlerAddProdPC();
+
+    /**
+     * @brief handlerRemoveProdPC
+     */
+    void handlerRemoveProdPC();
 public:
     /**
      * @brief Constructeur

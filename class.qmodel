@@ -49,8 +49,8 @@
                          </base-DElement>
                          <object>{4fbf0cdc-0da2-4c9b-aa46-dc51b8f967e4}</object>
                          <name>PC</name>
-                         <pos>x:105;y:100</pos>
-                         <rect>x:-100;y:-85;w:200;h:170</rect>
+                         <pos>x:340;y:80</pos>
+                         <rect>x:-125;y:-130;w:250;h:260</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -71,7 +71,7 @@
                          </base-DElement>
                          <object>{acd4c278-748c-4a90-a5f8-42098e7a26bf}</object>
                          <name>User</name>
-                         <pos>x:480;y:100</pos>
+                         <pos>x:695;y:75</pos>
                          <rect>x:-70;y:-65;w:140;h:130</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -94,12 +94,10 @@
                          <object>{610bdfdd-bdb8-429e-b269-20dac59768e1}</object>
                          <a>{09c4e346-cb74-49b9-9826-9e8f2f760cf9}</a>
                          <b>{7ec47703-08a2-4be2-8dcb-fc5e240d9625}</b>
-                         <name>creator</name>
                         </DRelation>
                        </base-DRelation>
                        <a>
                         <DAssociationEnd>
-                         <cradinality>1</cradinality>
                          <navigable>true</navigable>
                         </DAssociationEnd>
                        </a>
@@ -118,7 +116,7 @@
                          </base-DElement>
                          <object>{72231147-975f-4457-9805-60f2173cdc85}</object>
                          <name>Controller</name>
-                         <pos>x:800;y:465</pos>
+                         <pos>x:1355;y:340</pos>
                          <rect>x:-155;y:-80;w:310;h:160</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -139,8 +137,8 @@
                          </base-DElement>
                          <object>{e4627e83-e443-4748-97b8-8354a0472699}</object>
                          <name>Data</name>
-                         <pos>x:320;y:365</pos>
-                         <rect>x:-110;y:-150;w:220;h:300</rect>
+                         <pos>x:590;y:445</pos>
+                         <rect>x:-120;y:-195;w:240;h:390</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -161,8 +159,8 @@
                          </base-DElement>
                          <object>{22a69c6e-3ab6-4347-8abf-e80093f5eb18}</object>
                          <name>MainWindow</name>
-                         <pos>x:795;y:160</pos>
-                         <rect>x:-100;y:-155;w:200;h:310</rect>
+                         <pos>x:1055;y:105</pos>
+                         <rect>x:-100;y:-235;w:200;h:470</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -308,9 +306,189 @@
                       </DAssociation>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{5868c86d-2787-46db-9eef-2b7edd316217}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{f82c1710-7fc5-4d5e-8e22-0a413410e438}</object>
+                         <name>ControllerPC</name>
+                         <pos>x:1060;y:555</pos>
+                         <rect>x:-180;y:-90;w:360;h:180</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{f97793e7-e3f8-4a86-b592-3752ea4f1508}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{d149579c-6e42-4690-876a-488f8eeb75ad}</object>
+                         <a>{5868c86d-2787-46db-9eef-2b7edd316217}</a>
+                         <b>{4271f7de-ad4f-4d5e-890c-4f8544ef6eed}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <navigable>true</navigable>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{ae3761ae-e9a0-413c-9065-6d1d8a518378}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{3913adc4-e96f-4ba0-8142-d415965383cb}</object>
+                         <a>{4271f7de-ad4f-4d5e-890c-4f8544ef6eed}</a>
+                         <b>{5868c86d-2787-46db-9eef-2b7edd316217}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <navigable>true</navigable>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{3afeabd2-65a5-4da6-a0ec-f86a7830b3fd}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{8369aa5e-cdc3-46c5-aa6d-16ebfd840040}</object>
+                         <a>{5868c86d-2787-46db-9eef-2b7edd316217}</a>
+                         <b>{d9d43642-9b21-4184-aadc-24653d2784b5}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <navigable>true</navigable>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{a9a92d96-2fb4-4dd7-9b6a-590dae772347}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{696c946f-9abb-4a40-b599-433aaac98246}</object>
+                         <name>Admin</name>
+                         <pos>x:330;y:570</pos>
+                         <rect>x:-75;y:-60;w:150;h:120</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <namespace>model</namespace>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{e3bd01f7-8f18-44ff-8730-102f46471938}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{3bf5b8dd-d0fd-4cad-99cf-27965d9f9a2b}</object>
+                         <name>Productor</name>
+                         <pos>x:335;y:360</pos>
+                         <rect>x:-85;y:-65;w:170;h:130</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <namespace>model</namespace>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{6fbccac7-3bb6-426d-af21-9ec00fa96f88}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{a635d8a0-9e3f-43f4-977e-55912680239e}</object>
+                         <a>{09c4e346-cb74-49b9-9826-9e8f2f760cf9}</a>
+                         <b>{e3bd01f7-8f18-44ff-8730-102f46471938}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <navigable>true</navigable>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{240b6ed0-a98c-4848-8f1b-cfefcaacfc00}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{79490113-b9bf-4daf-bcc8-75df1d7d7978}</object>
+                         <a>{d9d43642-9b21-4184-aadc-24653d2784b5}</a>
+                         <b>{a9a92d96-2fb4-4dd7-9b6a-590dae772347}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <navigable>true</navigable>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1604478377434</last-modified>
+                  <last-modified>1606382599969</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -379,14 +557,39 @@
                                <uid>{610bdfdd-bdb8-429e-b269-20dac59768e1}</uid>
                               </MElement>
                              </base-MElement>
-                             <name>creator</name>
                              <a>{4fbf0cdc-0da2-4c9b-aa46-dc51b8f967e4}</a>
                              <b>{acd4c278-748c-4a90-a5f8-42098e7a26bf}</b>
                             </MRelation>
                            </base-MRelation>
                            <a>
                             <MAssociationEnd>
-                             <cardinality>1</cardinality>
+                             <navigable>true</navigable>
+                            </MAssociationEnd>
+                           </a>
+                          </MAssociation>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{a635d8a0-9e3f-43f4-977e-55912680239e}</uid>
+                        <target>
+                         <instance type="MAssociation">
+                          <MAssociation>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{a635d8a0-9e3f-43f4-977e-55912680239e}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{4fbf0cdc-0da2-4c9b-aa46-dc51b8f967e4}</a>
+                             <b>{3bf5b8dd-d0fd-4cad-99cf-27965d9f9a2b}</b>
+                            </MRelation>
+                           </base-MRelation>
+                           <a>
+                            <MAssociationEnd>
                              <navigable>true</navigable>
                             </MAssociationEnd>
                            </a>
@@ -406,7 +609,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{6e8cf631-0cb9-4fc1-b1fa-fbaff27221f2}</uid>
+                    <uid>{0070571d-f8b1-4b3e-b9f0-2d6b53f6d247}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>User creator</declaration>
@@ -414,7 +617,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{832aefdc-7734-41d0-aaf3-effb337e8279}</uid>
+                    <uid>{20faab4b-d330-4267-8323-40e7dde70e10}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>std::string name</declaration>
@@ -422,7 +625,23 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0dd306ae-752f-4811-8529-d25f047548ec}</uid>
+                    <uid>{3b96cb00-03cc-44e9-a128-5b3e14abfa70}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>bool check</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{4d460f8b-e5ea-46cd-93b6-3d0bb6b6edd5}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>std::vector&lt;model::Productor&gt; productors</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a47b0498-d150-43a1-a73e-3cc9aa0a402f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>PC()</declaration>
@@ -430,7 +649,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3e360cfd-e6fb-4f27-816e-8405a9bfecbd}</uid>
+                    <uid>{29b9bbb8-b489-4334-88c5-f057432218a8}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>PC(std::string name, User creator)</declaration>
@@ -438,7 +657,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b0357d77-66c0-456d-9124-55b06d7b0c17}</uid>
+                    <uid>{a5b2e6b7-d246-461b-adee-689e61574c36}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setName(std::string name)</declaration>
@@ -446,7 +665,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3825233d-1b71-4018-bbc3-d00bc864f4e5}</uid>
+                    <uid>{e88dcbed-70c5-40e0-824f-91626ab740d2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>std::string getName()</declaration>
@@ -454,10 +673,50 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{640e7438-66fc-47c5-b5ed-1a81e1f5488d}</uid>
+                    <uid>{1044b3b0-4204-4d90-912e-3af56e25a668}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>std::string getCreatorName()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1840164b-a39b-4bf3-85ce-3aa85fa93d1b}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setCheck(bool check)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{aad9b9cc-671c-4db8-b05e-f907dd2a23db}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>bool getCheck()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8e436257-dbc8-405b-8c47-f8c2c0f8d2eb}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void addProducteur(Productor producteur)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7f209865-0efc-4f7e-8d54-3360e0cbec21}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void removeProducteur(Productor producteur)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a395b1a6-a926-411d-856c-5de8952f916d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>std::vector&lt;model::Productor&gt; getProds()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -488,7 +747,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{8f2f4587-23ad-49ef-ab99-709016cd9802}</uid>
+                    <uid>{d1aa02b4-0de5-4613-8670-fe11cd232a2a}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>std::string name</declaration>
@@ -496,7 +755,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e032efb0-d3e8-4a6c-a834-28ce5fa471d7}</uid>
+                    <uid>{57718893-cfe4-4250-a07d-183a791503bb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>User()</declaration>
@@ -504,7 +763,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{eb895b6d-5fde-4b2f-a91a-f4164cee81e7}</uid>
+                    <uid>{d6dc667c-d7d5-4dec-98e5-14a3b1a33c9e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>User(std::string name)</declaration>
@@ -512,7 +771,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{801909a5-ec8b-4bb0-a462-90b606c92411}</uid>
+                    <uid>{9f386fcd-53ab-418a-b508-5d8dfd867e64}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>std::string getName()</declaration>
@@ -634,7 +893,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{efdb724e-5f5d-4192-b069-3777f278988f}</uid>
+                    <uid>{73fdcc42-2050-42ec-b6da-53389f2bdd80}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>model::Data *data</declaration>
@@ -642,7 +901,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1d4f1d10-e1a3-4af1-914e-956079bf7993}</uid>
+                    <uid>{69504719-a7fd-4fba-a59e-8a78e463c178}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>MainWindow *window</declaration>
@@ -650,7 +909,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d12a66f5-1133-4ad6-8bbb-30a1656fdb96}</uid>
+                    <uid>{eb5b1764-6260-4944-9322-a13e1a8d4cfb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Controller(model::Data *data, MainWindow *window)</declaration>
@@ -658,15 +917,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a183dbca-5126-4989-8ba1-03aaff5ad5aa}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>void createPC(std::string userName, std::string name)</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{8bf7e7d7-c2b8-4fde-877b-7e932b37ca2b}</uid>
+                    <uid>{b2a743ba-7280-4fb2-a2a9-74d2960024a2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void createUser(std::string name)</declaration>
@@ -674,7 +925,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c5a37d32-2654-4bce-a107-bb353af0a5eb}</uid>
+                    <uid>{ffc1ad0b-3b4e-4727-bcfb-f87a4fb0b4b0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void changeUser(std::string name, std::string newName)</declaration>
@@ -682,10 +933,18 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9a4a554e-18e2-4642-b8a3-37b80cda8485}</uid>
+                    <uid>{2ea9a082-a476-48c1-b284-b889fbbcb92e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void changePC(std::string name, std::string newName)</declaration>
+                    <declaration>void createAdmin(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5950c1cd-5106-45d2-a4cd-b85333e977b0}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void checkPC(std::string pc, std::string admin)</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -767,6 +1026,33 @@
                         </target>
                        </handle>
                       </item>
+                      <item>
+                       <handle>
+                        <uid>{79490113-b9bf-4daf-bcc8-75df1d7d7978}</uid>
+                        <target>
+                         <instance type="MAssociation">
+                          <MAssociation>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{79490113-b9bf-4daf-bcc8-75df1d7d7978}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{e4627e83-e443-4748-97b8-8354a0472699}</a>
+                             <b>{696c946f-9abb-4a40-b599-433aaac98246}</b>
+                            </MRelation>
+                           </base-MRelation>
+                           <a>
+                            <MAssociationEnd>
+                             <navigable>true</navigable>
+                            </MAssociationEnd>
+                           </a>
+                          </MAssociation>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
                      </qlist>
                     </handles>
                    </handles>
@@ -778,7 +1064,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{7493bc06-0cfc-46df-ae15-bac2adfe7e84}</uid>
+                    <uid>{55e43b82-268a-4c1b-b94c-01a2910667bd}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>std::vector&lt;model::User&gt; users</declaration>
@@ -786,7 +1072,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{37a4861a-eb20-48fc-bca8-29306327b74a}</uid>
+                    <uid>{7160ae56-38c1-482f-8f5e-35683b6699d8}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>std::vector&lt;model::PC&gt; pcs</declaration>
@@ -794,7 +1080,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{73f9af03-1b7e-4bdd-a904-8d44fe13e3e8}</uid>
+                    <uid>{00c24ee3-d580-4743-b502-18f3d3652ae0}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>std::vector&lt;model::Admin&gt; admins</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{055533b2-aef7-46d0-826c-7b9b8431bf1a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Data()</declaration>
@@ -802,7 +1096,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9eb30dba-ba07-482f-9bf4-e7a5a8813329}</uid>
+                    <uid>{3f15a505-269c-4f9f-85b3-4940396de037}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>unsigned int getUserSize()</declaration>
@@ -810,7 +1104,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{db8b4f21-3cd5-4a9c-ac4c-5b78bd0f8674}</uid>
+                    <uid>{99f89186-23f6-4f33-9afc-d9ddbe3a2b4b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>model::User* getUser(int i)</declaration>
@@ -818,7 +1112,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{39389589-cb24-4130-8f0c-2dd2314cbf51}</uid>
+                    <uid>{0a6c184a-be5c-4fed-9304-70a4d11cdf64}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>model::User* getUser(std::string name)</declaration>
@@ -826,7 +1120,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0a8d49c9-1b10-4ea7-a92e-810ba1bb5ace}</uid>
+                    <uid>{2e95eec9-4125-42d9-b4a5-b62bd43cfc9f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>std::vector&lt;model::User&gt; getUser()</declaration>
@@ -834,7 +1128,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{78cd3339-655d-47a2-b819-d6960fb5d9df}</uid>
+                    <uid>{8f95151f-d871-4269-9640-1a6fee8415f6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>unsigned int getPCSize()</declaration>
@@ -842,7 +1136,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3038db35-e982-463b-b016-4b70b5131628}</uid>
+                    <uid>{7a18c497-7d04-4ec7-afaf-80c93ed30fb4}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>model::PC* getPC(int i)</declaration>
@@ -850,7 +1144,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b32f7548-365b-4d93-ba6c-580197f77266}</uid>
+                    <uid>{7d83498a-f6c6-42bf-b946-309e3fe09503}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>model::PC* getPC(std::string name)</declaration>
@@ -858,7 +1152,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e3fa1c10-8308-4213-98eb-37b23c1bbbec}</uid>
+                    <uid>{2a593b9c-bd2a-41fd-9fe1-348eea9848db}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>std::vector&lt;model::PC&gt; getPC()</declaration>
@@ -866,7 +1160,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{19ddcce5-b6f0-45a2-abd9-b67a7c771573}</uid>
+                    <uid>{4b362521-219f-42ca-9f31-7b5909913081}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void addUser(User u)</declaration>
@@ -874,7 +1168,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ac22e682-717c-4c30-9e2f-e9c0684a2df4}</uid>
+                    <uid>{51c6563d-8ce9-40e7-ad85-eb432a1da000}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void addPC(PC p)</declaration>
@@ -882,7 +1176,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e0e90514-3ca4-44c3-aef9-a39c7bc2da47}</uid>
+                    <uid>{3caf9932-c8ee-487b-87f8-e86f3272dc2d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void removeUser(std::string name)</declaration>
@@ -890,7 +1184,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d11e924f-0210-45a2-b108-82a66dcbe209}</uid>
+                    <uid>{f239e02c-5ca0-4df2-8a97-b93571423966}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void removePC(std::string name)</declaration>
@@ -898,7 +1192,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{daeebc70-264d-48be-887f-a0609eb296d0}</uid>
+                    <uid>{6ad41c34-d2f3-475a-986f-150efa9cbc94}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void removeUser(int i)</declaration>
@@ -906,10 +1200,58 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{22887487-c481-4139-9cdd-97091c679dbb}</uid>
+                    <uid>{f3b9d3e3-1a0e-4d83-8a8b-8a47f9456bab}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void removePC(int i)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{fc1496ad-a50f-4984-bd20-5378627c06d9}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void addAdmin(model::Admin a)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c350be61-088b-4606-b27d-2332a6a326dc}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void removeAdmin(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8288e959-a948-46d5-8a3f-08a0a6fdf83e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void removeAdmin(int i)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b440c8bb-5c1f-43a5-81f4-f23814df97af}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>model::Admin* getAdmin(int i)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{30a23861-2011-4eec-9009-03c8847a4f2d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>model::Admin* getAdmin(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{3d40a0f8-a3cb-423f-ba4c-751a1895e676}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>std::vector&lt;model::Admin&gt; getAdmin()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -1023,6 +1365,33 @@
                         </target>
                        </handle>
                       </item>
+                      <item>
+                       <handle>
+                        <uid>{3913adc4-e96f-4ba0-8142-d415965383cb}</uid>
+                        <target>
+                         <instance type="MAssociation">
+                          <MAssociation>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{3913adc4-e96f-4ba0-8142-d415965383cb}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{22a69c6e-3ab6-4347-8abf-e80093f5eb18}</a>
+                             <b>{f82c1710-7fc5-4d5e-8e22-0a413410e438}</b>
+                            </MRelation>
+                           </base-MRelation>
+                           <a>
+                            <MAssociationEnd>
+                             <navigable>true</navigable>
+                            </MAssociationEnd>
+                           </a>
+                          </MAssociation>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
                      </qlist>
                     </handles>
                    </handles>
@@ -1033,7 +1402,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{2280af3c-dc1a-476a-8bbc-ab1bdbafdc31}</uid>
+                    <uid>{cc154271-f711-4735-96d7-497cec168170}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QPushButton *b_CreatePC</declaration>
@@ -1041,7 +1410,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9f76d0d8-2809-4d58-88d9-da49b6bc9ebb}</uid>
+                    <uid>{2ae08921-90d3-4b0a-a425-d86ffea50694}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QPushButton *b_CreateUser</declaration>
@@ -1049,7 +1418,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5e509505-92e1-48e3-bdec-aa7e7d4f3062}</uid>
+                    <uid>{5cf036b3-9948-4d40-ac3e-8d6e3ffa3496}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QPushButton *b_ChangeUser</declaration>
@@ -1057,7 +1426,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d2fab34a-7349-49ad-8c2c-8d121249b323}</uid>
+                    <uid>{3c7af828-5f18-4105-8911-856947a27c00}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QPushButton *b_ChangePC</declaration>
@@ -1065,39 +1434,63 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{54e4bae1-962a-4100-a3e5-e387183b7e7a}</uid>
+                    <uid>{10ddddad-b75a-43db-a4dc-a2b0795f69a0}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QLineEdit *le_UserName</declaration>
+                    <declaration>QPushButton *b_DeletePC</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5ce2521c-67eb-4e3a-97c5-400fffbe33b9}</uid>
+                    <uid>{82ab8931-b4bf-4ecd-97fc-66d9ab230c46}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QLineEdit *le_PCName</declaration>
+                    <declaration>QPushButton *b_CreateAdmin</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{98f864ed-436d-4970-8580-1837358d1bb9}</uid>
+                    <uid>{48516cef-aba3-464b-9ae7-c90c1adfc779}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QLineEdit *le_ChangeUserName</declaration>
+                    <declaration>QPushButton *b_CheckPC</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c0d0c29c-76b7-44e0-9d72-9a72c20073f9}</uid>
+                    <uid>{03de6937-ea9b-423e-b1b8-0a6373805e2a}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QLineEdit *le_ChangePCName</declaration>
+                    <declaration>QPushButton *b_AddProdPC</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{609cf611-22c7-4cb2-8b90-4400c98de583}</uid>
+                    <uid>{dfc3f480-5df1-469c-b332-9bf560cadfa9}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QPushButton *b_RemoveProdPC</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{2ade8847-a54c-483f-aa05-9f659d845e82}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QLineEdit *le_main</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9b1e6e0e-6f3c-4e3e-b1be-fe876ea14023}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QLineEdit *le_change</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7c842355-e365-487e-a664-7c10abd4b272}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QLabel *l_pcs</declaration>
@@ -1105,7 +1498,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{832184f1-0a9b-4d1b-aefb-18e00780aeb1}</uid>
+                    <uid>{a18e6095-12b1-46ca-a9d9-093bd3d68212}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QLabel *l_users</declaration>
@@ -1113,7 +1506,23 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{69aef224-1558-49e7-836c-de0f6f5165c8}</uid>
+                    <uid>{5135a18b-29fa-4b18-a0ac-4f121ec6cfab}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QLabel *l_admins</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{fd760fc8-d09a-47ad-8ff8-ab53c8c585de}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QLabel *l_prods</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7e9d1c01-0ddb-401f-a089-28e198c74c0b}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Controller *ctrl</declaration>
@@ -1121,7 +1530,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1aedf577-5117-491a-86bb-1d3e846f27ae}</uid>
+                    <uid>{4c9e6fd6-ec89-41de-b2e2-718e19ea4bab}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>ControllerPC *ctrlPC</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ca587424-07df-4270-a6b0-78e135f3c3a8}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>model::Data *data</declaration>
@@ -1129,7 +1546,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{127d6ec3-8541-4571-bb64-d71d7bb67ab2}</uid>
+                    <uid>{3360a366-9ddc-49b1-a8b2-3b3a031339d2}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>void createButton()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{79fe8df6-bf4b-444c-965d-5d9e59fb33b9}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void handlerCreateUser()</declaration>
@@ -1137,7 +1562,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e7d6ab73-a13c-4351-8f9c-dd4a33ed4d51}</uid>
+                    <uid>{0f5bee21-b744-4c66-ab87-ae8f3a6fad29}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void handlerCreatePC()</declaration>
@@ -1145,7 +1570,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{be76b8ff-d360-4a16-9633-00560cdd4c67}</uid>
+                    <uid>{66e20cea-0198-4673-8d3f-2b31edcecd46}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void handlerChangeUser()</declaration>
@@ -1153,7 +1578,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ff899ec7-aeff-4e62-980d-71a661d7469c}</uid>
+                    <uid>{aa8c6832-a6f8-432e-85df-7b88ae975fbe}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void handlerChangePC()</declaration>
@@ -1161,7 +1586,47 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1ff3b0a5-b196-4557-a209-d32ca6985a76}</uid>
+                    <uid>{1cc1a92d-e5c8-4593-8e02-1c34cf67f15f}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void handlerDeletePC()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d4a82e9e-1971-471b-8569-737629f0551b}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void handlerCreateAdmin()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7302acad-931a-4f6f-9198-71acecda16a4}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void handlerCheckPC()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d845ebc6-7b1a-4d01-84c5-caa691ed7bcf}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void handlerAddProdPC()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{664c9b1b-6fc1-4571-8949-9b003e031b74}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void handlerRemoveProdPC()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{98986fc3-fd4e-4e56-814b-276e2208f092}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>MainWindow(QWidget *parent = 0)</declaration>
@@ -1169,7 +1634,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{568469da-42b3-4c3b-a458-f93786c4649c}</uid>
+                    <uid>{b841b126-8b1f-4f29-8ece-d5bf706925c3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>~MainWindow()</declaration>
@@ -1177,7 +1642,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6a1cfbfc-c92d-4cab-9a17-df9d0adff6e1}</uid>
+                    <uid>{15bd1a92-8ddb-4d6f-a90d-596571195613}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void refresh()</declaration>
@@ -1207,6 +1672,273 @@
                  </MObject>
                 </base-MObject>
                </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{f82c1710-7fc5-4d5e-8e22-0a413410e438}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{f82c1710-7fc5-4d5e-8e22-0a413410e438}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>ControllerPC</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{d149579c-6e42-4690-876a-488f8eeb75ad}</uid>
+                        <target>
+                         <instance type="MAssociation">
+                          <MAssociation>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{d149579c-6e42-4690-876a-488f8eeb75ad}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{f82c1710-7fc5-4d5e-8e22-0a413410e438}</a>
+                             <b>{22a69c6e-3ab6-4347-8abf-e80093f5eb18}</b>
+                            </MRelation>
+                           </base-MRelation>
+                           <a>
+                            <MAssociationEnd>
+                             <navigable>true</navigable>
+                            </MAssociationEnd>
+                           </a>
+                          </MAssociation>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{8369aa5e-cdc3-46c5-aa6d-16ebfd840040}</uid>
+                        <target>
+                         <instance type="MAssociation">
+                          <MAssociation>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{8369aa5e-cdc3-46c5-aa6d-16ebfd840040}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{f82c1710-7fc5-4d5e-8e22-0a413410e438}</a>
+                             <b>{e4627e83-e443-4748-97b8-8354a0472699}</b>
+                            </MRelation>
+                           </base-MRelation>
+                           <a>
+                            <MAssociationEnd>
+                             <navigable>true</navigable>
+                            </MAssociationEnd>
+                           </a>
+                          </MAssociation>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{7d8c38e6-98cd-4892-804e-8ec1bda89b6a}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>model::Data *data</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b0423c13-42f0-431c-9b90-e2f9b25cc882}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>MainWindow *window</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5f2456b9-8917-4aad-a4dd-518e8a5d2c41}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>model::Productor createProductor(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9b07e81b-8a09-4569-b5ce-fef2595a4f56}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>ControllerPC(model::Data *data, MainWindow *window)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9de0090a-1c6b-4ff0-884d-5f69c897119c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void createPC(std::string userName, std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{6e68da08-e49c-4d75-9e89-541a1f15a39c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void changePC(std::string name, std::string newName)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{e9206e71-9f44-48d3-9be8-ee2975754cab}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void deletePC(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8784bd7e-a169-4b45-b461-6efb9a24961a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void addProductor(std::string name, std::string nameProductor)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{eab7112c-e991-41fb-9d7b-47224feab00a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void removeProductor(std::string name, model::Productor productor)</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{696c946f-9abb-4a40-b599-433aaac98246}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{696c946f-9abb-4a40-b599-433aaac98246}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Admin</name>
+                 </MObject>
+                </base-MObject>
+                <namespace>model</namespace>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{8244208b-6d43-4bad-b544-6936cef520f0}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>std::string name</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a67bd4df-4103-429d-b095-fa91f368af33}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>Admin(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5f95a0b7-d42c-4a1b-a52e-5b992776ad58}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>std::string getName()</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{3bf5b8dd-d0fd-4cad-99cf-27965d9f9a2b}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{3bf5b8dd-d0fd-4cad-99cf-27965d9f9a2b}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Productor</name>
+                 </MObject>
+                </base-MObject>
+                <namespace>model</namespace>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{af4e2ab5-3a7f-4a8b-8d34-6f3c815245c7}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>std::string name</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{12071db8-cae1-4712-968c-393462ed2857}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>Productor()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{11b496ba-00f8-41ba-b0d7-0d6f9dca32ca}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>Productor(std::string name)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{cde03548-d47b-4198-bf23-fe3199e04aa0}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>std::string getName()</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
               </instance>
              </target>
             </handle>

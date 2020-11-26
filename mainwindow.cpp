@@ -23,25 +23,17 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 
     createButton();
 
-    le_UserName = new QLineEdit(this);
-    le_UserName->setGeometry(120, 40, 100, 30);
-    le_PCName = new QLineEdit(this);
-    le_PCName->setGeometry(120, 10, 100, 30);
-
-    le_ChangeUserName = new QLineEdit(this);
-    le_ChangeUserName->setGeometry(230, 40, 100, 30);
-    le_ChangePCName = new QLineEdit(this);
-    le_ChangePCName->setGeometry(230, 10, 100, 30);
-
-    le_AdminName = new QLineEdit(this);
-    le_AdminName->setGeometry(230, 70, 100, 30);
+    le_main = new QLineEdit(this);
+    le_main->setGeometry(10, 10, 100, 30);
+    le_change = new QLineEdit(this);
+    le_change->setGeometry(10, 40, 100, 30);
 
     l_pcs = new QLabel(this);
-    l_pcs->setGeometry(10, 100, 240, 200);
+    l_pcs->setGeometry(10, 120, 240, 150);
     l_users = new QLabel(this);
-    l_users->setGeometry(250, 100, 240, 200);
+    l_users->setGeometry(170, 120, 240, 150);
     l_admins = new QLabel(this);
-    l_admins->setGeometry(490, 100, 240, 200);
+    l_admins->setGeometry(340, 120, 240, 150);
 }
 
 MainWindow::~MainWindow()
@@ -74,26 +66,22 @@ MainWindow::~MainWindow()
     {
         delete b_CheckPC;
     }
+    if(b_AddProdPC != nullptr)
+    {
+        delete b_AddProdPC;
+    }
+    if(b_RemoveProdPC != nullptr)
+    {
+        delete b_RemoveProdPC;
+    }
 
-    if(le_UserName != nullptr)
+    if(le_main != nullptr)
     {
-        delete le_UserName;
+        delete le_main;
     }
-    if(le_PCName != nullptr)
+    if(le_change != nullptr)
     {
-        delete le_PCName;
-    }
-    if(le_AdminName != nullptr)
-    {
-        delete le_AdminName;
-    }
-    if(le_ChangePCName != nullptr)
-    {
-        delete le_ChangePCName;
-    }
-    if(le_ChangeUserName != nullptr)
-    {
-        delete le_ChangeUserName;
+        delete le_change;
     }
 
     if(data != nullptr)
@@ -113,19 +101,23 @@ MainWindow::~MainWindow()
 void MainWindow::createButton()
 {
     b_CreatePC = new QPushButton("create PC", this);
-    b_CreatePC->setGeometry(10, 10, 100, 30);
+    b_CreatePC->setGeometry(200, 10, 100, 30);
     b_CreateUser = new QPushButton("create User", this);
-    b_CreateUser->setGeometry(10, 40, 100, 30);
+    b_CreateUser->setGeometry(200, 40, 100, 30);
     b_ChangeUser = new QPushButton("change User", this);
-    b_ChangeUser->setGeometry(340, 40, 100, 30);
+    b_ChangeUser->setGeometry(310, 40, 100, 30);
     b_ChangePC = new QPushButton("change PC", this);
-    b_ChangePC->setGeometry(340, 10, 100, 30);
+    b_ChangePC->setGeometry(310, 10, 100, 30);
     b_DeletePC = new QPushButton("delete PC", this);
-    b_DeletePC->setGeometry(10, 70, 100, 30);
+    b_DeletePC->setGeometry(420, 10, 100, 30);
     b_CreateAdmin = new QPushButton("create Admin", this);
-    b_CreateAdmin->setGeometry(340, 70, 100, 30);
+    b_CreateAdmin->setGeometry(200, 70, 100, 30);
     b_CheckPC = new QPushButton("check PC", this);
-    b_CheckPC->setGeometry(450, 70, 100, 30);
+    b_CheckPC->setGeometry(310, 70, 100, 30);
+    b_AddProdPC = new QPushButton("add Prod", this);
+    b_AddProdPC->setGeometry(200, 100, 100, 30);
+    b_RemoveProdPC = new QPushButton("remove Prod", this);
+    b_RemoveProdPC->setGeometry(310, 100, 100, 30);
 
     connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
@@ -134,63 +126,83 @@ void MainWindow::createButton()
     connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
     connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
     connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
+    connect(b_AddProdPC, SIGNAL (released()), this, SLOT (handlerAddProdPC()));
+    connect(b_RemoveProdPC, SIGNAL (released()), this, SLOT (handlerRemoveProdPC()));
 }
 
 void MainWindow::handlerCreateUser()
 {
-    QString userName = le_UserName->text();
+    QString userName = le_main->text();
     std::string userNameStr = userName.toUtf8().constData();
     ctrl->createUser(userNameStr);
 }
 
 void MainWindow::handlerCreatePC()
 {
-    QString userName = le_UserName->text();
+    QString userName = le_change->text();
     std::string userNameStr = userName.toUtf8().constData();
-    QString name = le_PCName->text();
+    QString name = le_main->text();
     std::string nameStr = name.toUtf8().constData();
     ctrlPC->createPC(userNameStr, nameStr);
 }
 
 void MainWindow::handlerChangeUser()
 {
-    QString qtName = le_UserName->text();
+    QString qtName = le_main->text();
     std::string name = qtName.toUtf8().constData();
-    QString qtNewName = le_ChangeUserName->text();
+    QString qtNewName = le_change->text();
     std::string newName = qtNewName.toUtf8().constData();
     ctrl->changeUser(name, newName);
 }
 
 void MainWindow::handlerChangePC()
 {
-    QString qtName = le_PCName->text();
+    QString qtName = le_main->text();
     std::string name = qtName.toUtf8().constData();
-    QString qtNewName = le_ChangePCName->text();
+    QString qtNewName = le_change->text();
     std::string newName = qtNewName.toUtf8().constData();
     ctrlPC->changePC(name, newName);
 }
 
 void MainWindow::handlerDeletePC()
 {
-    QString qtName = le_PCName->text();
+    QString qtName = le_main->text();
     std::string name = qtName.toUtf8().constData();
     ctrlPC->deletePC(name);
 }
 
 void MainWindow::handlerCreateAdmin()
 {
-    QString qtName = le_AdminName->text();
+    QString qtName = le_main->text();
     std::string name = qtName.toUtf8().constData();
     ctrl->createAdmin(name);
 }
 
 void MainWindow::handlerCheckPC()
 {
-    QString qtName = le_AdminName->text();
+    QString qtName = le_change->text();
     std::string admin = qtName.toUtf8().constData();
-    qtName = le_PCName->text();
+    qtName = le_main->text();
     std::string pc = qtName.toUtf8().constData();
     ctrl->checkPC(pc, admin);
+}
+
+void MainWindow::handlerAddProdPC()
+{
+    QString qtName = le_main->text();
+    std::string prod = qtName.toUtf8().constData();
+    qtName = le_change->text();
+    std::string pc = qtName.toUtf8().constData();
+    ctrlPC->addProductor(pc, prod);
+}
+
+void MainWindow::handlerRemoveProdPC()
+{
+    QString qtName = le_main->text();
+    std::string prod = qtName.toUtf8().constData();
+    qtName = le_change->text();
+    std::string pc = qtName.toUtf8().constData();
+    ctrlPC->removeProductor(pc, prod);
 }
 
 void MainWindow::refresh()
@@ -219,6 +231,13 @@ void MainWindow::refresh()
         qs += pc.getCreatorName().c_str();
         qs += ", ";
         qs += (pc.getCheck())?"check":"not check";
+        qs += "(";
+        std::vector<model::Productor> prods = pc.getProds();
+        for (unsigned int i=0; i<prods.size(); i++) {
+            qs += prods[i].getName().c_str();
+            qs += " ";
+        }
+        qs += ")";
         qs += '\n';
     }
     l_pcs->setText(qs);

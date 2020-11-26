@@ -37,6 +37,7 @@ void ControllerPC::addProductor(std::string name, std::string nameProductor) {
         return;
     } else {
         pcPtr->addProducteur(this->createProductor(nameProductor));
+        window->refresh();
     }
 }
 
@@ -47,6 +48,7 @@ void ControllerPC::removeProductor(std::string name, model::Productor productor)
         return;
     } else {
         pcPtr->removeProducteur(productor);
+        window->refresh();
     }
 }
 
