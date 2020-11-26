@@ -30,13 +30,13 @@ model::Productor ControllerPC::createProductor(std::string name) {
     return model::Productor(name);
 }
 
-void ControllerPC::addProductor(std::string name, model::Productor productor) {
+void ControllerPC::addProductor(std::string name, std::string nameProductor) {
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
     {
         return;
     } else {
-        pcPtr->addProducteur(productor);
+        pcPtr->addProducteur(this->createProductor(nameProductor));
     }
 }
 
