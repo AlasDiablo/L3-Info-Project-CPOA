@@ -26,6 +26,10 @@ void ControllerPC::createPC(std::string userName, std::string name)
     window->refresh();
 }
 
+model::Productor ControllerPC::createProductor(std::string name) {
+    return model::Productor(name);
+}
+
 void ControllerPC::addProductor(std::string name, model::Productor productor) {
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)

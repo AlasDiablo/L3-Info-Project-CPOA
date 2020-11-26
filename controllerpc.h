@@ -46,6 +46,12 @@ public:
     void deletePC(std::string name);
 
     /**
+     * @brief Créer un nouveau producteur
+     * @param name le nom du producteur
+     */
+    model::Productor createProductor(std::string name);
+
+    /**
      * @brief Ajout d'un producteur
      * @param name nom du pc
      * @param productor producteur
