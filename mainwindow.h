@@ -32,6 +32,7 @@ private:
     QPushButton *b_ChangePC; /**< Bouton pour changer un point de collecte */
     QPushButton *b_DeletePC; /**< Bouton pour supprimer un point de collecte */
     QPushButton *b_CreateAdmin; /**< Bouton pour créer un Admin */
+    QPushButton *b_CheckPC; /**< Bouton pour valider un PC */
 
     QLineEdit *le_UserName; /**< champ de texte pour le nom d'utilisateur */
     QLineEdit *le_PCName; /**< champ de texte pour le point de collecte */
@@ -46,6 +47,8 @@ private:
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */
     model::Data *data; /**< Données */
+
+    void createButton();
 private slots:
     /**
      * @brief handlerCreateUser
@@ -76,6 +79,11 @@ private slots:
      * @brief handlerCreateAdmin
      */
     void handlerCreateAdmin();
+
+    /**
+     * @brief handlerCheckPC
+     */
+    void handlerCheckPC();
 public:
     /**
      * @brief Constructeur

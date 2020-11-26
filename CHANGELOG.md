@@ -9,6 +9,7 @@
 - du modele de l'administrateur
 - de la documentation pour productor, pc
 - de controle sur l'interface pour creer un Admin
+- de la fonctionnalité "Verifier un PC"
 
 ### Changement
 

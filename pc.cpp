@@ -49,3 +49,13 @@ void model::PC::removeProducteur(Productor producteur) {
         }
     }
 }
+
+void model::PC::setCheck(bool check)
+{
+    this->check = check;
+}
+
+bool model::PC::getCheck()
+{
+    return check;
+}

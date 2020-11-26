@@ -59,7 +59,18 @@ namespace model {
          */
         std::string getCreatorName();
 
-        void setCheck(Admin a, bool check);
+        /**
+         * @brief
+         * @param check
+         */
+        void setCheck(bool check);
+
+        /**
+         * @brief
+         * @return
+         */
+        bool getCheck();
+
         /**
          * @brief Ajout d'un producteur au pc
          * @param producteur

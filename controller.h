@@ -44,6 +44,8 @@ public:
     void changeUser(std::string name, std::string newName);
 
     void createAdmin(std::string name);
+
+    void checkPC(std::string pc, std::string admin);
 };
 
 #endif // CONTROLLER_H

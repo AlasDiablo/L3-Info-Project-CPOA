@@ -21,25 +21,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 
     resize(640, 400);
 
-    b_CreatePC = new QPushButton("create PC", this);
-    b_CreatePC->setGeometry(10, 10, 100, 30);
-    b_CreateUser = new QPushButton("create User", this);
-    b_CreateUser->setGeometry(10, 40, 100, 30);
-    b_ChangeUser = new QPushButton("change User", this);
-    b_ChangeUser->setGeometry(340, 40, 100, 30);
-    b_ChangePC = new QPushButton("change PC", this);
-    b_ChangePC->setGeometry(340, 10, 100, 30);
-    b_DeletePC = new QPushButton("delete PC", this);
-    b_DeletePC->setGeometry(10, 70, 100, 30);
-    b_CreateAdmin = new QPushButton("create Admin", this);
-    b_CreateAdmin->setGeometry(340, 70, 100, 30);
-
-    connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
-    connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
-    connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
-    connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
-    connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
-    connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
+    createButton();
 
     le_UserName = new QLineEdit(this);
     le_UserName->setGeometry(120, 40, 100, 30);
@@ -88,6 +70,10 @@ MainWindow::~MainWindow()
     {
         delete b_DeletePC;
     }
+    if(b_CheckPC != nullptr)
+    {
+        delete b_CheckPC;
+    }
 
     if(le_UserName != nullptr)
     {
@@ -122,6 +108,32 @@ MainWindow::~MainWindow()
     {
         delete ctrlPC;
     }
+}
+
+void MainWindow::createButton()
+{
+    b_CreatePC = new QPushButton("create PC", this);
+    b_CreatePC->setGeometry(10, 10, 100, 30);
+    b_CreateUser = new QPushButton("create User", this);
+    b_CreateUser->setGeometry(10, 40, 100, 30);
+    b_ChangeUser = new QPushButton("change User", this);
+    b_ChangeUser->setGeometry(340, 40, 100, 30);
+    b_ChangePC = new QPushButton("change PC", this);
+    b_ChangePC->setGeometry(340, 10, 100, 30);
+    b_DeletePC = new QPushButton("delete PC", this);
+    b_DeletePC->setGeometry(10, 70, 100, 30);
+    b_CreateAdmin = new QPushButton("create Admin", this);
+    b_CreateAdmin->setGeometry(340, 70, 100, 30);
+    b_CheckPC = new QPushButton("check PC", this);
+    b_CheckPC->setGeometry(450, 70, 100, 30);
+
+    connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
+    connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
+    connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
+    connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
+    connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
+    connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
+    connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
 }
 
 void MainWindow::handlerCreateUser()
@@ -172,6 +184,15 @@ void MainWindow::handlerCreateAdmin()
     ctrl->createAdmin(name);
 }
 
+void MainWindow::handlerCheckPC()
+{
+    QString qtName = le_AdminName->text();
+    std::string admin = qtName.toUtf8().constData();
+    qtName = le_PCName->text();
+    std::string pc = qtName.toUtf8().constData();
+    ctrl->checkPC(pc, admin);
+}
+
 void MainWindow::refresh()
 {
     QString qs = "";
@@ -196,6 +217,8 @@ void MainWindow::refresh()
         qs += pc.getName().c_str();
         qs += ", ";
         qs += pc.getCreatorName().c_str();
+        qs += ", ";
+        qs += (pc.getCheck())?"check":"not check";
         qs += '\n';
     }
     l_pcs->setText(qs);

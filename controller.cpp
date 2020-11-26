@@ -57,3 +57,16 @@ void Controller::createAdmin(std::string name)
 
     window->refresh();
 }
+
+void Controller::checkPC(std::string pc, std::string admin)
+{
+    model::Admin *a = data->getAdmin(admin);
+    if(a == nullptr)
+    {
+        return;
+    }
+
+    model::PC *p = data->getPC(pc);
+    p->setCheck(!p->getCheck());
+    window->refresh();
+}

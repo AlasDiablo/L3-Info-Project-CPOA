@@ -150,7 +150,7 @@ model::Admin* model::Data::getAdmin(int i)
 
 model::Admin* model::Data::getAdmin(std::string name)
 {
-    for(unsigned int i=0; i< users.size(); i++) {
+    for(unsigned int i=0; i< admins.size(); i++) {
         model::Admin *tmp = &admins.at(i);
         if(tmp->getName().compare(name)==0)
         {
