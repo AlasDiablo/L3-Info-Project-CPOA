@@ -12,6 +12,9 @@
 
 class MainWindow;
 
+/**
+ * @brief Class permettant de réaliser les actions relier aux PC
+ */
 class ControllerPC
 {
 private:
@@ -59,7 +62,7 @@ public:
     void addProductor(std::string name, std::string nameProductor);
 
     /**
-     * @brief Supprestion d'un producteur
+     * @brief Suppression d'un producteur
      * @param name nom du pc
      * @param productor producteur
      */

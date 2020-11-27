@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pc_38',['PC',['../classmodel_1_1_p_c.html',1,'model']]]
+  ['mainwindow_58',['MainWindow',['../class_main_window.html',1,'']]]
 ];

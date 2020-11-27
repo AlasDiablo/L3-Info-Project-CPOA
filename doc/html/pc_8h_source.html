@@ -69,37 +69,58 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PC_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemodel.html">model</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classmodel_1_1_p_c.html">   21</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classmodel_1_1_p_c.html">PC</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classmodel_1_1_user.html">User</a> creator; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::string name; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="classmodel_1_1_p_c.html#a3adc643f5e3821da195e8e2a7ffce31b">PC</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classmodel_1_1_p_c.html#a3adc643f5e3821da195e8e2a7ffce31b">PC</a>(std::string name, <a class="code" href="classmodel_1_1_user.html">User</a> creator);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmodel_1_1_p_c.html#aa653e08567b11ef20e1c36f1bc5daff2">setName</a>(std::string name);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::string <a class="code" href="classmodel_1_1_p_c.html#a6ade3e004269d523cd245c6393e28570">getName</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string <a class="code" href="classmodel_1_1_p_c.html#ae625f3ec019a3e48e9653afbfbfa7889">getCreatorName</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    };</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif // PC_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="admin_8h.html">admin.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;productor.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemodel.html">model</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classmodel_1_1_p_c.html">   24</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classmodel_1_1_p_c.html">PC</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classmodel_1_1_user.html">User</a> creator; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::string name; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> check; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::vector&lt;model::Productor&gt; productors; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classmodel_1_1_p_c.html#a3adc643f5e3821da195e8e2a7ffce31b">PC</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classmodel_1_1_p_c.html#a3adc643f5e3821da195e8e2a7ffce31b">PC</a>(std::string name, <a class="code" href="classmodel_1_1_user.html">User</a> creator);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmodel_1_1_p_c.html#aa653e08567b11ef20e1c36f1bc5daff2">setName</a>(std::string name);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::string <a class="code" href="classmodel_1_1_p_c.html#a6ade3e004269d523cd245c6393e28570">getName</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::string <a class="code" href="classmodel_1_1_p_c.html#ae625f3ec019a3e48e9653afbfbfa7889">getCreatorName</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmodel_1_1_p_c.html#aece0883a9ef73d40067766a7fdebb543">setCheck</a>(<span class="keywordtype">bool</span> check);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmodel_1_1_p_c.html#a73533987989e6e62881b75d7946f13cd">getCheck</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmodel_1_1_p_c.html#af7a33d9c223c8886ed534e6297de8999">addProducteur</a>(<a class="code" href="classmodel_1_1_productor.html">Productor</a> producteur);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmodel_1_1_p_c.html#a4cff72d8a7542b07d38566e4df2dfb04">removeProducteur</a>(<a class="code" href="classmodel_1_1_productor.html">Productor</a> producteur);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        std::vector&lt;model::Productor&gt; getProds();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // PC_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassmodel_1_1_p_c_html_a6ade3e004269d523cd245c6393e28570"><div class="ttname"><a href="classmodel_1_1_p_c.html#a6ade3e004269d523cd245c6393e28570">model::PC::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">Récupere le nom du point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.cpp:26</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_a6ade3e004269d523cd245c6393e28570"><div class="ttname"><a href="classmodel_1_1_p_c.html#a6ade3e004269d523cd245c6393e28570">model::PC::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">Récupere le nom du point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.cpp:27</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_aece0883a9ef73d40067766a7fdebb543"><div class="ttname"><a href="classmodel_1_1_p_c.html#aece0883a9ef73d40067766a7fdebb543">model::PC::setCheck</a></div><div class="ttdeci">void setCheck(bool check)</div><div class="ttdoc">modifie la validation du PC</div><div class="ttdef"><b>Definition:</b> pc.cpp:53</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_a4cff72d8a7542b07d38566e4df2dfb04"><div class="ttname"><a href="classmodel_1_1_p_c.html#a4cff72d8a7542b07d38566e4df2dfb04">model::PC::removeProducteur</a></div><div class="ttdeci">void removeProducteur(Productor producteur)</div><div class="ttdoc">Suppression d'un producteur.</div><div class="ttdef"><b>Definition:</b> pc.cpp:42</div></div>
 <div class="ttc" id="aclassmodel_1_1_user_html"><div class="ttname"><a href="classmodel_1_1_user.html">model::User</a></div><div class="ttdoc">Classe représentant un utilisateur.</div><div class="ttdef"><b>Definition:</b> user.h:22</div></div>
 <div class="ttc" id="anamespacemodel_html"><div class="ttname"><a href="namespacemodel.html">model</a></div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_af7a33d9c223c8886ed534e6297de8999"><div class="ttname"><a href="classmodel_1_1_p_c.html#af7a33d9c223c8886ed534e6297de8999">model::PC::addProducteur</a></div><div class="ttdeci">void addProducteur(Productor producteur)</div><div class="ttdoc">Ajout d'un producteur au pc.</div><div class="ttdef"><b>Definition:</b> pc.cpp:37</div></div>
+<div class="ttc" id="aadmin_8h_html"><div class="ttname"><a href="admin_8h.html">admin.h</a></div><div class="ttdoc">Admin Class.</div></div>
 <div class="ttc" id="aclassmodel_1_1_p_c_html_a3adc643f5e3821da195e8e2a7ffce31b"><div class="ttname"><a href="classmodel_1_1_p_c.html#a3adc643f5e3821da195e8e2a7ffce31b">model::PC::PC</a></div><div class="ttdeci">PC()</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition:</b> pc.cpp:10</div></div>
-<div class="ttc" id="aclassmodel_1_1_p_c_html_aa653e08567b11ef20e1c36f1bc5daff2"><div class="ttname"><a href="classmodel_1_1_p_c.html#aa653e08567b11ef20e1c36f1bc5daff2">model::PC::setName</a></div><div class="ttdeci">void setName(std::string name)</div><div class="ttdoc">CHange le nom du point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.cpp:21</div></div>
-<div class="ttc" id="aclassmodel_1_1_p_c_html"><div class="ttname"><a href="classmodel_1_1_p_c.html">model::PC</a></div><div class="ttdoc">Class représentant un point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.h:22</div></div>
-<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">User Class.</div></div>
-<div class="ttc" id="aclassmodel_1_1_p_c_html_ae625f3ec019a3e48e9653afbfbfa7889"><div class="ttname"><a href="classmodel_1_1_p_c.html#ae625f3ec019a3e48e9653afbfbfa7889">model::PC::getCreatorName</a></div><div class="ttdeci">std::string getCreatorName()</div><div class="ttdoc">Récupere le nom du créateur du point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.cpp:31</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_aa653e08567b11ef20e1c36f1bc5daff2"><div class="ttname"><a href="classmodel_1_1_p_c.html#aa653e08567b11ef20e1c36f1bc5daff2">model::PC::setName</a></div><div class="ttdeci">void setName(std::string name)</div><div class="ttdoc">CHange le nom du point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.cpp:22</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html"><div class="ttname"><a href="classmodel_1_1_p_c.html">model::PC</a></div><div class="ttdoc">Class représentant un point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.h:25</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">Producteur Class.</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_a73533987989e6e62881b75d7946f13cd"><div class="ttname"><a href="classmodel_1_1_p_c.html#a73533987989e6e62881b75d7946f13cd">model::PC::getCheck</a></div><div class="ttdeci">bool getCheck()</div><div class="ttdoc">retourne si le PC est validé</div><div class="ttdef"><b>Definition:</b> pc.cpp:58</div></div>
+<div class="ttc" id="aclassmodel_1_1_p_c_html_ae625f3ec019a3e48e9653afbfbfa7889"><div class="ttname"><a href="classmodel_1_1_p_c.html#ae625f3ec019a3e48e9653afbfbfa7889">model::PC::getCreatorName</a></div><div class="ttdeci">std::string getCreatorName()</div><div class="ttdoc">Récupere le nom du créateur du point de collecte.</div><div class="ttdef"><b>Definition:</b> pc.cpp:32</div></div>
+<div class="ttc" id="aclassmodel_1_1_productor_html"><div class="ttname"><a href="classmodel_1_1_productor.html">model::Productor</a></div><div class="ttdoc">Classe représentant un producteur.</div><div class="ttdef"><b>Definition:</b> productor.h:22</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

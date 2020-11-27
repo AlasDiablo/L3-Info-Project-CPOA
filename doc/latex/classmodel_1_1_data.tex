@@ -42,13 +42,40 @@ void \mbox{\hyperlink{classmodel_1_1_data_a0f0ba81f06896c8fa5b8417c96ee180c}{rem
 void \mbox{\hyperlink{classmodel_1_1_data_a2a034fa0c3e6412b9eb93393eab00e7a}{remove\+User}} (int i)
 \begin{DoxyCompactList}\small\item\em retire l\textquotesingle{}utilisateur a l\textquotesingle{}index i \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmodel_1_1_data_a2fe4ed8ede8c75b3dc09c199422cfe1f}{remove\+PC}} (int i)
-\begin{DoxyCompactList}\small\item\em retire le point de collecte avec le nom name \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em retire le point de collecte avec le nom name \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_a267758dc5a54a9a33d4da3cc40fc48b1}{add\+Admin}} (\mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} a)
+\begin{DoxyCompactList}\small\item\em ajoute un administrateur \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_ad3a1880651f3de072e9c4b86fd510757}{remove\+Admin}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em supprime un administrateur \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_data_ac7ad923879bc927ba1a8a924b092a8e4}{remove\+Admin}} (int i)
+\begin{DoxyCompactList}\small\item\em supprime un administrateur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} $\ast$ \mbox{\hyperlink{classmodel_1_1_data_a393f048773f73ec905515ab20094726d}{get\+Admin}} (int i)
+\begin{DoxyCompactList}\small\item\em récupere un administrateur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} $\ast$ \mbox{\hyperlink{classmodel_1_1_data_abe6a0cb8d49756750ddb958a316f5556}{get\+Admin}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em récupere un administrateur \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} $>$ \mbox{\hyperlink{classmodel_1_1_data_a9478d8c7464f06e4edae9cda09d8b176}{get\+Admin}} ()
+\begin{DoxyCompactList}\small\item\em retourne la liste des administrateurs \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Classe utilisé pour acceder a toutes les données. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1_data_a267758dc5a54a9a33d4da3cc40fc48b1}\label{classmodel_1_1_data_a267758dc5a54a9a33d4da3cc40fc48b1}} 
+\index{model::Data@{model::Data}!addAdmin@{addAdmin}}
+\index{addAdmin@{addAdmin}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{addAdmin()}{addAdmin()}}
+{\footnotesize\ttfamily void model\+::\+Data\+::add\+Admin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}}}]{a }\end{DoxyParamCaption})}
+
+
+
+ajoute un administrateur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & l\textquotesingle{}administrateur à ajouter \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classmodel_1_1_data_a6e0c92744e871fa7efca6cf0e01235de}\label{classmodel_1_1_data_a6e0c92744e871fa7efca6cf0e01235de}} 
 \index{model::Data@{model::Data}!addPC@{addPC}}
 \index{addPC@{addPC}!model::Data@{model::Data}}
@@ -79,6 +106,55 @@ ajoute un utilisateur
 {\em u} & l\textquotesingle{}utilisateur \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_a9478d8c7464f06e4edae9cda09d8b176}\label{classmodel_1_1_data_a9478d8c7464f06e4edae9cda09d8b176}} 
+\index{model::Data@{model::Data}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} $>$ model\+::\+Data\+::get\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+retourne la liste des administrateurs 
+
+\begin{DoxyReturn}{Returns}
+la liste des administrateurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_a393f048773f73ec905515ab20094726d}\label{classmodel_1_1_data_a393f048773f73ec905515ab20094726d}} 
+\index{model::Data@{model::Data}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} $\ast$ model\+::\+Data\+::get\+Admin (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+récupere un administrateur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}administrateur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_abe6a0cb8d49756750ddb958a316f5556}\label{classmodel_1_1_data_abe6a0cb8d49756750ddb958a316f5556}} 
+\index{model::Data@{model::Data}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmodel_1_1_admin}{model\+::\+Admin}} $\ast$ model\+::\+Data\+::get\+Admin (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+récupere un administrateur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom de l\textquotesingle{}administrateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}administrateur 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classmodel_1_1_data_a1ad815a8dd31ba2b56a186d2f782da95}\label{classmodel_1_1_data_a1ad815a8dd31ba2b56a186d2f782da95}} 
 \index{model::Data@{model::Data}!getPC@{getPC}}
 \index{getPC@{getPC}!model::Data@{model::Data}}
@@ -203,6 +279,36 @@ récupere le nombre d\textquotesingle{}utilisateur
 \begin{DoxyReturn}{Returns}
 le nombre d\textquotesingle{}utilisateur 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_data_ac7ad923879bc927ba1a8a924b092a8e4}\label{classmodel_1_1_data_ac7ad923879bc927ba1a8a924b092a8e4}} 
+\index{model::Data@{model::Data}!removeAdmin@{removeAdmin}}
+\index{removeAdmin@{removeAdmin}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{removeAdmin()}{removeAdmin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void model\+::\+Data\+::remove\+Admin (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+supprime un administrateur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & l\textquotesingle{}index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_data_ad3a1880651f3de072e9c4b86fd510757}\label{classmodel_1_1_data_ad3a1880651f3de072e9c4b86fd510757}} 
+\index{model::Data@{model::Data}!removeAdmin@{removeAdmin}}
+\index{removeAdmin@{removeAdmin}!model::Data@{model::Data}}
+\doxysubsubsection{\texorpdfstring{removeAdmin()}{removeAdmin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void model\+::\+Data\+::remove\+Admin (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+supprime un administrateur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom de l\textquotesingle{}administrateur à supprimer \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classmodel_1_1_data_a2fe4ed8ede8c75b3dc09c199422cfe1f}\label{classmodel_1_1_data_a2fe4ed8ede8c75b3dc09c199422cfe1f}} 
 \index{model::Data@{model::Data}!removePC@{removePC}}
 \index{removePC@{removePC}!model::Data@{model::Data}}

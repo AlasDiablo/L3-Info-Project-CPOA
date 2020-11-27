@@ -5,7 +5,7 @@
  * @file data.h
  * @brief Data Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.2
  */
 
 #include "user.h"
@@ -122,16 +122,42 @@ namespace model {
          */
         void removePC(int i);
 
+        /**
+         * @brief ajoute un administrateur
+         * @param a l'administrateur à ajouter
+         */
         void addAdmin(model::Admin a);
 
+        /**
+         * @brief supprime un administrateur
+         * @param name le nom de l'administrateur à supprimer
+         */
         void removeAdmin(std::string name);
 
+        /**
+         * @brief supprime un administrateur
+         * @param i l'index
+         */
         void removeAdmin(int i);
 
+        /**
+         * @brief récupere un administrateur
+         * @param i l'index
+         * @return l'administrateur
+         */
         model::Admin* getAdmin(int i);
 
+        /**
+         * @brief récupere un administrateur
+         * @param name le nom de l'administrateur
+         * @return l'administrateur
+         */
         model::Admin* getAdmin(std::string name);
 
+        /**
+         * @brief retourne la liste des administrateurs
+         * @return la liste des administrateurs
+         */
         std::vector<model::Admin> getAdmin();
     };
 }

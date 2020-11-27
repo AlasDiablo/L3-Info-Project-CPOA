@@ -96,6 +96,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae625f3ec019a3e48e9653afbfbfa7889"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodel_1_1_p_c.html#ae625f3ec019a3e48e9653afbfbfa7889">getCreatorName</a> ()</td></tr>
 <tr class="memdesc:ae625f3ec019a3e48e9653afbfbfa7889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupere le nom du créateur du point de collecte.  <a href="classmodel_1_1_p_c.html#ae625f3ec019a3e48e9653afbfbfa7889">More...</a><br /></td></tr>
 <tr class="separator:ae625f3ec019a3e48e9653afbfbfa7889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aece0883a9ef73d40067766a7fdebb543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodel_1_1_p_c.html#aece0883a9ef73d40067766a7fdebb543">setCheck</a> (bool check)</td></tr>
+<tr class="memdesc:aece0883a9ef73d40067766a7fdebb543"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifie la validation du <a class="el" href="classmodel_1_1_p_c.html" title="Class représentant un point de collecte.">PC</a>  <a href="classmodel_1_1_p_c.html#aece0883a9ef73d40067766a7fdebb543">More...</a><br /></td></tr>
+<tr class="separator:aece0883a9ef73d40067766a7fdebb543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73533987989e6e62881b75d7946f13cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodel_1_1_p_c.html#a73533987989e6e62881b75d7946f13cd">getCheck</a> ()</td></tr>
+<tr class="memdesc:a73533987989e6e62881b75d7946f13cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne si le <a class="el" href="classmodel_1_1_p_c.html" title="Class représentant un point de collecte.">PC</a> est validé  <a href="classmodel_1_1_p_c.html#a73533987989e6e62881b75d7946f13cd">More...</a><br /></td></tr>
+<tr class="separator:a73533987989e6e62881b75d7946f13cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a33d9c223c8886ed534e6297de8999"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodel_1_1_p_c.html#af7a33d9c223c8886ed534e6297de8999">addProducteur</a> (<a class="el" href="classmodel_1_1_productor.html">Productor</a> producteur)</td></tr>
+<tr class="memdesc:af7a33d9c223c8886ed534e6297de8999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout d'un producteur au pc.  <a href="classmodel_1_1_p_c.html#af7a33d9c223c8886ed534e6297de8999">More...</a><br /></td></tr>
+<tr class="separator:af7a33d9c223c8886ed534e6297de8999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cff72d8a7542b07d38566e4df2dfb04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodel_1_1_p_c.html#a4cff72d8a7542b07d38566e4df2dfb04">removeProducteur</a> (<a class="el" href="classmodel_1_1_productor.html">Productor</a> producteur)</td></tr>
+<tr class="memdesc:a4cff72d8a7542b07d38566e4df2dfb04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression d'un producteur.  <a href="classmodel_1_1_p_c.html#a4cff72d8a7542b07d38566e4df2dfb04">More...</a><br /></td></tr>
+<tr class="separator:a4cff72d8a7542b07d38566e4df2dfb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f730b605328a82e20192201822bb5f"><td class="memItemLeft" align="right" valign="top"><a id="a57f730b605328a82e20192201822bb5f"></a>
+std::vector&lt; <a class="el" href="classmodel_1_1_productor.html">model::Productor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getProds</b> ()</td></tr>
+<tr class="separator:a57f730b605328a82e20192201822bb5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class représentant un point de collecte. </p>
@@ -138,6 +153,52 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af7a33d9c223c8886ed534e6297de8999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a33d9c223c8886ed534e6297de8999">&#9670;&nbsp;</a></span>addProducteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void model::PC::addProducteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmodel_1_1_productor.html">Productor</a>&#160;</td>
+          <td class="paramname"><em>producteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout d'un producteur au pc. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">producteur</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a73533987989e6e62881b75d7946f13cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73533987989e6e62881b75d7946f13cd">&#9670;&nbsp;</a></span>getCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool model::PC::getCheck </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>retourne si le <a class="el" href="classmodel_1_1_p_c.html" title="Class représentant un point de collecte.">PC</a> est validé </p>
+<dl class="section return"><dt>Returns</dt><dd>la validation </dd></dl>
+
+</div>
+</div>
 <a id="ae625f3ec019a3e48e9653afbfbfa7889"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae625f3ec019a3e48e9653afbfbfa7889">&#9670;&nbsp;</a></span>getCreatorName()</h2>
 
@@ -175,6 +236,58 @@ Public Member Functions</h2></td></tr>
 
 <p>Récupere le nom du point de collecte. </p>
 <dl class="section return"><dt>Returns</dt><dd>le nom </dd></dl>
+
+</div>
+</div>
+<a id="a4cff72d8a7542b07d38566e4df2dfb04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cff72d8a7542b07d38566e4df2dfb04">&#9670;&nbsp;</a></span>removeProducteur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void model::PC::removeProducteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmodel_1_1_productor.html">Productor</a>&#160;</td>
+          <td class="paramname"><em>producteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression d'un producteur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">producteur</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aece0883a9ef73d40067766a7fdebb543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece0883a9ef73d40067766a7fdebb543">&#9670;&nbsp;</a></span>setCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void model::PC::setCheck </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>check</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>modifie la validation du <a class="el" href="classmodel_1_1_p_c.html" title="Class représentant un point de collecte.">PC</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">check</td><td>validation </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

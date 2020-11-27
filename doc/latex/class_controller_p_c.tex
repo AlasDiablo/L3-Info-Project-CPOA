@@ -1,0 +1,141 @@
+\hypertarget{class_controller_p_c}{}\doxysection{Controller\+PC Class Reference}
+\label{class_controller_p_c}\index{ControllerPC@{ControllerPC}}
+
+
+Class permettant de réaliser les actions relier aux PC.  
+
+
+
+
+{\ttfamily \#include $<$controllerpc.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_controller_p_c_a6c2f85e123db83dc814ba351be3c17e2}{Controller\+PC}} (\mbox{\hyperlink{classmodel_1_1_data}{model\+::\+Data}} $\ast$data, \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$window)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_p_c_a0ca751e6c445330330336551f9674596}{create\+PC}} (std\+::string user\+Name, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Créer un nouveau point de collecte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_p_c_a353ccb65a83b371660bc35954dd98e08}{change\+PC}} (std\+::string name, std\+::string new\+Name)
+\begin{DoxyCompactList}\small\item\em Modifie un point de collecte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_p_c_a62263817d4bba141b2331623ec512b2c}{delete\+PC}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em delete\+PC \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_p_c_a6ba13e19018b44a5fd351d85689d7229}{add\+Productor}} (std\+::string name, std\+::string name\+Productor)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un producteur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_p_c_aeab2365bc756c092c04f9cec05f37cb7}{remove\+Productor}} (std\+::string name, \mbox{\hyperlink{classmodel_1_1_productor}{model\+::\+Productor}} productor)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un producteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class permettant de réaliser les actions relier aux PC. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_controller_p_c_a6c2f85e123db83dc814ba351be3c17e2}\label{class_controller_p_c_a6c2f85e123db83dc814ba351be3c17e2}} 
+\index{ControllerPC@{ControllerPC}!ControllerPC@{ControllerPC}}
+\index{ControllerPC@{ControllerPC}!ControllerPC@{ControllerPC}}
+\doxysubsubsection{\texorpdfstring{ControllerPC()}{ControllerPC()}}
+{\footnotesize\ttfamily Controller\+P\+C\+::\+Controller\+PC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_data}{model\+::\+Data}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Les données a controller \\
+\hline
+{\em window} & La fenetre a actualiser \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_controller_p_c_a6ba13e19018b44a5fd351d85689d7229}\label{class_controller_p_c_a6ba13e19018b44a5fd351d85689d7229}} 
+\index{ControllerPC@{ControllerPC}!addProductor@{addProductor}}
+\index{addProductor@{addProductor}!ControllerPC@{ControllerPC}}
+\doxysubsubsection{\texorpdfstring{addProductor()}{addProductor()}}
+{\footnotesize\ttfamily void Controller\+P\+C\+::add\+Productor (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{name\+Productor }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un producteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & nom du pc \\
+\hline
+{\em productor} & producteur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_p_c_a353ccb65a83b371660bc35954dd98e08}\label{class_controller_p_c_a353ccb65a83b371660bc35954dd98e08}} 
+\index{ControllerPC@{ControllerPC}!changePC@{changePC}}
+\index{changePC@{changePC}!ControllerPC@{ControllerPC}}
+\doxysubsubsection{\texorpdfstring{changePC()}{changePC()}}
+{\footnotesize\ttfamily void Controller\+P\+C\+::change\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{new\+Name }\end{DoxyParamCaption})}
+
+
+
+Modifie un point de collecte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & le nom du point de collecte \\
+\hline
+{\em new\+Name} & le nouveau nom du point de collecte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_p_c_a0ca751e6c445330330336551f9674596}\label{class_controller_p_c_a0ca751e6c445330330336551f9674596}} 
+\index{ControllerPC@{ControllerPC}!createPC@{createPC}}
+\index{createPC@{createPC}!ControllerPC@{ControllerPC}}
+\doxysubsubsection{\texorpdfstring{createPC()}{createPC()}}
+{\footnotesize\ttfamily void Controller\+P\+C\+::create\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{user\+Name,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Créer un nouveau point de collecte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & le nom du créateur \\
+\hline
+{\em name} & le nom du point de collecte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_p_c_a62263817d4bba141b2331623ec512b2c}\label{class_controller_p_c_a62263817d4bba141b2331623ec512b2c}} 
+\index{ControllerPC@{ControllerPC}!deletePC@{deletePC}}
+\index{deletePC@{deletePC}!ControllerPC@{ControllerPC}}
+\doxysubsubsection{\texorpdfstring{deletePC()}{deletePC()}}
+{\footnotesize\ttfamily void Controller\+P\+C\+::delete\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+delete\+PC 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_p_c_aeab2365bc756c092c04f9cec05f37cb7}\label{class_controller_p_c_aeab2365bc756c092c04f9cec05f37cb7}} 
+\index{ControllerPC@{ControllerPC}!removeProductor@{removeProductor}}
+\index{removeProductor@{removeProductor}!ControllerPC@{ControllerPC}}
+\doxysubsubsection{\texorpdfstring{removeProductor()}{removeProductor()}}
+{\footnotesize\ttfamily void Controller\+P\+C\+::remove\+Productor (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classmodel_1_1_productor}{model\+::\+Productor}}}]{productor }\end{DoxyParamCaption})}
+
+
+
+Suppression d\textquotesingle{}un producteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & nom du pc \\
+\hline
+{\em productor} & producteur \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{controllerpc_8h}{controllerpc.\+h}}\item 
+controllerpc.\+cpp\end{DoxyCompactItemize}

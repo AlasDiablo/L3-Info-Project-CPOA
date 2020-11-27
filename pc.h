@@ -26,8 +26,8 @@ namespace model {
     private:
         User creator; /**< Créateur du point de collecte */
         std::string name; /**< Nom du point de collecte */
-        bool check;
-        std::vector<model::Productor> productors;
+        bool check; /**< validation du point de collecte */
+        std::vector<model::Productor> productors; /**< liste des producteurs du point de collecte */
     public:
         /**
          * @brief Constructeur
@@ -60,14 +60,14 @@ namespace model {
         std::string getCreatorName();
 
         /**
-         * @brief
-         * @param check
+         * @brief modifie la validation du PC
+         * @param check validation
          */
         void setCheck(bool check);
 
         /**
-         * @brief
-         * @return
+         * @brief retourne si le PC est validé
+         * @return la validation
          */
         bool getCheck();
 
@@ -78,7 +78,7 @@ namespace model {
         void addProducteur(Productor producteur);
 
         /**
-         * @brief Supprestion d'un producteur
+         * @brief Suppression d'un producteur
          * @param producteur
          */
         void removeProducteur(Productor producteur);

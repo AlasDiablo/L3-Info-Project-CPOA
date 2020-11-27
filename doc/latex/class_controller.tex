@@ -14,14 +14,14 @@ Classe permettant de controller les données.
 \item 
 \mbox{\hyperlink{class_controller_a9eaa5720e0efcdf1c5ce74dfe66c68e3}{Controller}} (\mbox{\hyperlink{classmodel_1_1_data}{model\+::\+Data}} $\ast$data, \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$window)
 \begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_controller_a53147af84c116a1550f6faddb7c4792a}{create\+PC}} (std\+::string user\+Name, std\+::string name)
-\begin{DoxyCompactList}\small\item\em Créer un nouveau point de collecte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_controller_af334f9c1bc0bc68f395849a92954ee0a}{create\+User}} (std\+::string name)
 \begin{DoxyCompactList}\small\item\em Créer un nouveau utilisateur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_controller_ad9a55b4803d749d29022890e651d8481}{change\+User}} (std\+::string name, std\+::string new\+Name)
 \begin{DoxyCompactList}\small\item\em Modifie un utilisateur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_controller_a1baa5ea4a49441cde939a7935552fb69}{change\+PC}} (std\+::string name, std\+::string new\+Name)
-\begin{DoxyCompactList}\small\item\em Modifie un point de collecte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_controller_acd442973c39981ce68e283b86f4570f9}{create\+Admin}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Créer un nouveau administrateur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controller_ab9e0df6e55e719ef1c68741613df1d81}{check\+PC}} (std\+::string pc, std\+::string admin)
+\begin{DoxyCompactList}\small\item\em valide ou invalide on point de collecte \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -48,23 +48,6 @@ Constructeur.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_controller_a1baa5ea4a49441cde939a7935552fb69}\label{class_controller_a1baa5ea4a49441cde939a7935552fb69}} 
-\index{Controller@{Controller}!changePC@{changePC}}
-\index{changePC@{changePC}!Controller@{Controller}}
-\doxysubsubsection{\texorpdfstring{changePC()}{changePC()}}
-{\footnotesize\ttfamily void Controller\+::change\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{new\+Name }\end{DoxyParamCaption})}
-
-
-
-Modifie un point de collecte. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em name} & le nom du point de collecte \\
-\hline
-{\em new\+Name} & le nouveau nom du point de collecte \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{class_controller_ad9a55b4803d749d29022890e651d8481}\label{class_controller_ad9a55b4803d749d29022890e651d8481}} 
 \index{Controller@{Controller}!changeUser@{changeUser}}
 \index{changeUser@{changeUser}!Controller@{Controller}}
@@ -82,21 +65,36 @@ Modifie un utilisateur.
 {\em new\+Name} & le nouveau nom de l\textquotesingle{}utilisateur \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_controller_a53147af84c116a1550f6faddb7c4792a}\label{class_controller_a53147af84c116a1550f6faddb7c4792a}} 
-\index{Controller@{Controller}!createPC@{createPC}}
-\index{createPC@{createPC}!Controller@{Controller}}
-\doxysubsubsection{\texorpdfstring{createPC()}{createPC()}}
-{\footnotesize\ttfamily void Controller\+::create\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{user\+Name,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_controller_ab9e0df6e55e719ef1c68741613df1d81}\label{class_controller_ab9e0df6e55e719ef1c68741613df1d81}} 
+\index{Controller@{Controller}!checkPC@{checkPC}}
+\index{checkPC@{checkPC}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{checkPC()}{checkPC()}}
+{\footnotesize\ttfamily void Controller\+::check\+PC (\begin{DoxyParamCaption}\item[{std\+::string}]{pc,  }\item[{std\+::string}]{admin }\end{DoxyParamCaption})}
 
 
 
-Créer un nouveau point de collecte. 
+valide ou invalide on point de collecte 
 
 
 \begin{DoxyParams}{Parameters}
-{\em user\+Name} & le nom du créateur \\
+{\em pc} & le point de collecte \\
 \hline
-{\em name} & le nom du point de collecte \\
+{\em admin} & l\textquotesingle{}administrateur \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_controller_acd442973c39981ce68e283b86f4570f9}\label{class_controller_acd442973c39981ce68e283b86f4570f9}} 
+\index{Controller@{Controller}!createAdmin@{createAdmin}}
+\index{createAdmin@{createAdmin}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{createAdmin()}{createAdmin()}}
+{\footnotesize\ttfamily void Controller\+::create\+Admin (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Créer un nouveau administrateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & nom de l\textquotesingle{}administrateur \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_controller_af334f9c1bc0bc68f395849a92954ee0a}\label{class_controller_af334f9c1bc0bc68f395849a92954ee0a}} 

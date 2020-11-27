@@ -72,56 +72,76 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pc_8h.html">pc.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data_8h.html">data.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8h.html">controller.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_main_window.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_window.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QPushButton *b_CreatePC; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QPushButton *b_CreateUser; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QPushButton *b_ChangeUser; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QPushButton *b_ChangePC; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QLineEdit *le_UserName; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QLineEdit *le_PCName; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QLineEdit *le_ChangeUserName; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QLineEdit *le_ChangePCName; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QLabel *l_pcs; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QLabel *l_users; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_controller.html">Controller</a> *ctrl; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classmodel_1_1_data.html">model::Data</a> *data; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> handlerCreateUser();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> handlerCreatePC();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> handlerChangeUser();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> handlerChangePC();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a>(QWidget *parent = 0);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab27297114529e4c16d6d8d7a54927a0e">refresh</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // MAINWINDOW_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controllerpc_8h.html">controllerpc.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_main_window.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_window.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QPushButton *b_CreatePC; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QPushButton *b_CreateUser; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QPushButton *b_ChangeUser; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QPushButton *b_ChangePC; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QPushButton *b_DeletePC; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QPushButton *b_CreateAdmin; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QPushButton *b_CheckPC; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QPushButton *b_AddProdPC; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QPushButton *b_RemoveProdPC; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QLineEdit *le_main; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QLineEdit *le_change; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QLabel *l_pcs; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QLabel *l_users; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QLabel *l_admins; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QLabel *l_prods; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_controller.html">Controller</a> *ctrl; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_controller_p_c.html">ControllerPC</a> *ctrlPC; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classmodel_1_1_data.html">model::Data</a> *data; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> createButton();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> handlerCreateUser();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> handlerCreatePC();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> handlerChangeUser();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> handlerChangePC();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> handlerDeletePC();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> handlerCreateAdmin();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> handlerCheckPC();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> handlerAddProdPC();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> handlerRemoveProdPC();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a>(QWidget *parent = 0);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_window.html#ab27297114529e4c16d6d8d7a54927a0e">refresh</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif // MAINWINDOW_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="apc_8h_html"><div class="ttname"><a href="pc_8h.html">pc.h</a></div><div class="ttdoc">PC Class.</div></div>
+<div class="ttc" id="aclass_controller_p_c_html"><div class="ttname"><a href="class_controller_p_c.html">ControllerPC</a></div><div class="ttdoc">Class permettant de réaliser les actions relier aux PC.</div><div class="ttdef"><b>Definition:</b> controllerpc.h:19</div></div>
 <div class="ttc" id="acontroller_8h_html"><div class="ttname"><a href="controller_8h.html">controller.h</a></div><div class="ttdoc">Controller Class.</div></div>
 <div class="ttc" id="aclass_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdoc">Classe permettant de controller les données.</div><div class="ttdef"><b>Definition:</b> controller.h:21</div></div>
-<div class="ttc" id="aclassmodel_1_1_data_html"><div class="ttname"><a href="classmodel_1_1_data.html">model::Data</a></div><div class="ttdoc">Classe utilisé pour acceder a toutes les données.</div><div class="ttdef"><b>Definition:</b> data.h:25</div></div>
-<div class="ttc" id="aclass_main_window_html_ab27297114529e4c16d6d8d7a54927a0e"><div class="ttname"><a href="class_main_window.html#ab27297114529e4c16d6d8d7a54927a0e">MainWindow::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdoc">Actualise la fenetre.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:107</div></div>
+<div class="ttc" id="aclassmodel_1_1_data_html"><div class="ttname"><a href="classmodel_1_1_data.html">model::Data</a></div><div class="ttdoc">Classe utilisé pour acceder a toutes les données.</div><div class="ttdef"><b>Definition:</b> data.h:26</div></div>
+<div class="ttc" id="aclass_main_window_html_ab27297114529e4c16d6d8d7a54927a0e"><div class="ttname"><a href="class_main_window.html#ab27297114529e4c16d6d8d7a54927a0e">MainWindow::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdoc">Actualise la fenetre.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:208</div></div>
 <div class="ttc" id="adata_8h_html"><div class="ttname"><a href="data_8h.html">data.h</a></div><div class="ttdoc">Data Class.</div></div>
-<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">User Class.</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div><div class="ttdoc">Producteur Class.</div></div>
 <div class="ttc" id="aclass_main_window_html_a8b244be8b7b7db1b08de2a2acb9409db"><div class="ttname"><a href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=0)</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:16</div></div>
-<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Class représentant la fenetre principale.</div><div class="ttdef"><b>Definition:</b> mainwindow.h:25</div></div>
-<div class="ttc" id="aclass_main_window_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:53</div></div>
+<div class="ttc" id="acontrollerpc_8h_html"><div class="ttname"><a href="controllerpc_8h.html">controllerpc.h</a></div><div class="ttdoc">Controller PC Class.</div></div>
+<div class="ttc" id="aclass_main_window_html"><div class="ttname"><a href="class_main_window.html">MainWindow</a></div><div class="ttdoc">Class représentant la fenetre principale.</div><div class="ttdef"><b>Definition:</b> mainwindow.h:26</div></div>
+<div class="ttc" id="aclass_main_window_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:39</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

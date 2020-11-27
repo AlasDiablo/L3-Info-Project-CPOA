@@ -43,8 +43,17 @@ public:
      */
     void changeUser(std::string name, std::string newName);
 
+    /**
+     * @brief Créer un nouveau administrateur
+     * @param name nom de l'administrateur
+     */
     void createAdmin(std::string name);
 
+    /**
+     * @brief valide ou invalide on point de collecte
+     * @param pc le point de collecte
+     * @param admin l'administrateur
+     */
     void checkPC(std::string pc, std::string admin);
 };
 

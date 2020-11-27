@@ -22,7 +22,18 @@ void \mbox{\hyperlink{classmodel_1_1_p_c_aa653e08567b11ef20e1c36f1bc5daff2}{set\
 std\+::string \mbox{\hyperlink{classmodel_1_1_p_c_a6ade3e004269d523cd245c6393e28570}{get\+Name}} ()
 \begin{DoxyCompactList}\small\item\em Récupere le nom du point de collecte. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classmodel_1_1_p_c_ae625f3ec019a3e48e9653afbfbfa7889}{get\+Creator\+Name}} ()
-\begin{DoxyCompactList}\small\item\em Récupere le nom du créateur du point de collecte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Récupere le nom du créateur du point de collecte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_p_c_aece0883a9ef73d40067766a7fdebb543}{set\+Check}} (bool check)
+\begin{DoxyCompactList}\small\item\em modifie la validation du \mbox{\hyperlink{classmodel_1_1_p_c}{PC}} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmodel_1_1_p_c_a73533987989e6e62881b75d7946f13cd}{get\+Check}} ()
+\begin{DoxyCompactList}\small\item\em retourne si le \mbox{\hyperlink{classmodel_1_1_p_c}{PC}} est validé \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_p_c_af7a33d9c223c8886ed534e6297de8999}{add\+Producteur}} (\mbox{\hyperlink{classmodel_1_1_productor}{Productor}} producteur)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un producteur au pc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodel_1_1_p_c_a4cff72d8a7542b07d38566e4df2dfb04}{remove\+Producteur}} (\mbox{\hyperlink{classmodel_1_1_productor}{Productor}} producteur)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un producteur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmodel_1_1_p_c_a57f730b605328a82e20192201822bb5f}\label{classmodel_1_1_p_c_a57f730b605328a82e20192201822bb5f}} 
+std\+::vector$<$ \mbox{\hyperlink{classmodel_1_1_productor}{model\+::\+Productor}} $>$ {\bfseries get\+Prods} ()
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -49,6 +60,34 @@ Constructeur.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodel_1_1_p_c_af7a33d9c223c8886ed534e6297de8999}\label{classmodel_1_1_p_c_af7a33d9c223c8886ed534e6297de8999}} 
+\index{model::PC@{model::PC}!addProducteur@{addProducteur}}
+\index{addProducteur@{addProducteur}!model::PC@{model::PC}}
+\doxysubsubsection{\texorpdfstring{addProducteur()}{addProducteur()}}
+{\footnotesize\ttfamily void model\+::\+P\+C\+::add\+Producteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_productor}{Productor}}}]{producteur }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un producteur au pc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em producteur} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_p_c_a73533987989e6e62881b75d7946f13cd}\label{classmodel_1_1_p_c_a73533987989e6e62881b75d7946f13cd}} 
+\index{model::PC@{model::PC}!getCheck@{getCheck}}
+\index{getCheck@{getCheck}!model::PC@{model::PC}}
+\doxysubsubsection{\texorpdfstring{getCheck()}{getCheck()}}
+{\footnotesize\ttfamily bool model\+::\+P\+C\+::get\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+retourne si le \mbox{\hyperlink{classmodel_1_1_p_c}{PC}} est validé 
+
+\begin{DoxyReturn}{Returns}
+la validation 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classmodel_1_1_p_c_ae625f3ec019a3e48e9653afbfbfa7889}\label{classmodel_1_1_p_c_ae625f3ec019a3e48e9653afbfbfa7889}} 
 \index{model::PC@{model::PC}!getCreatorName@{getCreatorName}}
 \index{getCreatorName@{getCreatorName}!model::PC@{model::PC}}
@@ -75,6 +114,36 @@ Récupere le nom du point de collecte.
 \begin{DoxyReturn}{Returns}
 le nom 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classmodel_1_1_p_c_a4cff72d8a7542b07d38566e4df2dfb04}\label{classmodel_1_1_p_c_a4cff72d8a7542b07d38566e4df2dfb04}} 
+\index{model::PC@{model::PC}!removeProducteur@{removeProducteur}}
+\index{removeProducteur@{removeProducteur}!model::PC@{model::PC}}
+\doxysubsubsection{\texorpdfstring{removeProducteur()}{removeProducteur()}}
+{\footnotesize\ttfamily void model\+::\+P\+C\+::remove\+Producteur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmodel_1_1_productor}{Productor}}}]{producteur }\end{DoxyParamCaption})}
+
+
+
+Suppression d\textquotesingle{}un producteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em producteur} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmodel_1_1_p_c_aece0883a9ef73d40067766a7fdebb543}\label{classmodel_1_1_p_c_aece0883a9ef73d40067766a7fdebb543}} 
+\index{model::PC@{model::PC}!setCheck@{setCheck}}
+\index{setCheck@{setCheck}!model::PC@{model::PC}}
+\doxysubsubsection{\texorpdfstring{setCheck()}{setCheck()}}
+{\footnotesize\ttfamily void model\+::\+P\+C\+::set\+Check (\begin{DoxyParamCaption}\item[{bool}]{check }\end{DoxyParamCaption})}
+
+
+
+modifie la validation du \mbox{\hyperlink{classmodel_1_1_p_c}{PC}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em check} & validation \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classmodel_1_1_p_c_aa653e08567b11ef20e1c36f1bc5daff2}\label{classmodel_1_1_p_c_aa653e08567b11ef20e1c36f1bc5daff2}} 
 \index{model::PC@{model::PC}!setName@{setName}}
 \index{setName@{setName}!model::PC@{model::PC}}

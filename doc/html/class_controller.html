@@ -79,18 +79,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9eaa5720e0efcdf1c5ce74dfe66c68e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a9eaa5720e0efcdf1c5ce74dfe66c68e3">Controller</a> (<a class="el" href="classmodel_1_1_data.html">model::Data</a> *data, <a class="el" href="class_main_window.html">MainWindow</a> *window)</td></tr>
 <tr class="memdesc:a9eaa5720e0efcdf1c5ce74dfe66c68e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="class_controller.html#a9eaa5720e0efcdf1c5ce74dfe66c68e3">More...</a><br /></td></tr>
 <tr class="separator:a9eaa5720e0efcdf1c5ce74dfe66c68e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53147af84c116a1550f6faddb7c4792a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a53147af84c116a1550f6faddb7c4792a">createPC</a> (std::string userName, std::string name)</td></tr>
-<tr class="memdesc:a53147af84c116a1550f6faddb7c4792a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un nouveau point de collecte.  <a href="class_controller.html#a53147af84c116a1550f6faddb7c4792a">More...</a><br /></td></tr>
-<tr class="separator:a53147af84c116a1550f6faddb7c4792a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af334f9c1bc0bc68f395849a92954ee0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#af334f9c1bc0bc68f395849a92954ee0a">createUser</a> (std::string name)</td></tr>
 <tr class="memdesc:af334f9c1bc0bc68f395849a92954ee0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un nouveau utilisateur.  <a href="class_controller.html#af334f9c1bc0bc68f395849a92954ee0a">More...</a><br /></td></tr>
 <tr class="separator:af334f9c1bc0bc68f395849a92954ee0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9a55b4803d749d29022890e651d8481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ad9a55b4803d749d29022890e651d8481">changeUser</a> (std::string name, std::string newName)</td></tr>
 <tr class="memdesc:ad9a55b4803d749d29022890e651d8481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie un utilisateur.  <a href="class_controller.html#ad9a55b4803d749d29022890e651d8481">More...</a><br /></td></tr>
 <tr class="separator:ad9a55b4803d749d29022890e651d8481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1baa5ea4a49441cde939a7935552fb69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#a1baa5ea4a49441cde939a7935552fb69">changePC</a> (std::string name, std::string newName)</td></tr>
-<tr class="memdesc:a1baa5ea4a49441cde939a7935552fb69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie un point de collecte.  <a href="class_controller.html#a1baa5ea4a49441cde939a7935552fb69">More...</a><br /></td></tr>
-<tr class="separator:a1baa5ea4a49441cde939a7935552fb69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd442973c39981ce68e283b86f4570f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#acd442973c39981ce68e283b86f4570f9">createAdmin</a> (std::string name)</td></tr>
+<tr class="memdesc:acd442973c39981ce68e283b86f4570f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un nouveau administrateur.  <a href="class_controller.html#acd442973c39981ce68e283b86f4570f9">More...</a><br /></td></tr>
+<tr class="separator:acd442973c39981ce68e283b86f4570f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e0df6e55e719ef1c68741613df1d81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controller.html#ab9e0df6e55e719ef1c68741613df1d81">checkPC</a> (std::string pc, std::string admin)</td></tr>
+<tr class="memdesc:ab9e0df6e55e719ef1c68741613df1d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">valide ou invalide on point de collecte  <a href="class_controller.html#ab9e0df6e55e719ef1c68741613df1d81">More...</a><br /></td></tr>
+<tr class="separator:ab9e0df6e55e719ef1c68741613df1d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe permettant de controller les données. </p>
@@ -133,43 +133,6 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1baa5ea4a49441cde939a7935552fb69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1baa5ea4a49441cde939a7935552fb69">&#9670;&nbsp;</a></span>changePC()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Controller::changePC </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>newName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Modifie un point de collecte. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>le nom du point de collecte </td></tr>
-    <tr><td class="paramname">newName</td><td>le nouveau nom du point de collecte </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ad9a55b4803d749d29022890e651d8481"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9a55b4803d749d29022890e651d8481">&#9670;&nbsp;</a></span>changeUser()</h2>
 
@@ -207,23 +170,23 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a53147af84c116a1550f6faddb7c4792a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53147af84c116a1550f6faddb7c4792a">&#9670;&nbsp;</a></span>createPC()</h2>
+<a id="ab9e0df6e55e719ef1c68741613df1d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e0df6e55e719ef1c68741613df1d81">&#9670;&nbsp;</a></span>checkPC()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Controller::createPC </td>
+          <td class="memname">void Controller::checkPC </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>userName</em>, </td>
+          <td class="paramname"><em>pc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
+          <td class="paramname"><em>admin</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -233,11 +196,37 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Créer un nouveau point de collecte. </p>
+<p>valide ou invalide on point de collecte </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">userName</td><td>le nom du créateur </td></tr>
-    <tr><td class="paramname">name</td><td>le nom du point de collecte </td></tr>
+    <tr><td class="paramname">pc</td><td>le point de collecte </td></tr>
+    <tr><td class="paramname">admin</td><td>l'administrateur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd442973c39981ce68e283b86f4570f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd442973c39981ce68e283b86f4570f9">&#9670;&nbsp;</a></span>createAdmin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Controller::createAdmin </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer un nouveau administrateur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>nom de l'administrateur </td></tr>
   </table>
   </dd>
 </dl>
