@@ -50,6 +50,29 @@ void model::PC::removeProducteur(Productor producteur) {
     }
 }
 
+
+void model::PC::addProduct(Product product)
+{
+    products.push_back(product);
+}
+
+void model::PC::removeProduct(Product product)
+{
+    for(unsigned int i=0; i< products.size(); i++) {
+
+        model::Product *tmp = &products.at(i);
+
+        if (
+                (tmp->getName().compare(product.getName()) == 0) &&
+                (tmp->getProductor()->getName().compare(product.getProductor()->getName()) == 0)
+        ) {
+            products.erase(products.begin()+i);
+            break;
+        }
+
+    }
+}
+
 void model::PC::setCheck(bool check)
 {
     this->check = check;

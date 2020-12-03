@@ -7,10 +7,11 @@
 
 #include "product.h"
 
-model::Product::Product(std::string name, model::Productor *productor)
+model::Product::Product(std::string name, model::Productor *productor, int price)
 {
     this->name = name;
     this->productor = productor;
+    this->price = price;
 }
 
 std::string model::Product::getName()
@@ -22,4 +23,9 @@ std::string model::Product::getName()
 model::Productor* model::Product::getProductor()
 {
     return this->productor;
+}
+
+int model::Product::getPrice()
+{
+    return this->price;
 }
