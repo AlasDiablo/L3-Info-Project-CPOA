@@ -66,7 +66,7 @@ public:
      * @param name nom du pc
      * @param productor producteur
      */
-    void removeProductor(std::string name, model::Productor productor);
+    void removeProductor(std::string name, std::string nameProductor);
 
     /**
      * @brief Ajoute un produit associe a un producteur
@@ -81,7 +81,7 @@ public:
      * @param name nom du produit
      * @param productorName nom du producteur
      */
-    void removeProduct(std::string name, std::string productorName);
+    void removeProduct(std::string name, std::string productorName, std::string pcName);
 
     /**
      * @brief Change le prix du produit
@@ -89,7 +89,7 @@ public:
      * @param name nom du produit
      * @param productorName nom du producteur
      */
-    void changeProductPrice(float price, std::string name, std::string productorName);
+    void changeProductPrice(float price, std::string name, std::string productorName, std::string pcName);
 
     /**
      * @brief Change le nom du produit
@@ -97,7 +97,7 @@ public:
      * @param newName nouveau nom du produit
      * @param productorName nom du producteur
      */
-    void changeProductName(std::string name, std::string newName, std::string productorName);
+    void changeProductName(std::string name, std::string newName, std::string productorName, std::string pcName);
 };
 
 #endif // CONTROLLERPC_H
