@@ -2,7 +2,7 @@
  * @file mainwindow.cpp
  * @brief MainWindow Class
  * @author Safyrus
- * @version 1.2
+ * @version 1.3
  */
 
 #include "mainwindow.h"
@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     le_main->setGeometry(10, 10, 100, 30);
     le_change = new QLineEdit(this);
     le_change->setGeometry(10, 40, 100, 30);
+    le_change2 = new QLineEdit(this);
+    le_change2->setGeometry(10, 70, 100, 30);
 
     l_pcs = new QLabel(this);
     l_pcs->setGeometry(10, 170, 240, 150);
@@ -86,8 +88,10 @@ void MainWindow::createButtons()
     b_AddProduct->setGeometry(200, 130, 100, 30);
     b_RemoveProduct = new QPushButton("remove product", this);
     b_RemoveProduct->setGeometry(310, 130, 100, 30);
-    b_ChangePriceProduct = new QPushButton("change price product", this);
+    b_ChangePriceProduct = new QPushButton("change price", this);
     b_ChangePriceProduct->setGeometry(420, 130, 100, 30);
+    b_ChangeNameProduct = new QPushButton("change name", this);
+    b_ChangeNameProduct->setGeometry(530, 130, 100, 30);
 
     connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
@@ -98,9 +102,10 @@ void MainWindow::createButtons()
     connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
     connect(b_AddProdPC, SIGNAL (released()), this, SLOT (handlerAddProdPC()));
     connect(b_RemoveProdPC, SIGNAL (released()), this, SLOT (handlerRemoveProdPC()));
-    connect(b_AddProduct, SIGNAL (released()), this, SLOT (handlerb_AddProduct()));
-    connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handlerb_RemoveProduct()));
-    connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handlerb_ChangePriceProduct()));
+    connect(b_AddProduct, SIGNAL (released()), this, SLOT (handler_AddProduct()));
+    connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handler_RemoveProduct()));
+    connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handler_ChangePriceProduct()));
+    connect(b_ChangeNameProduct, SIGNAL (released()), this, SLOT (handler_ChangeNameProduct()));
 }
 
 void MainWindow::deleteButtons()
@@ -140,6 +145,22 @@ void MainWindow::deleteButtons()
     if(b_RemoveProdPC != nullptr)
     {
         delete b_RemoveProdPC;
+    }
+    if(b_AddProduct != nullptr)
+    {
+        delete b_AddProduct;
+    }
+    if(b_RemoveProduct != nullptr)
+    {
+        delete b_RemoveProduct;
+    }
+    if(b_ChangePriceProduct != nullptr)
+    {
+        delete b_ChangePriceProduct;
+    }
+    if(b_ChangeNameProduct != nullptr)
+    {
+        delete b_ChangeNameProduct;
     }
 }
 
@@ -229,6 +250,11 @@ void MainWindow::handlerRemoveProduct()
 }
 
 void MainWindow::handlerChangePriceProduct()
+{
+
+}
+
+void MainWindow::handlerChangeNameProduct()
 {
 
 }

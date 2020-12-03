@@ -5,7 +5,7 @@
  * @file mainwindow.h
  * @brief MainWindow Class
  * @author Safyrus
- * @version 1.2
+ * @version 1.3
  */
 
 #include "user.h"
@@ -37,10 +37,12 @@ private:
     QPushButton *b_RemoveProdPC; /**< Bouton pour retirer un Producteur d'un PC */
     QPushButton *b_AddProduct; /**< Bouton pour ajouter un Produit */
     QPushButton *b_RemoveProduct; /**< Bouton pour retirer un Produit */
-    QPushButton *b_ChangePriceProduct; /**< Bouton pour modifier un Produit */
+    QPushButton *b_ChangePriceProduct; /**< Bouton pour modifier le prix d'un Produit */
+    QPushButton *b_ChangeNameProduct; /**< Bouton pour modifier le nom d'un Produit */
 
     QLineEdit *le_main; /**< champ de texte principale pour créer ou supprimer */
     QLineEdit *le_change; /**< champ de texte pour modifier */
+    QLineEdit *le_change2; /**< champ de texte pour modifier */
 
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
@@ -113,6 +115,11 @@ private slots:
      * @brief handlerChangePriceProduct
      */
     void handlerChangePriceProduct();
+
+    /**
+     * @brief handlerChangeNameProduct
+     */
+    void handlerChangeNameProduct();
 public:
     /**
      * @brief Constructeur
