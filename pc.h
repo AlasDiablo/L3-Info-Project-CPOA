@@ -107,7 +107,7 @@ namespace model {
          * @brief Obetenir la liste des produit
          * @return vector connenent la liste des produit
          */
-        std::vector<model::Productor> getProducts();
+        std::vector<model::Product> getProducts();
     };
 }
 

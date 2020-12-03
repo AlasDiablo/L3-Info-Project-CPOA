@@ -71,9 +71,10 @@ public:
     /**
      * @brief Ajoute un produit associe a un producteur
      * @param name nom du produit
-     * @param productorName nom du producteur
+     * @param prodName nom du producteur
+     * @param pcName nom du pc
      */
-    void addProduct(std::string name, std::string productorName);
+    void addProduct(std::string name, std::string prodName, std::string pcName);
 
     /**
      * @brief Supprime un produit associe a un producteur

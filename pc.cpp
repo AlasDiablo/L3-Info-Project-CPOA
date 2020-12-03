@@ -87,3 +87,8 @@ std::vector<model::Productor> model::PC::getProds()
 {
     return productors;
 }
+
+std::vector<model::Product> model::PC::getProducts()
+{
+    return products;
+}

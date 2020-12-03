@@ -102,10 +102,10 @@ void MainWindow::createButtons()
     connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
     connect(b_AddProdPC, SIGNAL (released()), this, SLOT (handlerAddProdPC()));
     connect(b_RemoveProdPC, SIGNAL (released()), this, SLOT (handlerRemoveProdPC()));
-    connect(b_AddProduct, SIGNAL (released()), this, SLOT (handler_AddProduct()));
-    connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handler_RemoveProduct()));
-    connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handler_ChangePriceProduct()));
-    connect(b_ChangeNameProduct, SIGNAL (released()), this, SLOT (handler_ChangeNameProduct()));
+    connect(b_AddProduct, SIGNAL (released()), this, SLOT (handlerAddProduct()));
+    connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handlerRemoveProduct()));
+    connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handlerChangePriceProduct()));
+    connect(b_ChangeNameProduct, SIGNAL (released()), this, SLOT (handlerChangeNameProduct()));
 }
 
 void MainWindow::deleteButtons()
@@ -241,7 +241,13 @@ void MainWindow::handlerRemoveProdPC()
 
 void MainWindow::handlerAddProduct()
 {
-
+    QString qtName = le_main->text();
+    std::string name = qtName.toUtf8().constData();
+    qtName = le_change->text();
+    std::string prodName = qtName.toUtf8().constData();
+    qtName = le_change2->text();
+    std::string pcName = qtName.toUtf8().constData();
+    ctrlPC->addProduct(name, prodName, pcName);
 }
 
 void MainWindow::handlerRemoveProduct()
@@ -286,7 +292,14 @@ void MainWindow::refresh()
         qs += ", ";
         qs += (pc.getCheck())?"check":"not check";
         qs += "(";
-        std::vector<model::Productor> prods = pc.getProds();
+        std::vector<model::Productor> productors = pc.getProds();
+        for (unsigned int i=0; i<productors.size(); i++) {
+            qs += productors[i].getName().c_str();
+            qs += " ";
+        }
+        qs += ")";
+        qs += "(";
+        std::vector<model::Product> prods = pc.getProducts();
         for (unsigned int i=0; i<prods.size(); i++) {
             qs += prods[i].getName().c_str();
             qs += " ";

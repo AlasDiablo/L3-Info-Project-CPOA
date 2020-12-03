@@ -71,3 +71,34 @@ void ControllerPC::deletePC(std::string name)
     data->removePC(name);
     window->refresh();
 }
+
+void ControllerPC::addProduct(std::string name, std::string prodName, std::string pcName)
+{
+    model::PC* pc = data->getPC(pcName);
+    std::vector<model::Productor> prods = pc->getProds();
+    foreach (model::Productor p, prods) {
+        if(p.getName().compare(prodName)==0)
+        {
+            model::Productor *prod = &p;
+            model::Product product(name, prod, 0);
+            pc->addProduct(product);
+        }
+    }
+
+    window->refresh();
+}
+
+void ControllerPC::removeProduct(std::string name, std::string productorName)
+{
+
+}
+
+void ControllerPC::changeProductPrice(float price, std::string name, std::string productorName)
+{
+
+}
+
+void ControllerPC::changeProductName(std::string name, std::string newName, std::string productorName)
+{
+
+}
