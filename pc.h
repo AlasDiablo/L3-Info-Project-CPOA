@@ -11,6 +11,7 @@
 #include "user.h"
 #include "admin.h"
 #include "productor.h"
+#include "product.h"
 #include <vector>
 
 /** @namespace model
@@ -28,6 +29,7 @@ namespace model {
         std::string name; /**< Nom du point de collecte */
         bool check; /**< validation du point de collecte */
         std::vector<model::Productor> productors; /**< liste des producteurs du point de collecte */
+        std::vector<model::Product> products; /**< liste des producteurs du point de collecte */
     public:
         /**
          * @brief Constructeur
@@ -83,7 +85,29 @@ namespace model {
          */
         void removeProducteur(Productor producteur);
 
+        /**
+         * @brief Obetenir la liste des producteur
+         * @return vector connenent la liste des producteur
+         */
         std::vector<model::Productor> getProds();
+
+        /**
+         * @brief Ajout d'un produit au pc
+         * @param produit
+         */
+        void addProduct(Product product);
+
+        /**
+         * @brief Suppression d'un produit
+         * @param produit
+         */
+        void removeProduct(Product product);
+
+        /**
+         * @brief Obetenir la liste des produit
+         * @return vector connenent la liste des produit
+         */
+        std::vector<model::Productor> getProducts();
     };
 }
 

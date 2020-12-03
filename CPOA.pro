@@ -16,6 +16,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         pc.cpp \
+        product.cpp \
         producteur.cpp \
         user.cpp
 
@@ -31,6 +32,7 @@ HEADERS += \
     data.h \
     mainwindow.h \
     pc.h \
+    product.h \
     productor.h \
     user.h
 
