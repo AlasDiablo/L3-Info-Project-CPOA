@@ -24,13 +24,14 @@ namespace model {
     private:
         std::string name; /** Nom du produit */
         model::Productor* productor;
+        int price;
     public:
         /**
          * @brief Constructeur
          * @param name nom du produit
          * @param productor pointeur vers le producteur
          */
-        Product(std::string name, model::Productor *productor);
+        Product(std::string name, model::Productor *productor, int price);
 
         /**
          * @brief Récupere le nom du produit
@@ -43,6 +44,8 @@ namespace model {
          * @return un pointeur vers le producteur
          */
         model::Productor* getProductor();
+
+        int getPrice();
     };
 }
 
