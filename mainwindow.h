@@ -35,6 +35,9 @@ private:
     QPushButton *b_CheckPC; /**< Bouton pour valider un PC */
     QPushButton *b_AddProdPC; /**< Bouton pour ajouter un Producteur a un  PC */
     QPushButton *b_RemoveProdPC; /**< Bouton pour retirer un Producteur d'un PC */
+    QPushButton *b_AddProduct; /**< Bouton pour ajouter un Produit */
+    QPushButton *b_RemoveProduct; /**< Bouton pour retirer un Produit */
+    QPushButton *b_ChangePriceProduct; /**< Bouton pour modifier un Produit */
 
     QLineEdit *le_main; /**< champ de texte principale pour créer ou supprimer */
     QLineEdit *le_change; /**< champ de texte pour modifier */
@@ -42,13 +45,14 @@ private:
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
     QLabel *l_admins; /**< Texte affichant la liste des administrateurs */
-    QLabel *l_prods; /**< Texte affichant la liste des producteurs */
+    //QLabel *l_prods; /**< Texte affichant la liste des producteurs */
 
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */
     model::Data *data; /**< Données */
 
-    void createButton();
+    void createButtons();
+    void deleteButtons();
 private slots:
     /**
      * @brief handlerCreateUser
@@ -94,6 +98,21 @@ private slots:
      * @brief handlerRemoveProdPC
      */
     void handlerRemoveProdPC();
+
+    /**
+     * @brief handlerAddProduct
+     */
+    void handlerAddProduct();
+
+    /**
+     * @brief handlerRemoveProduct
+     */
+    void handlerRemoveProduct();
+
+    /**
+     * @brief handlerChangePriceProduct
+     */
+    void handlerChangePriceProduct();
 public:
     /**
      * @brief Constructeur

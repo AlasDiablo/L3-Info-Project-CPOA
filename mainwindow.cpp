@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 
     resize(640, 400);
 
-    createButton();
+    createButtons();
 
     le_main = new QLineEdit(this);
     le_main->setGeometry(10, 10, 100, 30);
@@ -29,14 +29,81 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     le_change->setGeometry(10, 40, 100, 30);
 
     l_pcs = new QLabel(this);
-    l_pcs->setGeometry(10, 120, 240, 150);
+    l_pcs->setGeometry(10, 170, 240, 150);
     l_users = new QLabel(this);
-    l_users->setGeometry(170, 120, 240, 150);
+    l_users->setGeometry(170, 170, 240, 150);
     l_admins = new QLabel(this);
-    l_admins->setGeometry(340, 120, 240, 150);
+    l_admins->setGeometry(340, 170, 240, 150);
 }
 
 MainWindow::~MainWindow()
+{
+    deleteButtons();
+    if(le_main != nullptr)
+    {
+        delete le_main;
+    }
+    if(le_change != nullptr)
+    {
+        delete le_change;
+    }
+
+    if(data != nullptr)
+    {
+        delete data;
+    }
+    if(ctrl != nullptr)
+    {
+        delete ctrl;
+    }
+    if(ctrlPC != nullptr)
+    {
+        delete ctrlPC;
+    }
+}
+
+void MainWindow::createButtons()
+{
+    b_CreatePC = new QPushButton("create PC", this);
+    b_CreatePC->setGeometry(200, 10, 100, 30);
+    b_CreateUser = new QPushButton("create User", this);
+    b_CreateUser->setGeometry(200, 40, 100, 30);
+    b_ChangeUser = new QPushButton("change User", this);
+    b_ChangeUser->setGeometry(310, 40, 100, 30);
+    b_ChangePC = new QPushButton("change PC", this);
+    b_ChangePC->setGeometry(310, 10, 100, 30);
+    b_DeletePC = new QPushButton("delete PC", this);
+    b_DeletePC->setGeometry(420, 10, 100, 30);
+    b_CreateAdmin = new QPushButton("create Admin", this);
+    b_CreateAdmin->setGeometry(200, 70, 100, 30);
+    b_CheckPC = new QPushButton("check PC", this);
+    b_CheckPC->setGeometry(310, 70, 100, 30);
+    b_AddProdPC = new QPushButton("add Prod", this);
+    b_AddProdPC->setGeometry(200, 100, 100, 30);
+    b_RemoveProdPC = new QPushButton("remove Prod", this);
+    b_RemoveProdPC->setGeometry(310, 100, 100, 30);
+    b_AddProduct = new QPushButton("add product", this);
+    b_AddProduct->setGeometry(200, 130, 100, 30);
+    b_RemoveProduct = new QPushButton("remove product", this);
+    b_RemoveProduct->setGeometry(310, 130, 100, 30);
+    b_ChangePriceProduct = new QPushButton("change price product", this);
+    b_ChangePriceProduct->setGeometry(420, 130, 100, 30);
+
+    connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
+    connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
+    connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
+    connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
+    connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
+    connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
+    connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
+    connect(b_AddProdPC, SIGNAL (released()), this, SLOT (handlerAddProdPC()));
+    connect(b_RemoveProdPC, SIGNAL (released()), this, SLOT (handlerRemoveProdPC()));
+    connect(b_AddProduct, SIGNAL (released()), this, SLOT (handlerb_AddProduct()));
+    connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handlerb_RemoveProduct()));
+    connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handlerb_ChangePriceProduct()));
+}
+
+void MainWindow::deleteButtons()
 {
     if(b_CreatePC != nullptr)
     {
@@ -74,60 +141,6 @@ MainWindow::~MainWindow()
     {
         delete b_RemoveProdPC;
     }
-
-    if(le_main != nullptr)
-    {
-        delete le_main;
-    }
-    if(le_change != nullptr)
-    {
-        delete le_change;
-    }
-
-    if(data != nullptr)
-    {
-        delete data;
-    }
-    if(ctrl != nullptr)
-    {
-        delete ctrl;
-    }
-    if(ctrlPC != nullptr)
-    {
-        delete ctrlPC;
-    }
-}
-
-void MainWindow::createButton()
-{
-    b_CreatePC = new QPushButton("create PC", this);
-    b_CreatePC->setGeometry(200, 10, 100, 30);
-    b_CreateUser = new QPushButton("create User", this);
-    b_CreateUser->setGeometry(200, 40, 100, 30);
-    b_ChangeUser = new QPushButton("change User", this);
-    b_ChangeUser->setGeometry(310, 40, 100, 30);
-    b_ChangePC = new QPushButton("change PC", this);
-    b_ChangePC->setGeometry(310, 10, 100, 30);
-    b_DeletePC = new QPushButton("delete PC", this);
-    b_DeletePC->setGeometry(420, 10, 100, 30);
-    b_CreateAdmin = new QPushButton("create Admin", this);
-    b_CreateAdmin->setGeometry(200, 70, 100, 30);
-    b_CheckPC = new QPushButton("check PC", this);
-    b_CheckPC->setGeometry(310, 70, 100, 30);
-    b_AddProdPC = new QPushButton("add Prod", this);
-    b_AddProdPC->setGeometry(200, 100, 100, 30);
-    b_RemoveProdPC = new QPushButton("remove Prod", this);
-    b_RemoveProdPC->setGeometry(310, 100, 100, 30);
-
-    connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
-    connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
-    connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
-    connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
-    connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
-    connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
-    connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
-    connect(b_AddProdPC, SIGNAL (released()), this, SLOT (handlerAddProdPC()));
-    connect(b_RemoveProdPC, SIGNAL (released()), this, SLOT (handlerRemoveProdPC()));
 }
 
 void MainWindow::handlerCreateUser()
@@ -203,6 +216,21 @@ void MainWindow::handlerRemoveProdPC()
     qtName = le_change->text();
     std::string pc = qtName.toUtf8().constData();
     ctrlPC->removeProductor(pc, prod);
+}
+
+void MainWindow::handlerAddProduct()
+{
+
+}
+
+void MainWindow::handlerRemoveProduct()
+{
+
+}
+
+void MainWindow::handlerChangePriceProduct()
+{
+
 }
 
 void MainWindow::refresh()
