@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     le_change->setGeometry(10, 40, 100, 30);
     le_change2 = new QLineEdit(this);
     le_change2->setGeometry(10, 70, 100, 30);
+    le_change3 = new QLineEdit(this);
+    le_change3->setGeometry(10, 110, 100, 30);
 
     l_pcs = new QLabel(this);
     l_pcs->setGeometry(10, 170, 240, 150);
@@ -252,17 +254,39 @@ void MainWindow::handlerAddProduct()
 
 void MainWindow::handlerRemoveProduct()
 {
-
+    QString qtName = le_main->text();
+    std::string name = qtName.toUtf8().constData();
+    qtName = le_change->text();
+    std::string prodName = qtName.toUtf8().constData();
+    qtName = le_change2->text();
+    std::string pcName = qtName.toUtf8().constData();
+    ctrlPC->removeProduct(name, prodName, pcName);
 }
 
 void MainWindow::handlerChangePriceProduct()
 {
-
+    QString qtName = le_main->text();
+    std::string name = qtName.toUtf8().constData();
+    qtName = le_change->text();
+    std::string prodName = qtName.toUtf8().constData();
+    qtName = le_change2->text();
+    std::string pcName = qtName.toUtf8().constData();
+    qtName = le_change3->text();
+    std::string price = qtName.toUtf8().constData();
+    ctrlPC->changeProductPrice(std::stof(price), name, prodName, pcName);
 }
 
 void MainWindow::handlerChangeNameProduct()
 {
-
+    QString qtName = le_main->text();
+    std::string name = qtName.toUtf8().constData();
+    qtName = le_change->text();
+    std::string prodName = qtName.toUtf8().constData();
+    qtName = le_change2->text();
+    std::string pcName = qtName.toUtf8().constData();
+    qtName = le_change3->text();
+    std::string newName = qtName.toUtf8().constData();
+    ctrlPC->changeProductName(name, newName, prodName, pcName);
 }
 
 void MainWindow::refresh()

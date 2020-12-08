@@ -43,6 +43,7 @@ private:
     QLineEdit *le_main; /**< champ de texte principale pour créer ou supprimer */
     QLineEdit *le_change; /**< champ de texte pour modifier */
     QLineEdit *le_change2; /**< champ de texte pour modifier */
+    QLineEdit *le_change3; /**< champ de texte pour modifier */
 
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */

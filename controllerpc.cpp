@@ -75,12 +75,15 @@ void ControllerPC::deletePC(std::string name)
 void ControllerPC::addProduct(std::string name, std::string prodName, std::string pcName)
 {
     model::PC* pc = data->getPC(pcName);
+    if(pc == nullptr)
+    {
+        return;
+    }
     std::vector<model::Productor> prods = pc->getProds();
     foreach (model::Productor p, prods) {
         if(p.getName().compare(prodName)==0)
         {
-            model::Productor *prod = &p;
-            model::Product product(name, prod, 0);
+            model::Product product(name, prodName, 0);
             pc->addProduct(product);
         }
     }
@@ -91,17 +94,11 @@ void ControllerPC::addProduct(std::string name, std::string prodName, std::strin
 void ControllerPC::removeProduct(std::string name, std::string prodName, std::string pcName)
 {
     model::PC* pc = data->getPC(pcName);
-    std::vector<model::Productor> prods = pc->getProds();
-    std::vector<model::Product> products = pc->getProducts();
-
-    foreach (model::Productor p, prods) {
-        if(p.getName().compare(prodName)==0)
-        {
-            model::Productor *prod = &p;
-            model::Product product(name, prod, 0);
-            pc->removeProduct(product);
-        }
+    if(pc == nullptr)
+    {
+        return;
     }
+    pc->removeProduct(name, prodName);
 
     window->refresh();
 }
@@ -109,51 +106,25 @@ void ControllerPC::removeProduct(std::string name, std::string prodName, std::st
 void ControllerPC::changeProductPrice(float price, std::string name, std::string prodName, std::string pcName)
 {
     model::PC* pc = data->getPC(pcName);
-    std::vector<model::Productor> prods = pc->getProds();
-    std::vector<model::Product> products = pc->getProducts();
-
-    foreach (model::Productor p, prods) {
-        if(p.getName().compare(prodName)==0)
-        {
-            model::Productor *prod = &p;
-            model::Product product(name, prod, price);
-            for(unsigned int i=0; i< products.size(); i++) {
-                model::Product *tmp = &products.at(i);
-                if (
-                        (tmp->getName().compare(product.getName()) == 0) &&
-                        (tmp->getProductor()->getName().compare(product.getProductor()->getName()) == 0)
-                ) {
-                    pc->removeProduct(product);
-                    pc->addProduct(product);
-                }
-            }
-        }
+    if(pc == nullptr)
+    {
+        return;
     }
+
+    //TODO
+
+    window->refresh();
 }
 
 void ControllerPC::changeProductName(std::string name, std::string newName, std::string prodName, std::string pcName)
 {
     model::PC* pc = data->getPC(pcName);
-    std::vector<model::Productor> prods = pc->getProds();
-    std::vector<model::Product> products = pc->getProducts();
-
-    foreach (model::Productor p, prods) {
-        if(p.getName().compare(prodName)==0)
-        {
-            model::Productor *prod = &p;
-            model::Product product(name, prod, 0);
-
-            for(unsigned int i=0; i< products.size(); i++) {
-                model::Product *tmp = &products.at(i);
-                if (
-                        (tmp->getName().compare(product.getName()) == 0) &&
-                        (tmp->getProductor()->getName().compare(product.getProductor()->getName()) == 0)
-                ) {
-                    model::Product newProduct(newName, prod, tmp->getPrice());
-                    pc->removeProduct(product);
-                    pc->addProduct(newProduct);
-                }
-            }
-        }
+    if(pc == nullptr)
+    {
+        return;
     }
+
+    //TODO
+
+    window->refresh();
 }

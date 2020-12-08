@@ -101,7 +101,7 @@ namespace model {
          * @brief Suppression d'un produit
          * @param produit
          */
-        void removeProduct(Product product);
+        void removeProduct(std::string productName, std::string prodName);
 
         /**
          * @brief Obetenir la liste des produit

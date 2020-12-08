@@ -56,20 +56,14 @@ void model::PC::addProduct(Product product)
     products.push_back(product);
 }
 
-void model::PC::removeProduct(Product product)
+void model::PC::removeProduct(std::string productName, std::string prodName)
 {
     for(unsigned int i=0; i< products.size(); i++) {
-
         model::Product *tmp = &products.at(i);
-
-        if (
-                (tmp->getName().compare(product.getName()) == 0) &&
-                (tmp->getProductor()->getName().compare(product.getProductor()->getName()) == 0)
-        ) {
+         if (tmp->getName().compare(productName) == 0 && tmp->getProductorName().compare(prodName) == 0) {
             products.erase(products.begin()+i);
             break;
         }
-
     }
 }
 
