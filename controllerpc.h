@@ -25,7 +25,7 @@ private:
      * @brief Créer un nouveau producteur
      * @param name le nom du producteur
      */
-    model::Productor createProductor(std::string name);
+    model::Productor createProductor(QString name);
 public:
     /**
      * @brief Constructeur
@@ -39,34 +39,34 @@ public:
      * @param userName le nom du créateur
      * @param name le nom du point de collecte
      */
-    void createPC(std::string userName, std::string name);
+    void createPC(QString userName, QString name);
 
     /**
      * @brief Modifie un point de collecte
      * @param name le nom du point de collecte
      * @param newName le nouveau nom du point de collecte
      */
-    void changePC(std::string name, std::string newName);
+    void changePC(QString name, QString newName);
 
     /**
      * @brief deletePC
      * @param name
      */
-    void deletePC(std::string name);
+    void deletePC(QString name);
 
     /**
      * @brief Ajout d'un producteur
      * @param name nom du pc
      * @param productor producteur
      */
-    void addProductor(std::string name, std::string nameProductor);
+    void addProductor(QString name, QString nameProductor);
 
     /**
      * @brief Suppression d'un producteur
      * @param name nom du pc
      * @param productor producteur
      */
-    void removeProductor(std::string name, std::string nameProductor);
+    void removeProductor(QString name, QString nameProductor);
 
     /**
      * @brief Ajoute un produit associe a un producteur
@@ -74,14 +74,14 @@ public:
      * @param prodName nom du producteur
      * @param pcName nom du pc
      */
-    void addProduct(std::string name, std::string prodName, std::string pcName);
+    void addProduct(QString name, QString prodName, QString pcName);
 
     /**
      * @brief Supprime un produit associe a un producteur
      * @param name nom du produit
      * @param productorName nom du producteur
      */
-    void removeProduct(std::string name, std::string productorName, std::string pcName);
+    void removeProduct(QString name, QString productorName, QString pcName);
 
     /**
      * @brief Change le prix du produit
@@ -89,7 +89,7 @@ public:
      * @param name nom du produit
      * @param productorName nom du producteur
      */
-    void changeProductPrice(float price, std::string name, std::string productorName, std::string pcName);
+    void changeProductPrice(float price, QString name, QString productorName, QString pcName);
 
     /**
      * @brief Change le nom du produit
@@ -97,7 +97,7 @@ public:
      * @param newName nouveau nom du produit
      * @param productorName nom du producteur
      */
-    void changeProductName(std::string name, std::string newName, std::string productorName, std::string pcName);
+    void changeProductName(QString name, QString newName, QString productorName, QString pcName);
 };
 
 #endif // CONTROLLERPC_H

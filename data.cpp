@@ -2,7 +2,7 @@
  * @file data.cpp
  * @brief Data Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.3
  */
 
 #include "data.h"
@@ -23,7 +23,7 @@ model::User* model::Data::getUser(int i)
     return &users.at(i);
 }
 
-model::User* model::Data::getUser(std::string name)
+model::User* model::Data::getUser(QString name)
 {
     for(unsigned int i=0; i< users.size(); i++) {
         User *tmp = &users.at(i);
@@ -52,7 +52,7 @@ model::PC* model::Data::getPC(int i)
     return &pcs.at(i);
 }
 
-model::PC* model::Data::getPC(std::string name)
+model::PC* model::Data::getPC(QString name)
 {
     for(unsigned int i=0; i< pcs.size(); i++) {
         PC *tmp = &pcs.at(i);
@@ -79,7 +79,7 @@ void model::Data::addPC(PC p)
     pcs.push_back(p);
 }
 
-void model::Data::removeUser(std::string name)
+void model::Data::removeUser(QString name)
 {
     for(unsigned int i=0; i< users.size(); i++) {
         model::User *tmp = &users.at(i);
@@ -91,7 +91,7 @@ void model::Data::removeUser(std::string name)
     }
 }
 
-void model::Data::removePC(std::string name)
+void model::Data::removePC(QString name)
 {
     for(unsigned int i=0; i< pcs.size(); i++) {
         PC *tmp = &pcs.at(i);
@@ -122,7 +122,7 @@ void model::Data::addAdmin(model::Admin a)
     admins.push_back(a);
 }
 
-void model::Data::removeAdmin(std::string name)
+void model::Data::removeAdmin(QString name)
 {
     for(unsigned int i=0; i< admins.size(); i++) {
         model::Admin *tmp = &admins.at(i);
@@ -148,7 +148,7 @@ model::Admin* model::Data::getAdmin(int i)
     return &admins.at(i);
 }
 
-model::Admin* model::Data::getAdmin(std::string name)
+model::Admin* model::Data::getAdmin(QString name)
 {
     for(unsigned int i=0; i< admins.size(); i++) {
         model::Admin *tmp = &admins.at(i);

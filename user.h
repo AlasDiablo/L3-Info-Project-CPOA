@@ -5,10 +5,10 @@
  * @file user.h
  * @brief User Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.3
  */
 
-#include <string>
+#include <QString>
 
 /** @namespace model
  * namespace regroupant toutes les structures de données
@@ -21,7 +21,7 @@ namespace model {
     class User
     {
     private:
-        std::string name; /**< Nom de l'utilisateur */
+        QString name; /**< Nom de l'utilisateur */
     public:
         /**
          * @brief Constructeur
@@ -32,13 +32,13 @@ namespace model {
          * @brief Constructeur
          * @param name nom de l'utilisateur
          */
-        User(std::string name);
+        User(QString name);
 
         /**
          * @brief Récupere le nom de l'utilisateur
          * @return le nom
          */
-        std::string getName();
+        QString getName();
     };
 }
 

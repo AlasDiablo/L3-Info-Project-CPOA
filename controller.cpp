@@ -2,7 +2,7 @@
  * @file controller.cpp
  * @brief Controller Class
  * @author Safyrus
- * @version 1.2
+ * @version 1.3
  */
 
 #include "controller.h"
@@ -15,7 +15,7 @@ Controller::Controller(model::Data *data, MainWindow *window)
     this->window = window;
 }
 
-void Controller::createUser(std::string name)
+void Controller::createUser(QString name)
 {
     model::User *u = data->getUser(name);
     if(u != nullptr)
@@ -27,7 +27,7 @@ void Controller::createUser(std::string name)
     window->refresh();
 }
 
-void Controller::changeUser(std::string name, std::string newName)
+void Controller::changeUser(QString name, QString newName)
 {
     data->removeUser(name);
     createUser(newName);
@@ -36,7 +36,7 @@ void Controller::changeUser(std::string name, std::string newName)
     for (unsigned int i=0; i<data->getPCSize(); i++) {
         if(data->getPC(i)->getCreatorName().compare(name)==0)
         {
-            std::string pcName = data->getPC(i)->getName();
+            QString pcName = data->getPC(i)->getName();
             data->removePC(i);
             model::PC tmp(pcName, newUser);
             data->addPC(tmp);
@@ -45,7 +45,7 @@ void Controller::changeUser(std::string name, std::string newName)
     window->refresh();
 }
 
-void Controller::createAdmin(std::string name)
+void Controller::createAdmin(QString name)
 {
     model::Admin *a = data->getAdmin(name);
     if(a != nullptr)
@@ -58,7 +58,7 @@ void Controller::createAdmin(std::string name)
     window->refresh();
 }
 
-void Controller::checkPC(std::string pc, std::string admin)
+void Controller::checkPC(QString pc, QString admin)
 {
     model::Admin *a = data->getAdmin(admin);
     if(a == nullptr)

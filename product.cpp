@@ -7,20 +7,20 @@
 
 #include "product.h"
 
-model::Product::Product(std::string name, std::string productor, float price)
+model::Product::Product(QString name, QString productor, float price)
 {
     this->name = name;
     this->productor = productor;
     this->price = price;
 }
 
-std::string model::Product::getName()
+QString model::Product::getName()
 {
     return this->name;
 }
 
 
-std::string model::Product::getProductorName()
+QString model::Product::getProductorName()
 {
     return this->productor;
 }

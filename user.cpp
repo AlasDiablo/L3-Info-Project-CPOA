@@ -2,7 +2,7 @@
  * @file user.cpp
  * @brief User Class
  * @author Safyrus
- * @version 1.1
+ * @version 1.3
  */
 
 #include "user.h"
@@ -12,12 +12,12 @@ model::User::User()
     this->name = "";
 }
 
-model::User::User(std::string name)
+model::User::User(QString name)
 {
     this->name = name;
 }
 
-std::string model::User::getName()
+QString model::User::getName()
 {
     return this->name;
 }

@@ -5,10 +5,10 @@
  * @file user.h
  * @brief Producteur Class
  * @author AlasDiablo
- * @version 1.2
+ * @version 1.3
  */
 
-#include <string>
+#include <QString>
 
 /** @namespace model
  * namespace regroupant toutes les structures de données
@@ -21,7 +21,7 @@ namespace model {
     class Productor
     {
     private:
-        std::string name; /** Nom du producteur */
+        QString name; /** Nom du producteur */
     public:
         /**
          * @brief Constructeur
@@ -32,13 +32,13 @@ namespace model {
          * @brief Constructeur
          * @param name nom du producteur
          */
-        Productor(std::string name);
+        Productor(QString name);
 
         /**
          * @brief Récupere le nom du producteur
          * @return le nom
          */
-        std::string getName();
+        QString getName();
     };
 }
 

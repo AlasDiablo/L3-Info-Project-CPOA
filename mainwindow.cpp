@@ -169,123 +169,95 @@ void MainWindow::deleteButtons()
 void MainWindow::handlerCreateUser()
 {
     QString userName = le_main->text();
-    std::string userNameStr = userName.toUtf8().constData();
-    ctrl->createUser(userNameStr);
+    ctrl->createUser(userName);
 }
 
 void MainWindow::handlerCreatePC()
 {
     QString userName = le_change->text();
-    std::string userNameStr = userName.toUtf8().constData();
     QString name = le_main->text();
-    std::string nameStr = name.toUtf8().constData();
-    ctrlPC->createPC(userNameStr, nameStr);
+    ctrlPC->createPC(userName, name);
 }
 
 void MainWindow::handlerChangeUser()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
-    QString qtNewName = le_change->text();
-    std::string newName = qtNewName.toUtf8().constData();
+    QString name = le_main->text();
+    QString newName = le_change->text();
     ctrl->changeUser(name, newName);
 }
 
 void MainWindow::handlerChangePC()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
-    QString qtNewName = le_change->text();
-    std::string newName = qtNewName.toUtf8().constData();
+    QString name = le_main->text();
+    QString newName = le_change->text();
     ctrlPC->changePC(name, newName);
 }
 
 void MainWindow::handlerDeletePC()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
+    QString name = le_main->text();
     ctrlPC->deletePC(name);
 }
 
 void MainWindow::handlerCreateAdmin()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
+    QString name = le_main->text();
     ctrl->createAdmin(name);
 }
 
 void MainWindow::handlerCheckPC()
 {
-    QString qtName = le_change->text();
-    std::string admin = qtName.toUtf8().constData();
-    qtName = le_main->text();
-    std::string pc = qtName.toUtf8().constData();
+    QString pc = le_change->text();
+    QString admin = le_main->text();
     ctrl->checkPC(pc, admin);
 }
 
 void MainWindow::handlerAddProdPC()
 {
-    QString qtName = le_main->text();
-    std::string prod = qtName.toUtf8().constData();
-    qtName = le_change->text();
-    std::string pc = qtName.toUtf8().constData();
+    QString pc = le_main->text();
+    QString prod = le_change->text();
     ctrlPC->addProductor(pc, prod);
 }
 
 void MainWindow::handlerRemoveProdPC()
 {
-    QString qtName = le_main->text();
-    std::string prod = qtName.toUtf8().constData();
-    qtName = le_change->text();
-    std::string pc = qtName.toUtf8().constData();
+    QString pc = le_main->text();
+    QString prod = le_change->text();
     ctrlPC->removeProductor(pc, prod);
 }
 
 void MainWindow::handlerAddProduct()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
-    qtName = le_change->text();
-    std::string prodName = qtName.toUtf8().constData();
-    qtName = le_change2->text();
-    std::string pcName = qtName.toUtf8().constData();
+    QString name = le_main->text();
+    QString prodName = le_change->text();
+    QString pcName = le_change2->text();
     ctrlPC->addProduct(name, prodName, pcName);
 }
 
 void MainWindow::handlerRemoveProduct()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
-    qtName = le_change->text();
-    std::string prodName = qtName.toUtf8().constData();
-    qtName = le_change2->text();
-    std::string pcName = qtName.toUtf8().constData();
+    QString name = le_main->text();
+    QString prodName = le_change->text();
+    QString pcName = le_change2->text();
     ctrlPC->removeProduct(name, prodName, pcName);
 }
 
 void MainWindow::handlerChangePriceProduct()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
-    qtName = le_change->text();
-    std::string prodName = qtName.toUtf8().constData();
-    qtName = le_change2->text();
-    std::string pcName = qtName.toUtf8().constData();
-    qtName = le_change3->text();
+    QString name = le_main->text();
+    QString prodName = le_change->text();
+    QString pcName = le_change2->text();
+    QString qtName = le_change3->text();
     std::string price = qtName.toUtf8().constData();
     ctrlPC->changeProductPrice(std::stof(price), name, prodName, pcName);
 }
 
 void MainWindow::handlerChangeNameProduct()
 {
-    QString qtName = le_main->text();
-    std::string name = qtName.toUtf8().constData();
-    qtName = le_change->text();
-    std::string prodName = qtName.toUtf8().constData();
-    qtName = le_change2->text();
-    std::string pcName = qtName.toUtf8().constData();
-    qtName = le_change3->text();
-    std::string newName = qtName.toUtf8().constData();
+    QString name = le_main->text();
+    QString prodName = le_change->text();
+    QString pcName = le_change2->text();
+    QString newName = le_change3->text();
     ctrlPC->changeProductName(name, newName, prodName, pcName);
 }
 
@@ -298,7 +270,7 @@ void MainWindow::refresh()
         model::User u = users.at(i);
         qs += std::to_string(i).c_str();
         qs += ": ";
-        qs += u.getName().c_str();
+        qs += u.getName();
         qs += '\n';
     }
     l_users->setText(qs);
@@ -310,22 +282,22 @@ void MainWindow::refresh()
         model::PC pc = pcs.at(i);
         qs += std::to_string(i).c_str();
         qs += ": ";
-        qs += pc.getName().c_str();
+        qs += pc.getName();
         qs += ", ";
-        qs += pc.getCreatorName().c_str();
+        qs += pc.getCreatorName();
         qs += ", ";
         qs += (pc.getCheck())?"check":"not check";
         qs += "\n(";
         std::vector<model::Productor> productors = pc.getProds();
         for (unsigned int i=0; i<productors.size(); i++) {
-            qs += productors[i].getName().c_str();
+            qs += productors[i].getName();
             qs += " ";
         }
         qs += ")";
         qs += "(";
         std::vector<model::Product> prods = pc.getProducts();
         for (unsigned int i=0; i<prods.size(); i++) {
-            qs += prods[i].getName().c_str();
+            qs += prods[i].getName();
             qs += ":";
             qs += std::to_string(prods[i].getPrice()).c_str();
             qs += "  ";
@@ -342,7 +314,7 @@ void MainWindow::refresh()
         model::Admin admin = admins.at(i);
         qs += std::to_string(i).c_str();
         qs += ": ";
-        qs += admin.getName().c_str();
+        qs += admin.getName();
         qs += '\n';
     }
     l_admins->setText(qs);

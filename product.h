@@ -8,7 +8,7 @@
  * @version 1.3
  */
 
-#include <string>
+#include <QString>
 #include "productor.h"
 
 /** @namespace model
@@ -22,19 +22,19 @@ namespace model {
     class Product
     {
     private:
-        std::string name; /** Nom du produit */
-        std::string productor;
+        QString name; /** Nom du produit */
+        QString productor;
         float price;
     public:
-        Product(std::string name, std::string productor, float price);
+        Product(QString name, QString productor, float price);
 
         /**
          * @brief Récupere le nom du produit
          * @return le nom
          */
-        std::string getName();
+        QString getName();
 
-        std::string getProductorName();
+        QString getProductorName();
 
         float getPrice();
     };

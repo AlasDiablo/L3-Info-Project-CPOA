@@ -5,7 +5,7 @@
  * @file data.h
  * @brief Data Class
  * @author Safyrus
- * @version 1.2
+ * @version 1.3
  */
 
 #include "user.h"
@@ -52,7 +52,7 @@ namespace model {
          * @param name le nom
          * @return l'utilisateur
          */
-        model::User* getUser(std::string name);
+        model::User* getUser(QString name);
 
         /**
          * @brief récupere une liste des utilisateurs
@@ -78,7 +78,7 @@ namespace model {
          * @param name le nom
          * @return le point de collecte
          */
-        model::PC* getPC(std::string name);
+        model::PC* getPC(QString name);
 
         /**
          * @brief récupere une liste des points de collecte
@@ -102,13 +102,13 @@ namespace model {
          * @brief retire l'utilisateur avec le nom name
          * @param name le nom
          */
-        void removeUser(std::string name);
+        void removeUser(QString name);
 
         /**
          * @brief retire le point de collecte avec le nom name
          * @param name le nom
          */
-        void removePC(std::string name);
+        void removePC(QString name);
 
         /**
          * @brief retire l'utilisateur a l'index i
@@ -132,7 +132,7 @@ namespace model {
          * @brief supprime un administrateur
          * @param name le nom de l'administrateur à supprimer
          */
-        void removeAdmin(std::string name);
+        void removeAdmin(QString name);
 
         /**
          * @brief supprime un administrateur
@@ -152,7 +152,7 @@ namespace model {
          * @param name le nom de l'administrateur
          * @return l'administrateur
          */
-        model::Admin* getAdmin(std::string name);
+        model::Admin* getAdmin(QString name);
 
         /**
          * @brief retourne la liste des administrateurs

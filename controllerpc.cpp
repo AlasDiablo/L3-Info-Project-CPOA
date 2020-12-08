@@ -7,7 +7,7 @@ ControllerPC::ControllerPC(model::Data *data, MainWindow *window)
     this->window = window;
 }
 
-void ControllerPC::createPC(std::string userName, std::string name)
+void ControllerPC::createPC(QString userName, QString name)
 {
     model::User *u = data->getUser(userName);
     if(u == nullptr)
@@ -26,11 +26,11 @@ void ControllerPC::createPC(std::string userName, std::string name)
     window->refresh();
 }
 
-model::Productor ControllerPC::createProductor(std::string name) {
+model::Productor ControllerPC::createProductor(QString name) {
     return model::Productor(name);
 }
 
-void ControllerPC::addProductor(std::string name, std::string nameProductor) {
+void ControllerPC::addProductor(QString name, QString nameProductor) {
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
     {
@@ -41,7 +41,7 @@ void ControllerPC::addProductor(std::string name, std::string nameProductor) {
     }
 }
 
-void ControllerPC::removeProductor(std::string name, std::string nameProductor) {
+void ControllerPC::removeProductor(QString name, QString nameProductor) {
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
     {
@@ -52,7 +52,7 @@ void ControllerPC::removeProductor(std::string name, std::string nameProductor) 
     }
 }
 
-void ControllerPC::changePC(std::string name, std::string newName)
+void ControllerPC::changePC(QString name, QString newName)
 {
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
@@ -66,13 +66,13 @@ void ControllerPC::changePC(std::string name, std::string newName)
     window->refresh();
 }
 
-void ControllerPC::deletePC(std::string name)
+void ControllerPC::deletePC(QString name)
 {
     data->removePC(name);
     window->refresh();
 }
 
-void ControllerPC::addProduct(std::string name, std::string prodName, std::string pcName)
+void ControllerPC::addProduct(QString name, QString prodName, QString pcName)
 {
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
@@ -91,7 +91,7 @@ void ControllerPC::addProduct(std::string name, std::string prodName, std::strin
     window->refresh();
 }
 
-void ControllerPC::removeProduct(std::string name, std::string prodName, std::string pcName)
+void ControllerPC::removeProduct(QString name, QString prodName, QString pcName)
 {
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
@@ -103,7 +103,7 @@ void ControllerPC::removeProduct(std::string name, std::string prodName, std::st
     window->refresh();
 }
 
-void ControllerPC::changeProductPrice(float price, std::string name, std::string prodName, std::string pcName)
+void ControllerPC::changeProductPrice(float price, QString name, QString prodName, QString pcName)
 {
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
@@ -124,7 +124,7 @@ void ControllerPC::changeProductPrice(float price, std::string name, std::string
     window->refresh();
 }
 
-void ControllerPC::changeProductName(std::string name, std::string newName, std::string prodName, std::string pcName)
+void ControllerPC::changeProductName(QString name, QString newName, QString prodName, QString pcName)
 {
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)

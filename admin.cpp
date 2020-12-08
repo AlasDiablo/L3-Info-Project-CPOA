@@ -1,11 +1,11 @@
 #include "admin.h"
 
-model::Admin::Admin(std::string name)
+model::Admin::Admin(QString name)
 {
     this->name = name;
 }
 
-std::string model::Admin::getName()
+QString model::Admin::getName()
 {
     return this->name;
 }

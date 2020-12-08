@@ -5,7 +5,7 @@
  * @file pc.h
  * @brief PC Class
  * @author Safyrus & AlasDiablo
- * @version 1.2
+ * @version 1.3
  */
 
 #include "user.h"
@@ -26,7 +26,7 @@ namespace model {
     {
     private:
         User creator; /**< Créateur du point de collecte */
-        std::string name; /**< Nom du point de collecte */
+        QString name; /**< Nom du point de collecte */
         bool check; /**< validation du point de collecte */
         std::vector<model::Productor> productors; /**< liste des producteurs du point de collecte */
         std::vector<model::Product> products; /**< liste des producteurs du point de collecte */
@@ -41,25 +41,25 @@ namespace model {
          * @param name le nom du point de collecte
          * @param creator le createur du point de collecte
          */
-        PC(std::string name, User creator);
+        PC(QString name, User creator);
 
         /**
          * @brief CHange le nom du point de collecte
          * @param name le nouveau nom
          */
-        void setName(std::string name);
+        void setName(QString name);
 
         /**
          * @brief Récupere le nom du point de collecte
          * @return le nom
          */
-        std::string getName();
+        QString getName();
 
         /**
          * @brief Récupere le nom du créateur du point de collecte
          * @return le nom du créateur
          */
-        std::string getCreatorName();
+        QString getCreatorName();
 
         /**
          * @brief modifie la validation du PC
@@ -101,7 +101,7 @@ namespace model {
          * @brief Suppression d'un produit
          * @param produit
          */
-        void removeProduct(std::string productName, std::string prodName);
+        void removeProduct(QString productName, QString prodName);
 
         /**
          * @brief Obetenir la liste des produit

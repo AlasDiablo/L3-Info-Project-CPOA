@@ -5,7 +5,7 @@
  * @file controller.h
  * @brief Controller Class
  * @author Safyrus
- * @version 1.2
+ * @version 1.3
  */
 
 #include "data.h"
@@ -34,27 +34,27 @@ public:
      * @brief Créer un nouveau utilisateur
      * @param name le nom de l'tuilisateur
      */
-    void createUser(std::string name);
+    void createUser(QString name);
 
     /**
      * @brief Modifie un utilisateur
      * @param name le nom de l'utilisateur
      * @param newName le nouveau nom de l'utilisateur
      */
-    void changeUser(std::string name, std::string newName);
+    void changeUser(QString name, QString newName);
 
     /**
      * @brief Créer un nouveau administrateur
      * @param name nom de l'administrateur
      */
-    void createAdmin(std::string name);
+    void createAdmin(QString name);
 
     /**
      * @brief valide ou invalide on point de collecte
      * @param pc le point de collecte
      * @param admin l'administrateur
      */
-    void checkPC(std::string pc, std::string admin);
+    void checkPC(QString pc, QString admin);
 };
 
 #endif // CONTROLLER_H
