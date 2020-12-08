@@ -1,5 +1,6 @@
 QT += gui
 QT += widgets
+QT += sql
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -13,6 +14,7 @@ SOURCES += \
         controller.cpp \
         controllerpc.cpp \
         data.cpp \
+        datadb.cpp \
         main.cpp \
         mainwindow.cpp \
         pc.cpp \
@@ -30,6 +32,7 @@ HEADERS += \
     controller.h \
     controllerpc.h \
     data.h \
+    datadb.h \
     mainwindow.h \
     pc.h \
     product.h \
