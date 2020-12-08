@@ -7,7 +7,7 @@
 
 #include "product.h"
 
-model::Product::Product(std::string name, std::string productor, int price)
+model::Product::Product(std::string name, std::string productor, float price)
 {
     this->name = name;
     this->productor = productor;
@@ -25,7 +25,7 @@ std::string model::Product::getProductorName()
     return this->productor;
 }
 
-int model::Product::getPrice()
+float model::Product::getPrice()
 {
     return this->price;
 }

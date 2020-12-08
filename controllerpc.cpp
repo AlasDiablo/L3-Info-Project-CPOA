@@ -110,8 +110,16 @@ void ControllerPC::changeProductPrice(float price, std::string name, std::string
     {
         return;
     }
-
-    //TODO
+    std::vector<model::Product> prods = pc->getProducts();
+    foreach (model::Product p, prods)
+    {
+        if(p.getProductorName().compare(prodName)==0 && p.getName().compare(name)==0)
+        {
+            pc->removeProduct(name, prodName);
+            model::Product prd(name, prodName, price);
+            pc->addProduct(prd);
+        }
+    }
 
     window->refresh();
 }
@@ -123,8 +131,16 @@ void ControllerPC::changeProductName(std::string name, std::string newName, std:
     {
         return;
     }
-
-    //TODO
+    std::vector<model::Product> prods = pc->getProducts();
+    foreach (model::Product p, prods)
+    {
+        if(p.getProductorName().compare(prodName)==0 && p.getName().compare(name)==0)
+        {
+            model::Product prd(newName, prodName, p.getPrice());
+            pc->removeProduct(name, prodName);
+            pc->addProduct(prd);
+        }
+    }
 
     window->refresh();
 }

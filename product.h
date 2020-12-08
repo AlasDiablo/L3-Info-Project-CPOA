@@ -24,9 +24,9 @@ namespace model {
     private:
         std::string name; /** Nom du produit */
         std::string productor;
-        int price;
+        float price;
     public:
-        Product(std::string name, std::string productor, int price);
+        Product(std::string name, std::string productor, float price);
 
         /**
          * @brief Récupere le nom du produit
@@ -36,7 +36,7 @@ namespace model {
 
         std::string getProductorName();
 
-        int getPrice();
+        float getPrice();
     };
 }
 

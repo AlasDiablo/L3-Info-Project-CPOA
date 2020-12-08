@@ -315,7 +315,7 @@ void MainWindow::refresh()
         qs += pc.getCreatorName().c_str();
         qs += ", ";
         qs += (pc.getCheck())?"check":"not check";
-        qs += "(";
+        qs += "\n(";
         std::vector<model::Productor> productors = pc.getProds();
         for (unsigned int i=0; i<productors.size(); i++) {
             qs += productors[i].getName().c_str();
@@ -326,7 +326,9 @@ void MainWindow::refresh()
         std::vector<model::Product> prods = pc.getProducts();
         for (unsigned int i=0; i<prods.size(); i++) {
             qs += prods[i].getName().c_str();
-            qs += " ";
+            qs += ":";
+            qs += std::to_string(prods[i].getPrice()).c_str();
+            qs += "  ";
         }
         qs += ")";
         qs += '\n';
