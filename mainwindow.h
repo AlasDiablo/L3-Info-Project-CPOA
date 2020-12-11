@@ -10,7 +10,7 @@
 
 #include "user.h"
 #include "pc.h"
-#include "data.h"
+#include "datadb.h"
 #include "controller.h"
 #include "controllerpc.h"
 
@@ -39,6 +39,10 @@ private:
     QPushButton *b_RemoveProduct; /**< Bouton pour retirer un Produit */
     QPushButton *b_ChangePriceProduct; /**< Bouton pour modifier le prix d'un Produit */
     QPushButton *b_ChangeNameProduct; /**< Bouton pour modifier le nom d'un Produit */
+    QPushButton *b_Order;
+    QPushButton *b_Deliver;
+    QPushButton *b_CheckDelivery;
+    QPushButton *b_OpenPC;
 
     QLineEdit *le_main; /**< champ de texte principale pour créer ou supprimer */
     QLineEdit *le_change; /**< champ de texte pour modifier */
@@ -48,11 +52,10 @@ private:
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
     QLabel *l_admins; /**< Texte affichant la liste des administrateurs */
-    //QLabel *l_prods; /**< Texte affichant la liste des producteurs */
 
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */
-    model::Data *data; /**< Données */
+    model::DataDB *data; /**< Données */
 
     void createButtons();
     void deleteButtons();
@@ -121,6 +124,11 @@ private slots:
      * @brief handlerChangeNameProduct
      */
     void handlerChangeNameProduct();
+
+    void handlerOrder();
+    void handlerDeliver();
+    void handlerCheckDelivery();
+    void handlerOpenPC();
 public:
     /**
      * @brief Constructeur

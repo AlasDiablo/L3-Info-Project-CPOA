@@ -8,7 +8,7 @@
  * @version 1.3
  */
 
-#include "data.h"
+#include "datadb.h"
 
 #include <string>
 
@@ -20,7 +20,7 @@ class MainWindow;
 class Controller
 {
 private:
-    model::Data *data; /**< Les données a controller */
+    model::DataDB *data; /**< Les données a controller */
     MainWindow *window; /**< La fenetre a actualiser */
 public:
     /**
@@ -28,7 +28,7 @@ public:
      * @param data Les données a controller
      * @param window La fenetre a actualiser
      */
-    Controller(model::Data *data, MainWindow *window);
+    Controller(model::DataDB *data, MainWindow *window);
 
     /**
      * @brief Créer un nouveau utilisateur

@@ -1,7 +1,7 @@
 #include "controllerpc.h"
 #include "mainwindow.h"
 
-ControllerPC::ControllerPC(model::Data *data, MainWindow *window)
+ControllerPC::ControllerPC(model::DataDB *data, MainWindow *window)
 {
     this->data = data;
     this->window = window;
@@ -9,6 +9,7 @@ ControllerPC::ControllerPC(model::Data *data, MainWindow *window)
 
 void ControllerPC::createPC(QString userName, QString name)
 {
+    /*
     model::User *u = data->getUser(userName);
     if(u == nullptr)
     {
@@ -24,6 +25,7 @@ void ControllerPC::createPC(QString userName, QString name)
     model::PC p(name, *u);
     data->addPC(p);
     window->refresh();
+    */
 }
 
 model::Productor ControllerPC::createProductor(QString name) {
@@ -31,6 +33,7 @@ model::Productor ControllerPC::createProductor(QString name) {
 }
 
 void ControllerPC::addProductor(QString name, QString nameProductor) {
+    /*
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
     {
@@ -39,9 +42,11 @@ void ControllerPC::addProductor(QString name, QString nameProductor) {
         pcPtr->addProducteur(this->createProductor(nameProductor));
         window->refresh();
     }
+    */
 }
 
 void ControllerPC::removeProductor(QString name, QString nameProductor) {
+    /*
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
     {
@@ -50,10 +55,12 @@ void ControllerPC::removeProductor(QString name, QString nameProductor) {
         pcPtr->removeProducteur(this->createProductor(nameProductor));
         window->refresh();
     }
+    */
 }
 
 void ControllerPC::changePC(QString name, QString newName)
 {
+    /*
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
     {
@@ -64,16 +71,20 @@ void ControllerPC::changePC(QString name, QString newName)
     model::PC newPC(newName, *data->getUser(pc.getCreatorName()));
     data->addPC(newPC);
     window->refresh();
+    */
 }
 
 void ControllerPC::deletePC(QString name)
 {
+    /*
     data->removePC(name);
     window->refresh();
+    */
 }
 
 void ControllerPC::addProduct(QString name, QString prodName, QString pcName)
 {
+    /*
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
     {
@@ -89,10 +100,12 @@ void ControllerPC::addProduct(QString name, QString prodName, QString pcName)
     }
 
     window->refresh();
+    */
 }
 
 void ControllerPC::removeProduct(QString name, QString prodName, QString pcName)
 {
+    /*
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
     {
@@ -101,10 +114,12 @@ void ControllerPC::removeProduct(QString name, QString prodName, QString pcName)
     pc->removeProduct(name, prodName);
 
     window->refresh();
+    */
 }
 
 void ControllerPC::changeProductPrice(float price, QString name, QString prodName, QString pcName)
 {
+    /*
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
     {
@@ -122,10 +137,12 @@ void ControllerPC::changeProductPrice(float price, QString name, QString prodNam
     }
 
     window->refresh();
+    */
 }
 
 void ControllerPC::changeProductName(QString name, QString newName, QString prodName, QString pcName)
 {
+    /*
     model::PC* pc = data->getPC(pcName);
     if(pc == nullptr)
     {
@@ -143,4 +160,5 @@ void ControllerPC::changeProductName(QString name, QString newName, QString prod
     }
 
     window->refresh();
+    */
 }

@@ -15,11 +15,11 @@
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 {
-    data = new model::Data();
+    data = new model::DataDB();
     ctrl = new Controller(data, this);
     ctrlPC = new ControllerPC(data, this);
 
-    resize(640, 400);
+    resize(640, 500);
 
     createButtons();
 
@@ -33,11 +33,13 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     le_change3->setGeometry(10, 110, 100, 30);
 
     l_pcs = new QLabel(this);
-    l_pcs->setGeometry(10, 170, 240, 150);
+    l_pcs->setGeometry(10, 200, 240, 150);
     l_users = new QLabel(this);
-    l_users->setGeometry(170, 170, 240, 150);
+    l_users->setGeometry(170, 200, 240, 150);
     l_admins = new QLabel(this);
-    l_admins->setGeometry(340, 170, 240, 150);
+    l_admins->setGeometry(340, 200, 240, 150);
+
+    refresh();
 }
 
 MainWindow::~MainWindow()
@@ -94,6 +96,14 @@ void MainWindow::createButtons()
     b_ChangePriceProduct->setGeometry(420, 130, 100, 30);
     b_ChangeNameProduct = new QPushButton("change name", this);
     b_ChangeNameProduct->setGeometry(530, 130, 100, 30);
+    b_Order = new QPushButton("order", this);
+    b_Order->setGeometry(200, 160, 100, 30);
+    b_Deliver = new QPushButton("deliver", this);
+    b_Deliver->setGeometry(310, 160, 100, 30);
+    b_CheckDelivery = new QPushButton("checkDelivery", this);
+    b_CheckDelivery->setGeometry(420, 160, 100, 30);
+    b_OpenPC = new QPushButton("openPC", this);
+    b_OpenPC->setGeometry(530, 160, 100, 30);
 
     connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
@@ -108,6 +118,10 @@ void MainWindow::createButtons()
     connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handlerRemoveProduct()));
     connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handlerChangePriceProduct()));
     connect(b_ChangeNameProduct, SIGNAL (released()), this, SLOT (handlerChangeNameProduct()));
+    connect(b_Order, SIGNAL (released()), this, SLOT (handlerOrder()));
+    connect(b_Deliver, SIGNAL (released()), this, SLOT (handlerDeliver()));
+    connect(b_CheckDelivery, SIGNAL (released()), this, SLOT (handlerCheckDelivery()));
+    connect(b_OpenPC, SIGNAL (released()), this, SLOT (handlerOpenPC()));
 }
 
 void MainWindow::deleteButtons()
@@ -163,6 +177,22 @@ void MainWindow::deleteButtons()
     if(b_ChangeNameProduct != nullptr)
     {
         delete b_ChangeNameProduct;
+    }
+    if(b_Order != nullptr)
+    {
+        delete b_Order;
+    }
+    if(b_Deliver != nullptr)
+    {
+        delete b_Deliver;
+    }
+    if(b_CheckDelivery != nullptr)
+    {
+        delete b_CheckDelivery;
+    }
+    if(b_OpenPC != nullptr)
+    {
+        delete b_OpenPC;
     }
 }
 
@@ -261,6 +291,26 @@ void MainWindow::handlerChangeNameProduct()
     ctrlPC->changeProductName(name, newName, prodName, pcName);
 }
 
+void MainWindow::handlerOrder()
+{
+
+}
+
+void MainWindow::handlerDeliver()
+{
+
+}
+
+void MainWindow::handlerCheckDelivery()
+{
+
+}
+
+void MainWindow::handlerOpenPC()
+{
+
+}
+
 void MainWindow::refresh()
 {
     QString qs = "";
@@ -275,6 +325,7 @@ void MainWindow::refresh()
     }
     l_users->setText(qs);
 
+    /*
     qs = "";
     std::vector<model::PC> pcs = data->getPC();
     size = pcs.size();
@@ -308,6 +359,7 @@ void MainWindow::refresh()
     l_pcs->setText(qs);
 
     qs = "";
+
     std::vector<model::Admin> admins = data->getAdmin();
     size = admins.size();
     for (int i=0; i<size; i++) {
@@ -318,4 +370,5 @@ void MainWindow::refresh()
         qs += '\n';
     }
     l_admins->setText(qs);
+    */
 }

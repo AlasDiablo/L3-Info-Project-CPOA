@@ -8,7 +8,7 @@
  * @version 1.3
  */
 
-#include "data.h"
+#include "datadb.h"
 
 class MainWindow;
 
@@ -18,7 +18,7 @@ class MainWindow;
 class ControllerPC
 {
 private:
-    model::Data *data; /**< Les données a controller */
+    model::DataDB *data; /**< Les données a controller */
     MainWindow *window; /**< La fenetre a actualiser */
 
     /**
@@ -32,7 +32,7 @@ public:
      * @param data Les données a controller
      * @param window La fenetre a actualiser
      */
-    ControllerPC(model::Data *data, MainWindow *window);
+    ControllerPC(model::DataDB *data, MainWindow *window);
 
     /**
      * @brief Créer un nouveau point de collecte

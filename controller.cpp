@@ -9,7 +9,7 @@
 #include "mainwindow.h"
 #include <iostream>
 
-Controller::Controller(model::Data *data, MainWindow *window)
+Controller::Controller(model::DataDB *data, MainWindow *window)
 {
     this->data = data;
     this->window = window;
@@ -17,8 +17,8 @@ Controller::Controller(model::Data *data, MainWindow *window)
 
 void Controller::createUser(QString name)
 {
-    model::User *u = data->getUser(name);
-    if(u != nullptr)
+    model::User u = data->getUser(name);
+    if(u.getName().compare("ERROR")!=0)
     {
         return;
     }
@@ -29,6 +29,7 @@ void Controller::createUser(QString name)
 
 void Controller::changeUser(QString name, QString newName)
 {
+    /*
     data->removeUser(name);
     createUser(newName);
 
@@ -43,10 +44,12 @@ void Controller::changeUser(QString name, QString newName)
         }
     }
     window->refresh();
+    */
 }
 
 void Controller::createAdmin(QString name)
 {
+    /*
     model::Admin *a = data->getAdmin(name);
     if(a != nullptr)
     {
@@ -56,10 +59,12 @@ void Controller::createAdmin(QString name)
     data->addAdmin(admin);
 
     window->refresh();
+    */
 }
 
 void Controller::checkPC(QString pc, QString admin)
 {
+    /*
     model::Admin *a = data->getAdmin(admin);
     if(a == nullptr)
     {
@@ -69,4 +74,5 @@ void Controller::checkPC(QString pc, QString admin)
     model::PC *p = data->getPC(pc);
     p->setCheck(!p->getCheck());
     window->refresh();
+    */
 }
