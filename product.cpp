@@ -7,6 +7,13 @@
 
 #include "product.h"
 
+model::Product::Product()
+{
+    this->name = "";
+    this->productor = "";
+    this->price = 0;
+}
+
 model::Product::Product(QString name, QString productor, float price)
 {
     this->name = name;

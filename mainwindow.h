@@ -52,6 +52,7 @@ private:
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
     QLabel *l_admins; /**< Texte affichant la liste des administrateurs */
+    QLabel *l_orders; /**< Texte affichant la liste des commandes */
 
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */

@@ -26,6 +26,7 @@ namespace model {
         QString productor;
         float price;
     public:
+        Product();
         Product(QString name, QString productor, float price);
 
         /**

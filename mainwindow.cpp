@@ -37,7 +37,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     l_users = new QLabel(this);
     l_users->setGeometry(170, 200, 240, 150);
     l_admins = new QLabel(this);
-    l_admins->setGeometry(340, 200, 240, 150);
+    l_admins->setGeometry(330, 200, 240, 150);
+    l_orders = new QLabel(this);
+    l_orders->setGeometry(490, 200, 240, 150);
 
     refresh();
 }
@@ -314,7 +316,7 @@ void MainWindow::handlerOpenPC()
 void MainWindow::refresh()
 {
     QString qs = "";
-    std::vector<model::User> users = data->getUser();
+    std::vector<model::User> users = data->getUsers();
     int size = users.size();
     for (int i=0; i<size; i++) {
         model::User u = users.at(i);
@@ -325,9 +327,9 @@ void MainWindow::refresh()
     }
     l_users->setText(qs);
 
-    /*
+
     qs = "";
-    std::vector<model::PC> pcs = data->getPC();
+    std::vector<model::PC> pcs = data->getPCs();
     size = pcs.size();
     for (int i=0; i<size; i++) {
         model::PC pc = pcs.at(i);
@@ -357,7 +359,7 @@ void MainWindow::refresh()
         qs += '\n';
     }
     l_pcs->setText(qs);
-
+    /*
     qs = "";
 
     std::vector<model::Admin> admins = data->getAdmin();

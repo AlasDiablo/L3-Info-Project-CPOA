@@ -29,6 +29,7 @@ void Controller::createUser(QString name)
 
 void Controller::changeUser(QString name, QString newName)
 {
+    data->changeUser(name, newName);
     /*
     data->removeUser(name);
     createUser(newName);
@@ -43,15 +44,14 @@ void Controller::changeUser(QString name, QString newName)
             data->addPC(tmp);
         }
     }
-    window->refresh();
     */
+    window->refresh();
 }
 
 void Controller::createAdmin(QString name)
 {
-    /*
-    model::Admin *a = data->getAdmin(name);
-    if(a != nullptr)
+    model::Admin a = data->getAdmin(name);
+    if(a.getName().compare("ERROR") != 0)
     {
         return;
     }
@@ -59,7 +59,6 @@ void Controller::createAdmin(QString name)
     data->addAdmin(admin);
 
     window->refresh();
-    */
 }
 
 void Controller::checkPC(QString pc, QString admin)
