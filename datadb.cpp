@@ -25,7 +25,7 @@ model::DataDB::DataDB() {
         if(!createAdmin.isActive())
             qWarning() << "ERROR: " << createAdmin.lastError().text();
 
-        QSqlQuery createPC("create table if not exists pc(name text, author text, check integer, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
+        QSqlQuery createPC("create table if not exists pc(name text, author text, check boolean, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
         if(!createPC.isActive())
             qWarning() << "ERROR: " << createPC.lastError().text();
 
@@ -239,11 +239,12 @@ void model::DataDB::changeUser(QString name, QString newName)
         qWarning() << "ERROR: " << query.lastError().text();
 }
 
-void model::DataDB::changePC(QString name, QString newName)
+void model::DataDB::changePC(QString name, model::PC newPC)
 {
     QSqlQuery query;
-    query.prepare("update pc set name=? where name=?");
-    query.addBindValue(newName);
+    query.prepare("update pc set name=?, check=? where name=?");
+    query.addBindValue(newPC.getName());
+    query.addBindValue(newPC.getCheck());
     query.addBindValue(name);
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();

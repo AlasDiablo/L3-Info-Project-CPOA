@@ -100,7 +100,7 @@ namespace model {
         std::vector<model::Admin> getAdmins();
 
 
-        void changePC(QString name, QString newName);
+        void changePC(QString name,  model::PC newPC);
         void changeUser(QString name, QString newName);
         void changeAdmin(QString name, QString newName);
 
