@@ -103,6 +103,18 @@ namespace model {
         void changePC(QString name, QString newName);
         void changeUser(QString name, QString newName);
         void changeAdmin(QString name, QString newName);
+
+        void addProductor(model::PC pc, model::Productor productor);
+        void removeProductor(model::PC pc, model::Productor productor);
+        void changeProductor(model::PC pc, model::Productor productor, model::Productor newProductor);
+        std::vector<model::Productor> getProductors(model::PC pc);
+
+        void addProduct(model::PC pc, model::Product product);
+        void removeProduct(model::PC pc, model::Product product);
+        void changeProduct(model::PC pc, model::Product product, model::Product newProduct);
+        std::vector<model::Product> getProducts(model::PC pc);
+        std::vector<model::Product> getProducts(model::PC pc, model::Productor productor);
+
     };
 }
 #endif // DATADB_H

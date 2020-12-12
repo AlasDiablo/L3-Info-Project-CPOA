@@ -25,7 +25,7 @@ model::DataDB::DataDB() {
         if(!createAdmin.isActive())
             qWarning() << "ERROR: " << createAdmin.lastError().text();
 
-        QSqlQuery createPC("create table if not exists pc(name text, author text, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
+        QSqlQuery createPC("create table if not exists pc(name text, author text, check integer, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
         if(!createPC.isActive())
             qWarning() << "ERROR: " << createPC.lastError().text();
 
@@ -33,7 +33,7 @@ model::DataDB::DataDB() {
         if(!createProductor.isActive())
             qWarning() << "ERROR: " << createProductor.lastError().text();
 
-        QSqlQuery createProduct("create table if not exists product(name text, price integer, pc_name text, productor_name text, primary key (name), foreign key (pc_name) references pc (name) on delete cascade on update cascade, foreign key (productor_name) references productor(name) on delete cascade on update cascade)");
+        QSqlQuery createProduct("create table if not exists product(name text, price real, pc_name text, productor_name text, primary key (name), foreign key (pc_name) references pc (name) on delete cascade on update cascade, foreign key (productor_name) references productor(name) on delete cascade on update cascade)");
         if(!createProduct.isActive())
             qWarning() << "ERROR: " << createProduct.lastError().text();
 
@@ -99,13 +99,14 @@ unsigned int model::DataDB::getPCSize()
 model::PC model::DataDB::getPC(QString name)
 {
     QSqlQuery query;
-    query.prepare("select name, author from pc where name like ?");
+    query.prepare("select name, author, check from pc where name like ?");
     query.addBindValue(name);
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();
     while (query.next()) {
          model::User qauthor(query.value(1).toString());
          model::PC pc(query.value(0).toString(), qauthor);
+         pc.setCheck(query.value(2).toBool());
          return pc;
     }
     model::User errU("ERROR");
@@ -124,6 +125,7 @@ std::vector<model::PC> model::DataDB::getPCs()
     while (query.next()) {
         User u(query.value(1).toString());
         PC pc(query.value(0).toString(), u);
+        pc.setCheck(query.value(2).toBool());
         pcs.push_back(pc);
     }
     return pcs;
@@ -149,9 +151,10 @@ void model::DataDB::addPC(PC p)
         return;
     }
     QSqlQuery query;
-    query.prepare("insert into pc values(?, ?)");
+    query.prepare("insert into pc values(?, ?, ?)");
     query.addBindValue(p.getName());
     query.addBindValue(p.getCreatorName());
+    query.addBindValue(p.getCheck());
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();
 }
@@ -214,7 +217,7 @@ model::Admin model::DataDB::getAdmin(QString name)
 std::vector<model::Admin> model::DataDB::getAdmins()
 {
     QSqlQuery query;
-    query.prepare("select * from `user`");
+    query.prepare("select * from admin");
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();
 
@@ -225,7 +228,6 @@ std::vector<model::Admin> model::DataDB::getAdmins()
     }
     return admins;
 }
-
 
 void model::DataDB::changeUser(QString name, QString newName)
 {
@@ -256,3 +258,135 @@ void model::DataDB::changeAdmin(QString name, QString newName)
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();
 }
+
+
+void model::DataDB::addProductor(model::PC pc, model::Productor productor)
+{
+    if(pc.getName().compare("ERROR")==0)
+    {
+        return;
+    }
+    QSqlQuery query;
+    query.prepare("insert into productor values(?, ?)");
+    query.addBindValue(productor.getName());
+    query.addBindValue(pc.getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+void model::DataDB::removeProductor(model::PC pc, model::Productor productor)
+{
+    QSqlQuery query;
+    query.prepare("delete from productor where name=? and pc_name=?");
+    query.addBindValue(productor.getName());
+    query.addBindValue(pc.getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+
+void model::DataDB::changeProductor(model::PC pc, model::Productor productor, model::Productor newProductor)
+{
+    QSqlQuery query;
+    query.prepare("update productor set name=? where name=? and pc_name=?");
+    query.addBindValue(newProductor.getName());
+    query.addBindValue(productor.getName());
+    query.addBindValue(pc.getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+std::vector<model::Productor> model::DataDB::getProductors(model::PC pc)
+{
+    QSqlQuery query;
+    query.prepare("select name from productor where pc_name=?");
+    query.addBindValue(pc.getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+
+    std::vector<model::Productor> productors;
+    while (query.next()) {
+        Productor p(query.value(0).toString());
+        productors.push_back(p);
+    }
+    return productors;
+}
+
+
+
+void model::DataDB::addProduct(model::PC pc, model::Product product)
+{
+    if(pc.getName().compare("ERROR")==0)
+    {
+        return;
+    }
+    QSqlQuery query;
+    query.prepare("insert into product values(?, ?, ?, ?)");
+    query.addBindValue(product.getName());
+    query.addBindValue(product.getPrice());
+    query.addBindValue(pc.getName());
+    query.addBindValue(product.getProductorName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+void model::DataDB::removeProduct(model::PC pc, model::Product product)
+{
+    QSqlQuery query;
+    query.prepare("delete from product where name=? and pc_name=? and productor_name=?");
+    query.addBindValue(product.getName());
+    query.addBindValue(pc.getName());
+    query.addBindValue(product.getProductorName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+
+void model::DataDB::changeProduct(model::PC pc, model::Product product, model::Product newProduct)
+{
+    QSqlQuery query;
+    query.prepare("update productor set name=?, price=? where name=? and pc_name=? and productor_name=?");
+    query.addBindValue(newProduct.getName());
+    query.addBindValue(newProduct.getPrice());
+    query.addBindValue(product.getName());
+    query.addBindValue(pc.getName());
+    query.addBindValue(product.getProductorName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+std::vector<model::Product> model::DataDB::getProducts(model::PC pc)
+{
+    QSqlQuery query;
+    query.prepare("select * from product where pc_name=?");
+    query.addBindValue(pc.getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+
+    std::vector<model::Product> products;
+    while (query.next()) {
+        Product p(query.value(0).toString(), query.value(3).toString(), query.value(1).toFloat());
+        products.push_back(p);
+    }
+    return products;
+}
+
+std::vector<model::Product> model::DataDB::getProducts(model::PC pc, model::Productor productor)
+{
+    QSqlQuery query;
+    query.prepare("select * from product where pc_name=? and productor_name=?");
+    query.addBindValue(pc.getName());
+    query.addBindValue(productor.getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+
+    std::vector<model::Product> products;
+    while (query.next()) {
+        Product p(query.value(0).toString(), productor.getName(), query.value(1).toFloat());
+        products.push_back(p);
+    }
+    return products;
+}
+
+
+
