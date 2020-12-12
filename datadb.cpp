@@ -25,7 +25,7 @@ model::DataDB::DataDB() {
         if(!createAdmin.isActive())
             qWarning() << "ERROR: " << createAdmin.lastError().text();
 
-        QSqlQuery createPC("create table if not exists pc(name text, author text, check integer, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
+        QSqlQuery createPC("create table if not exists pc(name text, author text, `check` integer, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
         if(!createPC.isActive())
             qWarning() << "ERROR: " << createPC.lastError().text();
 
@@ -99,7 +99,7 @@ unsigned int model::DataDB::getPCSize()
 model::PC model::DataDB::getPC(QString name)
 {
     QSqlQuery query;
-    query.prepare("select name, author, check from pc where name like ?");
+    query.prepare("select name, author, `check` from pc where name like ?");
     query.addBindValue(name);
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();
@@ -242,7 +242,7 @@ void model::DataDB::changeUser(QString name, QString newName)
 void model::DataDB::changePC(QString name, model::PC newPC)
 {
     QSqlQuery query;
-    query.prepare("update pc set name=?, check=? where name=?");
+    query.prepare("update pc set name=?, `check`=? where name=?");
     query.addBindValue(newPC.getName());
     query.addBindValue(newPC.getCheck() ? 0 : 1);
     query.addBindValue(name);
