@@ -1,5 +1,29 @@
 # Changelog
 
+## Itération 5
+
+### Ajout
+- finalisation de la base de donnée
+
+## Itération 4
+
+### Ajout
+- creation d'un skellette pour un base de donnée sqlite
+
+### Changement
+- correction de bug
+
+## Itération 4
+
+### Ajout
+- creation d'un skellette pour un base de donnée sqlite
+
+## Itération 3
+
+### Ajout
+- du modele du produit
+
+
 ## Itération 2
 
 ### Ajout
