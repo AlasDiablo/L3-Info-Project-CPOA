@@ -17,6 +17,7 @@ SOURCES += \
         datadb.cpp \
         main.cpp \
         mainwindow.cpp \
+        order.cpp \
         pc.cpp \
         product.cpp \
         producteur.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     data.h \
     datadb.h \
     mainwindow.h \
+    order.h \
     pc.h \
     product.h \
     productor.h \

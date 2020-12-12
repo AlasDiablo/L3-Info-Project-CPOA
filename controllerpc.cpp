@@ -9,23 +9,23 @@ ControllerPC::ControllerPC(model::DataDB *data, MainWindow *window)
 
 void ControllerPC::createPC(QString userName, QString name)
 {
-    /*
-    model::User *u = data->getUser(userName);
-    if(u == nullptr)
+    model::User u = data->getUser(userName);
+    if(u.getName().compare("ERROR") == 0)
     {
+        printf("ERROR USER");
         return;
     }
 
-    model::PC *pc = data->getPC(name);
-    if(pc != nullptr)
+    model::PC pc = data->getPC(name);
+    if(pc.getName().compare("ERROR") != 0)
     {
+        printf("ERROR PC");
         return;
     }
 
-    model::PC p(name, *u);
+    model::PC p(name, u);
     data->addPC(p);
     window->refresh();
-    */
 }
 
 model::Productor ControllerPC::createProductor(QString name) {
@@ -60,6 +60,8 @@ void ControllerPC::removeProductor(QString name, QString nameProductor) {
 
 void ControllerPC::changePC(QString name, QString newName)
 {
+    data->changePC(name, newName);
+    window->refresh();
     /*
     model::PC *pcPtr = data->getPC(name);
     if(pcPtr == nullptr)
@@ -76,10 +78,8 @@ void ControllerPC::changePC(QString name, QString newName)
 
 void ControllerPC::deletePC(QString name)
 {
-    /*
     data->removePC(name);
     window->refresh();
-    */
 }
 
 void ControllerPC::addProduct(QString name, QString prodName, QString pcName)

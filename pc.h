@@ -28,6 +28,7 @@ namespace model {
         User creator; /**< Créateur du point de collecte */
         QString name; /**< Nom du point de collecte */
         bool check; /**< validation du point de collecte */
+        bool open; /**< ouverture du point de collecte */
         std::vector<model::Productor> productors; /**< liste des producteurs du point de collecte */
         std::vector<model::Product> products; /**< liste des producteurs du point de collecte */
     public:
