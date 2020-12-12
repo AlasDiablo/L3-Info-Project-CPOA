@@ -11,12 +11,14 @@ model::PC::PC()
 {
     this->name = "";
     this->creator = User();
+    this->check = false;
 }
 
 model::PC::PC(QString name, User creator)
 {
     this->name = name;
     this->creator = creator;
+    this->check = false;
 }
 
 void model::PC::setName(QString name)

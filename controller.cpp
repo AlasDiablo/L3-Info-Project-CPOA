@@ -30,21 +30,12 @@ void Controller::createUser(QString name)
 void Controller::changeUser(QString name, QString newName)
 {
     data->changeUser(name, newName);
-    /*
-    data->removeUser(name);
-    createUser(newName);
+    window->refresh();
+}
 
-    model::User newUser = *data->getUser(newName);
-    for (unsigned int i=0; i<data->getPCSize(); i++) {
-        if(data->getPC(i)->getCreatorName().compare(name)==0)
-        {
-            QString pcName = data->getPC(i)->getName();
-            data->removePC(i);
-            model::PC tmp(pcName, newUser);
-            data->addPC(tmp);
-        }
-    }
-    */
+void Controller::deleteUser(QString name)
+{
+    data->removeUser(name);
     window->refresh();
 }
 
@@ -59,19 +50,4 @@ void Controller::createAdmin(QString name)
     data->addAdmin(admin);
 
     window->refresh();
-}
-
-void Controller::checkPC(QString pc, QString admin)
-{
-    /*
-    model::Admin *a = data->getAdmin(admin);
-    if(a == nullptr)
-    {
-        return;
-    }
-
-    model::PC *p = data->getPC(pc);
-    p->setCheck(!p->getCheck());
-    window->refresh();
-    */
 }

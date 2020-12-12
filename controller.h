@@ -43,18 +43,19 @@ public:
      */
     void changeUser(QString name, QString newName);
 
+    void deleteUser(QString name);
+
     /**
      * @brief Créer un nouveau administrateur
      * @param name nom de l'administrateur
      */
     void createAdmin(QString name);
 
-    /**
-     * @brief valide ou invalide on point de collecte
-     * @param pc le point de collecte
-     * @param admin l'administrateur
-     */
-    void checkPC(QString pc, QString admin);
+    void order(QString product, QString user);
+
+    void deliver(QString product);
+
+    void checkDelivery(QString delivery);
 };
 
 #endif // CONTROLLER_H

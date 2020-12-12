@@ -13,7 +13,6 @@ SOURCES += \
         admin.cpp \
         controller.cpp \
         controllerpc.cpp \
-        data.cpp \
         datadb.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -32,7 +31,6 @@ HEADERS += \
     admin.h \
     controller.h \
     controllerpc.h \
-    data.h \
     datadb.h \
     mainwindow.h \
     order.h \

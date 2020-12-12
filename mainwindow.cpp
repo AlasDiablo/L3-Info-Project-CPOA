@@ -80,6 +80,8 @@ void MainWindow::createButtons()
     b_ChangeUser->setGeometry(310, 40, 100, 30);
     b_ChangePC = new QPushButton("change PC", this);
     b_ChangePC->setGeometry(310, 10, 100, 30);
+    b_DeleteUser = new QPushButton("delete User", this);
+    b_DeleteUser->setGeometry(420, 40, 100, 30);
     b_DeletePC = new QPushButton("delete PC", this);
     b_DeletePC->setGeometry(420, 10, 100, 30);
     b_CreateAdmin = new QPushButton("create Admin", this);
@@ -111,6 +113,7 @@ void MainWindow::createButtons()
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
     connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
     connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
+    connect(b_DeleteUser, SIGNAL (released()), this, SLOT (handlerDeleteUser()));
     connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
     connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
     connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
@@ -147,6 +150,10 @@ void MainWindow::deleteButtons()
     if(b_ChangeUser != nullptr)
     {
         delete b_ChangeUser;
+    }
+    if(b_DeleteUser != nullptr)
+    {
+        delete b_DeleteUser;
     }
     if(b_DeletePC != nullptr)
     {
@@ -225,6 +232,12 @@ void MainWindow::handlerChangePC()
     ctrlPC->changePC(name, newName);
 }
 
+void MainWindow::handlerDeleteUser()
+{
+    QString name = le_main->text();
+    ctrl->deleteUser(name);
+}
+
 void MainWindow::handlerDeletePC()
 {
     QString name = le_main->text();
@@ -241,7 +254,7 @@ void MainWindow::handlerCheckPC()
 {
     QString pc = le_change->text();
     QString admin = le_main->text();
-    ctrl->checkPC(pc, admin);
+    ctrlPC->checkPC(pc, admin);
 }
 
 void MainWindow::handlerAddProdPC()
@@ -281,7 +294,11 @@ void MainWindow::handlerChangePriceProduct()
     QString pcName = le_change2->text();
     QString qtName = le_change3->text();
     std::string price = qtName.toUtf8().constData();
-    ctrlPC->changeProductPrice(std::stof(price), name, prodName, pcName);
+    try {
+        ctrlPC->changeProductPrice(std::stof(price), name, prodName, pcName);
+    }  catch (...) {
+
+    }
 }
 
 void MainWindow::handlerChangeNameProduct()
@@ -341,14 +358,14 @@ void MainWindow::refresh()
         qs += ", ";
         qs += (pc.getCheck())?"check":"not check";
         qs += "\n(";
-        std::vector<model::Productor> productors = pc.getProds();
+        std::vector<model::Productor> productors = data->getProductors(pc);
         for (unsigned int i=0; i<productors.size(); i++) {
             qs += productors[i].getName();
             qs += " ";
         }
         qs += ")";
         qs += "(";
-        std::vector<model::Product> prods = pc.getProducts();
+        std::vector<model::Product> prods = data->getProducts(pc);
         for (unsigned int i=0; i<prods.size(); i++) {
             qs += prods[i].getName();
             qs += ":";
@@ -359,10 +376,10 @@ void MainWindow::refresh()
         qs += '\n';
     }
     l_pcs->setText(qs);
-    /*
+
     qs = "";
 
-    std::vector<model::Admin> admins = data->getAdmin();
+    std::vector<model::Admin> admins = data->getAdmins();
     size = admins.size();
     for (int i=0; i<size; i++) {
         model::Admin admin = admins.at(i);
@@ -372,5 +389,4 @@ void MainWindow::refresh()
         qs += '\n';
     }
     l_admins->setText(qs);
-    */
 }

@@ -346,7 +346,7 @@ void model::DataDB::removeProduct(model::PC pc, model::Product product)
 void model::DataDB::changeProduct(model::PC pc, model::Product product, model::Product newProduct)
 {
     QSqlQuery query;
-    query.prepare("update productor set name=?, price=? where name=? and pc_name=? and productor_name=?");
+    query.prepare("update product set name=?, price=? where name=? and pc_name=? and productor_name=?");
     query.addBindValue(newProduct.getName());
     query.addBindValue(newProduct.getPrice());
     query.addBindValue(product.getName());

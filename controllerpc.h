@@ -98,6 +98,15 @@ public:
      * @param productorName nom du producteur
      */
     void changeProductName(QString name, QString newName, QString productorName, QString pcName);
+
+    /**
+     * @brief valide ou invalide on point de collecte
+     * @param pc le point de collecte
+     * @param admin l'administrateur
+     */
+    void checkPC(QString pc, QString admin);
+
+    void openPC(QString pc, QString user);
 };
 
 #endif // CONTROLLERPC_H
