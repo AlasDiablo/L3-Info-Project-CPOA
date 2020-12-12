@@ -226,3 +226,33 @@ std::vector<model::Admin> model::DataDB::getAdmins()
     return admins;
 }
 
+
+void model::DataDB::changeUser(QString name, QString newName)
+{
+    QSqlQuery query;
+    query.prepare("update `user` set name=? where name=?");
+    query.addBindValue(newName);
+    query.addBindValue(name);
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+void model::DataDB::changePC(QString name, QString newName)
+{
+    QSqlQuery query;
+    query.prepare("update pc set name=? where name=?");
+    query.addBindValue(newName);
+    query.addBindValue(name);
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+void model::DataDB::changeAdmin(QString name, QString newName)
+{
+    QSqlQuery query;
+    query.prepare("update admin set name=? where name=?");
+    query.addBindValue(newName);
+    query.addBindValue(name);
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}

@@ -98,6 +98,11 @@ namespace model {
          * @return la liste des administrateurs
          */
         std::vector<model::Admin> getAdmins();
+
+
+        void changePC(QString name, QString newName);
+        void changeUser(QString name, QString newName);
+        void changeAdmin(QString name, QString newName);
     };
 }
 #endif // DATADB_H
