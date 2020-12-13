@@ -9,37 +9,37 @@ model::DataDB::DataDB() {
     const QString DRIVER("QSQLITE");
     if(QSqlDatabase::isDriverAvailable(DRIVER)) {
         this->db = QSqlDatabase::addDatabase(DRIVER);
-        db.setDatabaseName("Data.db");
+        db.setDatabaseName("data.db");
         if(!db.open())
-            qWarning() << "ERROR: " << db.lastError();
+            qWarning() << "ERROR-l14: " << db.lastError();
 
         QSqlQuery enableForeignKey("PRAGMA foreign_keys = ON");
         if(!enableForeignKey.isActive())
-            qWarning() << "ERROR: " << enableForeignKey.lastError().text();
+            qWarning() << "ERROR-l18: " << enableForeignKey.lastError().text();
 
         QSqlQuery createUser("create table if not exists `user`(name text, primary key (name))");
         if(!createUser.isActive())
-            qWarning() << "ERROR: " << createUser.lastError().text();
+            qWarning() << "ERROR-l22: " << createUser.lastError().text();
 
         QSqlQuery createAdmin("create table if not exists admin(name text, primary key (name))");
         if(!createAdmin.isActive())
-            qWarning() << "ERROR: " << createAdmin.lastError().text();
+            qWarning() << "ERROR-l26: " << createAdmin.lastError().text();
 
         QSqlQuery createPC("create table if not exists pc(name text, author text, `check` integer, `open` integer, primary key (name), foreign key (author) references user (name) on delete cascade on update cascade)");
         if(!createPC.isActive())
-            qWarning() << "ERROR: " << createPC.lastError().text();
+            qWarning() << "ERROR-l30: " << createPC.lastError().text();
 
         QSqlQuery createProductor("create table if not exists productor(name text, pc_name text, primary key (name), foreign key (pc_name) references pc (name) on delete cascade on update cascade)");
         if(!createProductor.isActive())
-            qWarning() << "ERROR: " << createProductor.lastError().text();
+            qWarning() << "ERROR-l34: " << createProductor.lastError().text();
 
         QSqlQuery createProduct("create table if not exists product(name text, price real, pc_name text, productor_name text, primary key (name), foreign key (pc_name) references pc (name) on delete cascade on update cascade, foreign key (productor_name) references productor(name) on delete cascade on update cascade)");
         if(!createProduct.isActive())
-            qWarning() << "ERROR: " << createProduct.lastError().text();
+            qWarning() << "ERROR-l38: " << createProduct.lastError().text();
 
-        QSqlQuery createOrder("create table if not exists `order`(order_id integer primary key autoincrement, user_name text, product_name text, productor_name text, pc_name text, foreign key (pc_name) references `user`(name) on delete cascade on update cascade, foreign key (product_name) references product(name) on delete cascade on update cascade, foreign key (productor_name) references productor(name) on delete cascade on update cascade, foreign key (pc_name) references pc(name) on delete cascade on update cascade)");
+        QSqlQuery createOrder("create table if not exists `order`(order_id integer primary key autoincrement, user_name text, product_name text, productor_name text, pc_name text, foreign key (user_name) references `user`(name) on delete cascade on update cascade, foreign key (product_name) references product(name) on delete cascade on update cascade, foreign key (productor_name) references productor(name) on delete cascade on update cascade, foreign key (pc_name) references pc(name) on delete cascade on update cascade)");
         if(!createOrder.isActive())
-            qWarning() << "ERROR: " << createOrder.lastError().text();
+            qWarning() << "ERROR-l42: " << createOrder.lastError().text();
 
     } else {
         throw "Driver not found !";
@@ -51,7 +51,7 @@ unsigned int model::DataDB::getUserSize()
     QSqlQuery query;
     query.prepare("select count(name) from `user` group by name");
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l54: " << query.lastError().text();
     while (query.next()) {
          return query.value(0).toInt();
     }
@@ -64,7 +64,7 @@ model::User model::DataDB::getUser(QString name)
     query.prepare("select name from `user` where name like ?");
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l67: " << query.lastError().text();
     while (query.next()) {
          model::User u(query.value(0).toString());
          return u;
@@ -78,7 +78,7 @@ std::vector<model::User> model::DataDB::getUsers()
     QSqlQuery query;
     query.prepare("select * from `user`");
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l81: " << query.lastError().text();
 
     std::vector<model::User> users;
     while (query.next()) {
@@ -93,7 +93,7 @@ unsigned int model::DataDB::getPCSize()
     QSqlQuery query;
     query.prepare("select count(name) from pc group by name");
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l96: " << query.lastError().text();
     while (query.next()) {
          return query.value(0).toInt();
     }
@@ -106,7 +106,7 @@ model::PC model::DataDB::getPC(QString name)
     query.prepare("select * from pc where name like ?");
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l109: " << query.lastError().text();
     while (query.next()) {
          model::User qauthor(query.value(1).toString());
          model::PC pc(query.value(0).toString(), qauthor);
@@ -124,7 +124,7 @@ std::vector<model::PC> model::DataDB::getPCs()
     QSqlQuery query;
     query.prepare("select * from pc");
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l127: " << query.lastError().text();
 
     std::vector<model::PC> pcs;
     while (query.next()) {
@@ -147,7 +147,7 @@ void model::DataDB::addUser(User u)
     query.prepare("insert into `user` values(?)");
     query.addBindValue(u.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l150: " << query.lastError().text();
 }
 
 void model::DataDB::addPC(PC p)
@@ -163,7 +163,7 @@ void model::DataDB::addPC(PC p)
     query.addBindValue(p.getCheck() ? 0 : 1);
     query.addBindValue(p.getOpen() ? 0 : 1);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l166: " << query.lastError().text();
 }
 
 void model::DataDB::removeUser(QString name)
@@ -172,7 +172,7 @@ void model::DataDB::removeUser(QString name)
     query.prepare("delete from `user` where name=?");
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l175: " << query.lastError().text();
 }
 
 void model::DataDB::removePC(QString name)
@@ -181,7 +181,7 @@ void model::DataDB::removePC(QString name)
     query.prepare("delete from pc where name=?");
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l184: " << query.lastError().text();
 }
 
 void model::DataDB::addAdmin(model::Admin a)
@@ -194,7 +194,7 @@ void model::DataDB::addAdmin(model::Admin a)
     query.prepare("insert into admin values(?)");
     query.addBindValue(a.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l197: " << query.lastError().text();
 }
 
 void model::DataDB::removeAdmin(QString name)
@@ -203,7 +203,7 @@ void model::DataDB::removeAdmin(QString name)
     query.prepare("delete from admin where name=?");
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l206: " << query.lastError().text();
 }
 
 model::Admin model::DataDB::getAdmin(QString name)
@@ -212,7 +212,7 @@ model::Admin model::DataDB::getAdmin(QString name)
     query.prepare("select name from admin where name like ?");
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l215: " << query.lastError().text();
     while (query.next()) {
          model::Admin a(query.value(0).toString());
          return a;
@@ -226,7 +226,7 @@ std::vector<model::Admin> model::DataDB::getAdmins()
     QSqlQuery query;
     query.prepare("select * from admin");
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l229: " << query.lastError().text();
 
     std::vector<model::Admin> admins;
     while (query.next()) {
@@ -243,7 +243,7 @@ void model::DataDB::changeUser(QString name, QString newName)
     query.addBindValue(newName);
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l246: " << query.lastError().text();
 }
 
 void model::DataDB::changePC(QString name, model::PC newPC)
@@ -255,7 +255,7 @@ void model::DataDB::changePC(QString name, model::PC newPC)
     query.addBindValue(newPC.getOpen() ? 0 : 1);
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l258: " << query.lastError().text();
 }
 
 void model::DataDB::changeAdmin(QString name, QString newName)
@@ -265,7 +265,7 @@ void model::DataDB::changeAdmin(QString name, QString newName)
     query.addBindValue(newName);
     query.addBindValue(name);
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l268: " << query.lastError().text();
 }
 
 
@@ -280,7 +280,7 @@ void model::DataDB::addProductor(model::PC pc, model::Productor productor)
     query.addBindValue(productor.getName());
     query.addBindValue(pc.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l283: " << query.lastError().text();
 }
 
 void model::DataDB::removeProductor(model::PC pc, model::Productor productor)
@@ -290,7 +290,7 @@ void model::DataDB::removeProductor(model::PC pc, model::Productor productor)
     query.addBindValue(productor.getName());
     query.addBindValue(pc.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l293: " << query.lastError().text();
 }
 
 
@@ -302,7 +302,7 @@ void model::DataDB::changeProductor(model::PC pc, model::Productor productor, mo
     query.addBindValue(productor.getName());
     query.addBindValue(pc.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l305: " << query.lastError().text();
 }
 
 std::vector<model::Productor> model::DataDB::getProductors(model::PC pc)
@@ -311,7 +311,7 @@ std::vector<model::Productor> model::DataDB::getProductors(model::PC pc)
     query.prepare("select name from productor where pc_name=?");
     query.addBindValue(pc.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l314: " << query.lastError().text();
 
     std::vector<model::Productor> productors;
     while (query.next()) {
@@ -336,7 +336,7 @@ void model::DataDB::addProduct(model::PC pc, model::Product product)
     query.addBindValue(pc.getName());
     query.addBindValue(product.getProductorName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l339: " << query.lastError().text();
 }
 
 void model::DataDB::removeProduct(model::PC pc, model::Product product)
@@ -347,7 +347,7 @@ void model::DataDB::removeProduct(model::PC pc, model::Product product)
     query.addBindValue(pc.getName());
     query.addBindValue(product.getProductorName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l350: " << query.lastError().text();
 }
 
 
@@ -361,7 +361,7 @@ void model::DataDB::changeProduct(model::PC pc, model::Product product, model::P
     query.addBindValue(pc.getName());
     query.addBindValue(product.getProductorName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l364: " << query.lastError().text();
 }
 
 std::vector<model::Product> model::DataDB::getProducts(model::PC pc)
@@ -370,7 +370,7 @@ std::vector<model::Product> model::DataDB::getProducts(model::PC pc)
     query.prepare("select * from product where pc_name=?");
     query.addBindValue(pc.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l373: " << query.lastError().text();
 
     std::vector<model::Product> products;
     while (query.next()) {
@@ -387,7 +387,7 @@ std::vector<model::Product> model::DataDB::getProducts(model::PC pc, model::Prod
     query.addBindValue(pc.getName());
     query.addBindValue(productor.getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l390: " << query.lastError().text();
 
     std::vector<model::Product> products;
     while (query.next()) {
@@ -402,13 +402,13 @@ std::vector<model::Product> model::DataDB::getProducts(model::PC pc, model::Prod
 void model::DataDB::addOrder(model::Order order)
 {
     QSqlQuery query;
-    query.prepare("insert into order(user_name, product_name, productor_name, pc_name) values(?, ?, ?, ?)");
+    query.prepare("insert into `order`(user_name, product_name, productor_name, pc_name) values(?, ?, ?, ?)");
     query.addBindValue(order.getUser().getName());
     query.addBindValue(order.getProduct().getName());
     query.addBindValue(order.getProduct().getProductorName());
     query.addBindValue(order.getPC().getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l411: " << query.lastError().text() << ", User:" << order.getUser().getName() << ", Product:" << order.getProduct().getName() << ", Productor:" << order.getProduct().getProductorName() << ", PC:" << order.getPC().getName();
 }
 
 void model::DataDB::removeOrder(model::Order order)
@@ -420,7 +420,7 @@ void model::DataDB::removeOrder(model::Order order)
     query.addBindValue(order.getProduct().getProductorName());
     query.addBindValue(order.getPC().getName());
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l423: " << query.lastError().text();
 }
 
 std::vector<model::Order> model::DataDB::getOrders()
@@ -428,7 +428,7 @@ std::vector<model::Order> model::DataDB::getOrders()
     QSqlQuery query;
     query.prepare("select * from order");
     if(!query.exec())
-        qWarning() << "ERROR: " << query.lastError().text();
+        qWarning() << "ERROR-l431: " << query.lastError().text();
 
     std::vector<model::Order> orders;
     while (query.next()) {
