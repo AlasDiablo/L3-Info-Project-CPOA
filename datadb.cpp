@@ -37,7 +37,7 @@ model::DataDB::DataDB() {
         if(!createProduct.isActive())
             qWarning() << "ERROR: " << createProduct.lastError().text();
 
-        QSqlQuery createOrder("create table if not exists `order`(order_id integer primary key autoincrement, user_name text, product_name text, pc_name text, delivery integer, foreign key (pc_name) references `user`(name) on delete cascade on update cascade, foreign key (product_name) references product(name) on delete cascade on update cascade, foreign key (pc_name) references pc(name) on delete cascade on update cascade)");
+        QSqlQuery createOrder("create table if not exists `order`(order_id integer primary key autoincrement, user_name text, product_name text, productor_name text, pc_name text, delivery integer, foreign key (pc_name) references `user`(name) on delete cascade on update cascade, foreign key (product_name) references product(name) on delete cascade on update cascade, foreign key (productor_name) references productor(name) on delete cascade on update cascade, foreign key (pc_name) references pc(name) on delete cascade on update cascade)");
         if(!createOrder.isActive())
             qWarning() << "ERROR: " << createOrder.lastError().text();
 
@@ -394,6 +394,78 @@ std::vector<model::Product> model::DataDB::getProducts(model::PC pc, model::Prod
     }
     return products;
 }
+
+
+
+void model::DataDB::addOrder(model::Order order)
+{
+    QSqlQuery query;
+    query.prepare("insert into order(user_name, product_name, productor_name, pc_name, delivery) values(?, ?, ?, ?, ?)");
+    query.addBindValue(order.getUser().getName());
+    query.addBindValue(order.getProduct().getName());
+    query.addBindValue(order.getProduct().getProductorName());
+    query.addBindValue(order.getPC().getName());
+    query.addBindValue(order.getDelivery() ? 0 : 1);
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+void model::DataDB::removeOrder(model::Order order)
+{
+    QSqlQuery query;
+    query.prepare("delete from order where user_name=? and product_name=? and productor_name=? and pc_name=?");
+    query.addBindValue(order.getUser().getName());
+    query.addBindValue(order.getProduct().getName());
+    query.addBindValue(order.getProduct().getProductorName());
+    query.addBindValue(order.getPC().getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+void model::DataDB::changeOrder(model::Order order, model::Order newOrder)
+{
+    QSqlQuery query;
+    query.prepare("update product delivery=? where user_name=? and product_name=? and productor_name=? and pc_name=?");
+    query.addBindValue(newOrder.getDelivery() ? 0 : 1);
+    query.addBindValue(order.getUser().getName());
+    query.addBindValue(order.getProduct().getName());
+    query.addBindValue(order.getProduct().getProductorName());
+    query.addBindValue(order.getPC().getName());
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+}
+
+std::vector<model::Order> model::DataDB::getOrders()
+{
+    QSqlQuery query;
+    query.prepare("select * from order");
+    if(!query.exec())
+        qWarning() << "ERROR: " << query.lastError().text();
+
+    std::vector<model::Order> orders;
+    while (query.next()) {
+        User user(query.value(1).toString());
+        model::PC pc;
+        foreach (model::PC tmpPC, this->getPCs()) {
+            if (tmpPC.getName().compare(query.value(4).toString())==0)
+                pc = tmpPC;
+        }
+        model::Productor productor;
+        foreach (model::Productor tmpProductor, this->getProductors(pc)) {
+            if (tmpProductor.getName().compare(query.value(3).toString())==0)
+                productor = tmpProductor;
+        }
+        model::Product product;
+        foreach (model::Product tmpProduct, this->getProducts(pc, productor)) {
+            if (tmpProduct.getName().compare(query.value(2).toString())==0)
+                product = tmpProduct;
+        }
+        model::Order o(pc, product, user);
+        orders.push_back(o);
+    }
+    return orders;
+}
+
 
 
 
