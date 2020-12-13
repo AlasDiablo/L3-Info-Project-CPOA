@@ -9,14 +9,11 @@
 
 ### Ajout
 - creation d'un skellette pour un base de donnée sqlite
+- creation d'un skellette pour un base de donnée sqlite
 
 ### Changement
 - correction de bug
 
-## Itération 4
-
-### Ajout
-- creation d'un skellette pour un base de donnée sqlite
 
 ## Itération 3
 

@@ -159,3 +159,20 @@ void ControllerPC::checkPC(QString pc, QString admin)
     data->changePC(p.getName(), p);
     window->refresh();
 }
+
+void ControllerPC::openPC(QString pc, QString user)
+{
+    model::PC p = data->getPC(pc);
+    if(p.getName().compare("ERROR") == 0)
+    {
+        return;
+    }
+    model::User u = data->getUser(user);
+    if(u.getName().compare(p.getCreatorName()) != 0)
+    {
+        return;
+    }
+    p.setOpen(!p.getOpen());
+    data->changePC(pc, p);
+    window->refresh();
+}

@@ -12,6 +12,7 @@ model::PC::PC()
     this->name = "";
     this->creator = User();
     this->check = false;
+    this->open = false;
 }
 
 model::PC::PC(QString name, User creator)
@@ -19,6 +20,7 @@ model::PC::PC(QString name, User creator)
     this->name = name;
     this->creator = creator;
     this->check = false;
+    this->open = false;
 }
 
 void model::PC::setName(QString name)
@@ -44,4 +46,14 @@ void model::PC::setCheck(bool check)
 bool model::PC::getCheck()
 {
     return check;
+}
+
+void model::PC::setOpen(bool open)
+{
+    this->open = open;
+}
+
+bool model::PC::getOpen()
+{
+    return this->open;
 }

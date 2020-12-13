@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     ctrl = new Controller(data, this);
     ctrlPC = new ControllerPC(data, this);
 
-    resize(640, 500);
+    resize(820, 500);
 
     createButtons();
 
@@ -30,16 +30,19 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     le_change2 = new QLineEdit(this);
     le_change2->setGeometry(10, 70, 100, 30);
     le_change3 = new QLineEdit(this);
-    le_change3->setGeometry(10, 110, 100, 30);
+    le_change3->setGeometry(10, 100, 100, 30);
 
     l_pcs = new QLabel(this);
-    l_pcs->setGeometry(10, 200, 240, 150);
+    l_pcs->setGeometry(10, 200, 200, 150);
     l_users = new QLabel(this);
-    l_users->setGeometry(170, 200, 240, 150);
+    l_users->setGeometry(210, 200, 200, 150);
     l_admins = new QLabel(this);
-    l_admins->setGeometry(330, 200, 240, 150);
+    l_admins->setGeometry(410, 200, 200, 150);
     l_orders = new QLabel(this);
-    l_orders->setGeometry(490, 200, 240, 150);
+    l_orders->setGeometry(610, 200, 200, 150);
+    l_infos = new QLabel(this);
+    l_infos->setGeometry(10, 400, 200, 150);
+    l_infos->setText("info");
 
     refresh();
 }
@@ -327,7 +330,9 @@ void MainWindow::handlerCheckDelivery()
 
 void MainWindow::handlerOpenPC()
 {
-
+    QString pc = le_main->text();
+    QString user = le_change->text();
+    ctrlPC->openPC(pc, user);
 }
 
 void MainWindow::refresh()
@@ -357,6 +362,8 @@ void MainWindow::refresh()
         qs += pc.getCreatorName();
         qs += ", ";
         qs += (pc.getCheck())?"check":"not check";
+        qs += ", ";
+        qs += (pc.getOpen())?"open":"not open";
         qs += "\n(";
         std::vector<model::Productor> productors = data->getProductors(pc);
         for (unsigned int i=0; i<productors.size(); i++) {

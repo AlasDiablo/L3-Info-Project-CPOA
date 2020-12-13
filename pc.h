@@ -28,6 +28,7 @@ namespace model {
         User creator; /**< Créateur du point de collecte */
         QString name; /**< Nom du point de collecte */
         bool check; /**< validation du point de collecte */
+        bool open; /**< ouverture du point de collecte */
     public:
         /**
          * @brief Constructeur
@@ -70,6 +71,18 @@ namespace model {
          * @return la validation
          */
         bool getCheck();
+
+        /**
+         * @brief modifie l'ouverture du PC
+         * @param open ouverture
+         */
+        void setOpen(bool open);
+
+        /**
+         * @brief retourne si le PC est ouvert
+         * @return l'ourverture
+         */
+        bool getOpen();
     };
 }
 
