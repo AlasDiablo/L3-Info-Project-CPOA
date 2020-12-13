@@ -71,6 +71,7 @@ void Controller::order(QString pc, QString product, QString user)
         {
             model::Order o(p, pr, u);
             data->addOrder(o);
+            window->refresh();
         }
     }
 }
