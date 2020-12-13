@@ -3,7 +3,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QtDebug>
- #include <QSqlResult>
+#include <QSqlResult>
 
 model::DataDB::DataDB() {
     const QString DRIVER("QSQLITE");

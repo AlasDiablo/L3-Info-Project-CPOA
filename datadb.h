@@ -2,7 +2,12 @@
 #define DATADB_H
 
 #include <QSqlDatabase>
-#include "data.h"
+#include "user.h"
+#include "pc.h"
+#include "admin.h"
+#include "order.h"
+
+#include <vector>
 
 namespace model {
     class DataDB
@@ -114,6 +119,12 @@ namespace model {
         void changeProduct(model::PC pc, model::Product product, model::Product newProduct);
         std::vector<model::Product> getProducts(model::PC pc);
         std::vector<model::Product> getProducts(model::PC pc, model::Productor productor);
+
+        void addOrder(model::Order order);
+        void removeOrder(model::Order order);
+        void changeOrder(model::Order order, model::Order newOrder);
+        std::vector<model::Order> getOrders();
+
 
     };
 }
