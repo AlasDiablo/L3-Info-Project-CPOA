@@ -1,5 +1,11 @@
 # Changelog
 
+## Itération 6
+
+### Ajout
+- modele order
+- fonction de la base de donnée sur les order
+
 ## Itération 5
 
 ### Ajout
