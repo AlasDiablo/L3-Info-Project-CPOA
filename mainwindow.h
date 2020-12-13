@@ -26,42 +26,67 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 private:
+    QPushButton *b_Order;
+    QPushButton *b_Deliver;
+    QPushButton *b_CheckDelivery;
+
+    QLineEdit *le_PCName;
+    QLineEdit *le_PCNewName;
+    QLabel *l_PCName;
+    QLabel *l_PCNewName;
     QPushButton *b_CreatePC; /**< Bouton pour créer un point de collecte */
-    QPushButton *b_CreateUser; /**< Bouton pour créer un utilisateur */
-    QPushButton *b_ChangeUser; /**< Bouton pour changer un utilisateur */
     QPushButton *b_ChangePC; /**< Bouton pour changer un point de collecte */
     QPushButton *b_DeletePC; /**< Bouton pour supprimer un point de collecte */
-    QPushButton *b_DeleteUser; /**< Bouton pour supprimer un utilisateur */
-    QPushButton *b_CreateAdmin; /**< Bouton pour créer un Admin */
     QPushButton *b_CheckPC; /**< Bouton pour valider un PC */
+    QPushButton *b_OpenPC;
+
+    QLineEdit *le_UserName;
+    QLineEdit *le_UserNewName;
+    QLabel *l_UserName;
+    QLabel *l_UserNewName;
+    QPushButton *b_CreateUser; /**< Bouton pour créer un utilisateur */
+    QPushButton *b_ChangeUser; /**< Bouton pour changer un utilisateur */
+    QPushButton *b_DeleteUser; /**< Bouton pour supprimer un utilisateur */
+
+    QLineEdit *le_AdminName;
+    QLabel *l_AdminName;
+    QPushButton *b_CreateAdmin; /**< Bouton pour créer un Admin */
+
+    QLineEdit *le_ProdName;
+    QLabel *l_ProdName;
     QPushButton *b_AddProdPC; /**< Bouton pour ajouter un Producteur a un  PC */
     QPushButton *b_RemoveProdPC; /**< Bouton pour retirer un Producteur d'un PC */
+
+    QLineEdit *le_ProductName;
+    QLineEdit *le_ProductChange;
+    QLabel *l_ProductName;
+    QLabel *l_ProductChange;
     QPushButton *b_AddProduct; /**< Bouton pour ajouter un Produit */
     QPushButton *b_RemoveProduct; /**< Bouton pour retirer un Produit */
     QPushButton *b_ChangePriceProduct; /**< Bouton pour modifier le prix d'un Produit */
     QPushButton *b_ChangeNameProduct; /**< Bouton pour modifier le nom d'un Produit */
-    QPushButton *b_Order;
-    QPushButton *b_Deliver;
-    QPushButton *b_CheckDelivery;
-    QPushButton *b_OpenPC;
-
-    QLineEdit *le_main; /**< champ de texte principale pour créer ou supprimer */
-    QLineEdit *le_change; /**< champ de texte pour modifier */
-    QLineEdit *le_change2; /**< champ de texte pour modifier */
-    QLineEdit *le_change3; /**< champ de texte pour modifier */
 
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
+    QLabel *l_productor;
+    QLabel *l_product;
     QLabel *l_admins; /**< Texte affichant la liste des administrateurs */
     QLabel *l_orders; /**< Texte affichant la liste des commandes */
-    QLabel *l_infos; /**< Texte affichant des informations */
 
     Controller *ctrl; /**< Controlleur */
     ControllerPC *ctrlPC; /**< Controlleur */
     model::DataDB *data; /**< Données */
 
-    void createButtons();
+    void createInterfacePC();
+    void createInterfaceUser();
+    void createInterfaceProd();
+    void createInterfaceProduct();
+    void createInterfaceAdmin();
+    void createInterfaceList();
+
     void deleteButtons();
+    void deleteLineEdits();
+    void deleteLabels();
 private slots:
     /**
      * @brief handlerCreateUser
