@@ -103,7 +103,7 @@ unsigned int model::DataDB::getPCSize()
 model::PC model::DataDB::getPC(QString name)
 {
     QSqlQuery query;
-    query.prepare("select name, author, `check` from pc where name like ?");
+    query.prepare("select * from pc where name like ?");
     query.addBindValue(name);
     if(!query.exec())
         qWarning() << "ERROR: " << query.lastError().text();
@@ -111,6 +111,7 @@ model::PC model::DataDB::getPC(QString name)
          model::User qauthor(query.value(1).toString());
          model::PC pc(query.value(0).toString(), qauthor);
          pc.setCheck(query.value(2).toInt() == 0 ? true : false);
+         pc.setOpen(query.value(3).toInt() == 0 ? true : false);
          return pc;
     }
     model::User errU("ERROR");
@@ -130,6 +131,7 @@ std::vector<model::PC> model::DataDB::getPCs()
         User u(query.value(1).toString());
         PC pc(query.value(0).toString(), u);
         pc.setCheck(query.value(2).toInt() == 0 ? true : false);
+        pc.setOpen(query.value(3).toInt() == 0 ? true : false);
         pcs.push_back(pc);
     }
     return pcs;
