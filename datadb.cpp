@@ -37,6 +37,10 @@ model::DataDB::DataDB() {
         if(!createProduct.isActive())
             qWarning() << "ERROR: " << createProduct.lastError().text();
 
+        QSqlQuery createOrder("create table if not exists `order`(order_id integer primary key autoincrement, user_name text, product_name text, pc_name text, delivery integer, foreign key (pc_name) references `user`(name) on delete cascade on update cascade, foreign key (product_name) references product(name) on delete cascade on update cascade, foreign key (pc_name) references pc(name) on delete cascade on update cascade)");
+        if(!createOrder.isActive())
+            qWarning() << "ERROR: " << createOrder.lastError().text();
+
     } else {
         throw "Driver not found !";
     }
