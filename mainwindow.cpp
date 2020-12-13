@@ -2,7 +2,7 @@
  * @file mainwindow.cpp
  * @brief MainWindow Class
  * @author Safyrus
- * @version 1.3
+ * @version 1.7
  */
 
 #include "mainwindow.h"
@@ -15,12 +15,15 @@
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
 {
+    // creer les donnees et les controlleurs
     data = new model::DataDB();
     ctrl = new Controller(data, this);
     ctrlPC = new ControllerPC(data, this);
 
+    // change la taille de la fenetre
     resize(900, 500);
 
+    // créer tout les element de la fenetre
     createInterfacePC();
     createInterfaceProd();
     createInterfaceProduct();
@@ -28,18 +31,24 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     createInterfaceAdmin();
     createInterfaceList();
 
+    // actualise la fenetre
     refresh();
 }
 
 MainWindow::~MainWindow()
 {
+    // detruit les element de la fenetre
     deleteButtons();
     deleteLineEdits();
+    deleteLabels();
 
+    // detruit les donnees
     if(data != nullptr)
     {
         delete data;
     }
+
+    // detruit les controlleur
     if(ctrl != nullptr)
     {
         delete ctrl;
@@ -52,6 +61,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::createInterfacePC()
 {
+    // creer les boutons
     b_CreatePC = new QPushButton("create PC", this);
     b_CreatePC->setGeometry(300, 20, 100, 30);
     b_ChangePC = new QPushButton("change PC", this);
@@ -63,17 +73,20 @@ void MainWindow::createInterfacePC()
     b_OpenPC = new QPushButton("openPC", this);
     b_OpenPC->setGeometry(740, 20, 100, 30);
 
+    // connect les boutons avec les handlers correspondant
     connect(b_CreatePC, SIGNAL (released()), this, SLOT (handlerCreatePC()));
     connect(b_ChangePC, SIGNAL (released()), this, SLOT (handlerChangePC()));
     connect(b_DeletePC, SIGNAL (released()), this, SLOT (handlerDeletePC()));
     connect(b_CheckPC, SIGNAL (released()), this, SLOT (handlerCheckPC()));
     connect(b_OpenPC, SIGNAL (released()), this, SLOT (handlerOpenPC()));
 
+    // creer les champs de texte
     le_PCName = new QLineEdit(this);
     le_PCName->setGeometry(10, 20, 100, 30);
     le_PCNewName = new QLineEdit(this);
     le_PCNewName->setGeometry(120, 20, 100, 30);
 
+    // creer les labels
     l_PCName = new QLabel(this);
     l_PCName->setGeometry(10, 10, 100, 10);
     l_PCName->setText("Nom PC");
@@ -84,6 +97,7 @@ void MainWindow::createInterfacePC()
 
 void MainWindow::createInterfaceUser()
 {
+    // creer les boutons
     b_CreateUser = new QPushButton("create User", this);
     b_CreateUser->setGeometry(300, 80, 100, 30);
     b_ChangeUser = new QPushButton("change User", this);
@@ -91,15 +105,18 @@ void MainWindow::createInterfaceUser()
     b_DeleteUser = new QPushButton("delete User", this);
     b_DeleteUser->setGeometry(520, 80, 100, 30);
 
+    // connect les boutons avec les handlers correspondant
     connect(b_CreateUser, SIGNAL (released()), this, SLOT (handlerCreateUser()));
     connect(b_ChangeUser, SIGNAL (released()), this, SLOT (handlerChangeUser()));
     connect(b_DeleteUser, SIGNAL (released()), this, SLOT (handlerDeleteUser()));
 
+    // creer les champs de texte
     le_UserName = new QLineEdit(this);
     le_UserName->setGeometry(10, 80, 100, 30);
     le_UserNewName = new QLineEdit(this);
     le_UserNewName->setGeometry(120, 80, 100, 30);
 
+    // creer les labels
     l_UserName = new QLabel(this);
     l_UserName->setGeometry(10, 70, 100, 10);
     l_UserName->setText("Nom Utilisateur");
@@ -110,17 +127,21 @@ void MainWindow::createInterfaceUser()
 
 void MainWindow::createInterfaceProd()
 {
+    // creer les boutons
     b_AddProdPC = new QPushButton("add Prod", this);
     b_AddProdPC->setGeometry(300, 140, 100, 30);
     b_RemoveProdPC = new QPushButton("remove Prod", this);
     b_RemoveProdPC->setGeometry(410, 140, 100, 30);
 
+    // connect les boutons avec les handlers correspondant
     connect(b_AddProdPC, SIGNAL (released()), this, SLOT (handlerAddProdPC()));
     connect(b_RemoveProdPC, SIGNAL (released()), this, SLOT (handlerRemoveProdPC()));
 
+    // creer les champs de texte
     le_ProdName = new QLineEdit(this);
     le_ProdName->setGeometry(10, 140, 100, 30);
 
+    // creer les labels
     l_ProdName = new QLabel(this);
     l_ProdName->setGeometry(10, 130, 100, 10);
     l_ProdName->setText("Nom Producteur");
@@ -128,6 +149,7 @@ void MainWindow::createInterfaceProd()
 
 void MainWindow::createInterfaceProduct()
 {
+    // creer les boutons
     b_AddProduct = new QPushButton("add product", this);
     b_AddProduct->setGeometry(300, 200, 100, 30);
     b_RemoveProduct = new QPushButton("remove product", this);
@@ -137,16 +159,19 @@ void MainWindow::createInterfaceProduct()
     b_ChangeNameProduct = new QPushButton("change name", this);
     b_ChangeNameProduct->setGeometry(630, 200, 100, 30);
 
+    // connect les boutons avec les handlers correspondant
     connect(b_AddProduct, SIGNAL (released()), this, SLOT (handlerAddProduct()));
     connect(b_RemoveProduct, SIGNAL (released()), this, SLOT (handlerRemoveProduct()));
     connect(b_ChangePriceProduct, SIGNAL (released()), this, SLOT (handlerChangePriceProduct()));
     connect(b_ChangeNameProduct, SIGNAL (released()), this, SLOT (handlerChangeNameProduct()));
 
+    // creer les champs de texte
     le_ProductName = new QLineEdit(this);
     le_ProductName->setGeometry(10, 200, 100, 30);
     le_ProductChange = new QLineEdit(this);
     le_ProductChange->setGeometry(120, 200, 100, 30);
 
+    // creer les labels
     l_ProductName = new QLabel(this);
     l_ProductName->setGeometry(10, 190, 100, 10);
     l_ProductName->setText("Nom Produit");
@@ -157,14 +182,18 @@ void MainWindow::createInterfaceProduct()
 
 void MainWindow::createInterfaceAdmin()
 {
+    // creer les boutons
     b_CreateAdmin = new QPushButton("create Admin", this);
     b_CreateAdmin->setGeometry(300, 260, 100, 30);
 
+    // connect les boutons avec les handlers correspondant
     connect(b_CreateAdmin, SIGNAL (released()), this, SLOT (handlerCreateAdmin()));
 
+    // creer les champs de texte
     le_AdminName = new QLineEdit(this);
     le_AdminName->setGeometry(10, 260, 100, 30);
 
+    // creer les labels
     l_AdminName = new QLabel(this);
     l_AdminName->setGeometry(10, 250, 100, 10);
     l_AdminName->setText("Nom Admin");
@@ -172,6 +201,7 @@ void MainWindow::createInterfaceAdmin()
 
 void MainWindow::createInterfaceList()
 {
+    // creer les labels
     l_pcs = new QLabel(this);
     l_pcs->setGeometry(10, 300, 200, 200);
     l_users = new QLabel(this);
@@ -312,12 +342,69 @@ void MainWindow::deleteButtons()
 
 void MainWindow::deleteLabels()
 {
+    if(l_AdminName != nullptr)
+    {
+        delete l_AdminName;
+    }
+    if(l_PCName != nullptr)
+    {
+        delete l_PCName;
+    }
+    if(l_PCNewName != nullptr)
+    {
+        delete l_PCNewName;
+    }
+    if(l_ProdName != nullptr)
+    {
+        delete l_ProdName;
+    }
+    if(l_ProductChange != nullptr)
+    {
+        delete l_ProductChange;
+    }
+    if(l_ProductName != nullptr)
+    {
+        delete l_ProductName;
+    }
+    if(l_UserName != nullptr)
+    {
+        delete l_UserName;
+    }
+    if(l_UserNewName != nullptr)
+    {
+        delete l_UserNewName;
+    }
 
+    if(l_admins != nullptr)
+    {
+        delete l_admins;
+    }
+    if(l_orders != nullptr)
+    {
+        delete l_orders;
+    }
+    if(l_pcs != nullptr)
+    {
+        delete l_pcs;
+    }
+    if(l_product != nullptr)
+    {
+        delete l_product;
+    }
+    if(l_productor != nullptr)
+    {
+        delete l_productor;
+    }
+    if(l_users != nullptr)
+    {
+        delete l_users;
+    }
 }
 
 void MainWindow::handlerCreateUser()
 {
     QString userName = le_UserName->text();
+
     ctrl->createUser(userName);
 }
 
@@ -325,6 +412,7 @@ void MainWindow::handlerCreatePC()
 {
     QString name = le_PCName->text();
     QString userName = le_UserName->text();
+
     ctrlPC->createPC(userName, name);
 }
 
@@ -332,6 +420,7 @@ void MainWindow::handlerChangeUser()
 {
     QString name = le_UserName->text();
     QString newName = le_UserNewName->text();
+
     ctrl->changeUser(name, newName);
 }
 
@@ -339,18 +428,21 @@ void MainWindow::handlerChangePC()
 {
     QString name = le_PCName->text();
     QString newName = le_PCNewName->text();
+
     ctrlPC->changePC(name, newName);
 }
 
 void MainWindow::handlerDeleteUser()
 {
     QString name = le_UserName->text();
+
     ctrl->deleteUser(name);
 }
 
 void MainWindow::handlerDeletePC()
 {
     QString name = le_PCName->text();
+
     ctrlPC->deletePC(name);
 }
 
@@ -364,6 +456,7 @@ void MainWindow::handlerCheckPC()
 {
     QString pc = le_PCName->text();
     QString admin = le_AdminName->text();
+
     ctrlPC->checkPC(pc, admin);
 }
 
@@ -371,6 +464,7 @@ void MainWindow::handlerAddProdPC()
 {
     QString pc = le_PCName->text();
     QString prod = le_ProdName->text();
+
     ctrlPC->addProductor(pc, prod);
 }
 
@@ -378,6 +472,7 @@ void MainWindow::handlerRemoveProdPC()
 {
     QString pc = le_PCName->text();
     QString prod = le_ProdName->text();
+
     ctrlPC->removeProductor(pc, prod);
 }
 
@@ -386,6 +481,7 @@ void MainWindow::handlerAddProduct()
     QString name = le_ProductName->text();
     QString prodName = le_ProdName->text();
     QString pcName = le_PCName->text();
+
     ctrlPC->addProduct(name, prodName, pcName);
 }
 
@@ -394,6 +490,7 @@ void MainWindow::handlerRemoveProduct()
     QString name = le_ProductName->text();
     QString prodName = le_ProdName->text();
     QString pcName = le_PCName->text();
+
     ctrlPC->removeProduct(name, prodName, pcName);
 }
 
@@ -404,6 +501,7 @@ void MainWindow::handlerChangePriceProduct()
     QString pcName = le_PCName->text();
     QString qtName = le_ProductChange->text();
     std::string price = qtName.toUtf8().constData();
+
     try {
         ctrlPC->changeProductPrice(std::stof(price), name, prodName, pcName);
     }  catch (...) {
@@ -417,6 +515,7 @@ void MainWindow::handlerChangeNameProduct()
     QString prodName = le_ProdName->text();
     QString pcName = le_PCName->text();
     QString newName = le_ProductChange->text();
+
     ctrlPC->changeProductName(name, newName, prodName, pcName);
 }
 
@@ -439,14 +538,17 @@ void MainWindow::handlerOpenPC()
 {
     QString pc = le_PCName->text();
     QString user = le_UserName->text();
+
     ctrlPC->openPC(pc, user);
 }
 
 void MainWindow::refresh()
 {
+    // recupere les donnees a afficher
     QString qs = "";
     std::vector<model::User> users = data->getUsers();
     int size = users.size();
+    // pour chaque utilisateur on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::User u = users.at(i);
         qs += std::to_string(i).c_str();
@@ -454,12 +556,15 @@ void MainWindow::refresh()
         qs += u.getName();
         qs += '\n';
     }
+    // affiche les donnees
     l_users->setText(qs);
 
 
+    // recupere les donnees a afficher
     qs = "";
     std::vector<model::PC> pcs = data->getPCs();
     size = pcs.size();
+    // pour chaque pc on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::PC pc = pcs.at(i);
         qs += std::to_string(i).c_str();
@@ -489,12 +594,15 @@ void MainWindow::refresh()
         qs += ")";
         qs += '\n';
     }
+    // affiche les donnees
     l_pcs->setText(qs);
 
-    qs = "";
 
+    // recupere les donnees a afficher
+    qs = "";
     std::vector<model::Admin> admins = data->getAdmins();
     size = admins.size();
+    // pour chaque Admin  on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::Admin admin = admins.at(i);
         qs += std::to_string(i).c_str();
@@ -502,5 +610,6 @@ void MainWindow::refresh()
         qs += admin.getName();
         qs += '\n';
     }
+    // affiche les donnees
     l_admins->setText(qs);
 }
