@@ -510,7 +510,10 @@ void MainWindow::handlerChangeNameProduct()
 
 void MainWindow::handlerOrder()
 {
-
+    QString pcName = le_PCName->text();
+    QString product = le_ProductName->text();
+    QString user = le_UserName->text();
+    ctrl->order(pcName, product, user);
 }
 
 void MainWindow::handlerOpenPC()
@@ -533,6 +536,8 @@ void MainWindow::refresh()
     // pour chaque utilisateur on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::User u = users.at(i);
+        qs += std::to_string(i).c_str();
+        qs += ": ";
         qs += u.getName();
         qs += '\n';
     }
@@ -547,6 +552,8 @@ void MainWindow::refresh()
     // pour chaque pc on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::PC pc = pcs.at(i);
+        qs += std::to_string(i).c_str();
+        qs += ": ";
         qs += ": ";
         qs += pc.getName();
         qs += "(";
@@ -557,21 +564,25 @@ void MainWindow::refresh()
         qs += (pc.getOpen())?"open":"not open";
         qs += "\n";
         std::vector<model::Productor> productors = data->getProductors(pc);
-        for (unsigned int i=0; i<productors.size(); i++) {
-            prds += productors[i].getName();
+        for (unsigned int j=0; j<productors.size(); j++) {
+            prds += std::to_string(j).c_str();
+            prds += ": ";
+            prds += productors[j].getName();
             prds += "(";
             prds += pc.getName();
             prds += ")\n";
         }
         std::vector<model::Product> prods = data->getProducts(pc);
-        for (unsigned int i=0; i<prods.size(); i++) {
-            prducts += prods[i].getName();
+        for (unsigned int j=0; j<prods.size(); j++) {
+            prducts += std::to_string(j).c_str();
+            prducts += ": ";
+            prducts += prods[j].getName();
             prducts += "(";
             prducts += pc.getName();
             prducts += ", ";
-            prducts += prods[i].getProductorName();
+            prducts += prods[j].getProductorName();
             prducts += "):";
-            prducts += std::to_string(prods[i].getPrice()).c_str();
+            prducts += std::to_string(prods[j].getPrice()).c_str();
             prducts += "\n";
         }
     }
@@ -601,6 +612,8 @@ void MainWindow::refresh()
     size = orders.size();
     for (int i=0; i<size; i++) {
         model::Order order = orders.at(i);
+        qs += std::to_string(i).c_str();
+        qs += ": ";
         qs += order.getUser().getName();
         qs += ", ";
         qs += order.getPC().getName();

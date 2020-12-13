@@ -2,7 +2,7 @@
  * @file controller.cpp
  * @brief Controller Class
  * @author Safyrus
- * @version 1.3
+ * @version 1.7
  */
 
 #include "controller.h"
