@@ -51,3 +51,26 @@ void Controller::createAdmin(QString name)
 
     window->refresh();
 }
+
+void Controller::order(QString pc, QString product, QString user)
+{
+    model::PC p = data->getPC(pc);
+    if(p.getName().compare("ERROR") == 0)
+    {
+        return;
+    }
+    model::User u = data->getUser(user);
+    if(u.getName().compare("ERROR") == 0)
+    {
+        return;
+    }
+    std::vector<model::Product> prods = data->getProducts(p);
+    foreach (model::Product pr, prods)
+    {
+        if(pr.getName().compare(product)==0)
+        {
+            model::Order o(p, pr, u);
+            data->addOrder(o);
+        }
+    }
+}

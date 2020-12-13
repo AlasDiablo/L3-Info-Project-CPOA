@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     ctrlPC = new ControllerPC(data, this);
 
     // change la taille de la fenetre
-    resize(900, 500);
+    resize(1280, 720);
 
     // créer tout les element de la fenetre
     createInterfacePC();
@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     createInterfaceUser();
     createInterfaceAdmin();
     createInterfaceList();
+    createInterfaceOther();
 
     // actualise la fenetre
     refresh();
@@ -202,31 +203,27 @@ void MainWindow::createInterfaceAdmin()
 void MainWindow::createInterfaceList()
 {
     // creer les labels
-    l_pcs = new QLabel(this);
-    l_pcs->setGeometry(10, 300, 200, 200);
     l_users = new QLabel(this);
-    l_users->setGeometry(210, 300, 200, 200);
-    l_admins = new QLabel(this);
-    l_admins->setGeometry(410, 300, 200, 200);
+    l_users->setGeometry(10, 360, 200, 200);
+    l_pcs = new QLabel(this);
+    l_pcs->setGeometry(210, 360, 200, 200);
+    l_productor = new QLabel(this);
+    l_productor->setGeometry(420, 360, 200, 200);
+    l_product = new QLabel(this);
+    l_product->setGeometry(630, 360, 200, 200);
     l_orders = new QLabel(this);
-    l_orders->setGeometry(610, 300, 200, 200);
+    l_orders->setGeometry(840, 360, 200, 200);
+    l_admins = new QLabel(this);
+    l_admins->setGeometry(1050, 360, 200, 200);
 }
 
-/*
-void MainWindow::createButtons()
+void MainWindow::createInterfaceOther()
 {
     b_Order = new QPushButton("order", this);
-    b_Order->setGeometry(200, 160, 100, 30);
-    b_Deliver = new QPushButton("deliver", this);
-    b_Deliver->setGeometry(310, 160, 100, 30);
-    b_CheckDelivery = new QPushButton("checkDelivery", this);
-    b_CheckDelivery->setGeometry(420, 160, 100, 30);
+    b_Order->setGeometry(300, 320, 100, 30);
 
     connect(b_Order, SIGNAL (released()), this, SLOT (handlerOrder()));
-    connect(b_Deliver, SIGNAL (released()), this, SLOT (handlerDeliver()));
-    connect(b_CheckDelivery, SIGNAL (released()), this, SLOT (handlerCheckDelivery()));
 }
-*/
 
 void MainWindow::deleteLineEdits()
 {
@@ -325,14 +322,6 @@ void MainWindow::deleteButtons()
     if(b_Order != nullptr)
     {
         delete b_Order;
-    }
-    if(b_Deliver != nullptr)
-    {
-        delete b_Deliver;
-    }
-    if(b_CheckDelivery != nullptr)
-    {
-        delete b_CheckDelivery;
     }
     if(b_OpenPC != nullptr)
     {
@@ -524,16 +513,6 @@ void MainWindow::handlerOrder()
 
 }
 
-void MainWindow::handlerDeliver()
-{
-
-}
-
-void MainWindow::handlerCheckDelivery()
-{
-
-}
-
 void MainWindow::handlerOpenPC()
 {
     QString pc = le_PCName->text();
@@ -544,15 +523,16 @@ void MainWindow::handlerOpenPC()
 
 void MainWindow::refresh()
 {
+    QString qs = "Utilistaeurs:\n";
+    QString prds = "Producteurs:\n";
+    QString prducts = "Produits:\n";
+
     // recupere les donnees a afficher
-    QString qs = "";
     std::vector<model::User> users = data->getUsers();
     int size = users.size();
     // pour chaque utilisateur on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::User u = users.at(i);
-        qs += std::to_string(i).c_str();
-        qs += ": ";
         qs += u.getName();
         qs += '\n';
     }
@@ -561,45 +541,48 @@ void MainWindow::refresh()
 
 
     // recupere les donnees a afficher
-    qs = "";
+    qs = "PCs:\n";
     std::vector<model::PC> pcs = data->getPCs();
     size = pcs.size();
     // pour chaque pc on ajoute ses information a qs
     for (int i=0; i<size; i++) {
         model::PC pc = pcs.at(i);
-        qs += std::to_string(i).c_str();
         qs += ": ";
         qs += pc.getName();
-        qs += ", ";
+        qs += "(";
         qs += pc.getCreatorName();
-        qs += ", ";
+        qs += ") ";
         qs += (pc.getCheck())?"check":"not check";
         qs += ", ";
         qs += (pc.getOpen())?"open":"not open";
-        qs += "\n(";
+        qs += "\n";
         std::vector<model::Productor> productors = data->getProductors(pc);
         for (unsigned int i=0; i<productors.size(); i++) {
-            qs += productors[i].getName();
-            qs += " ";
+            prds += productors[i].getName();
+            prds += "(";
+            prds += pc.getName();
+            prds += ")\n";
         }
-        qs += ")";
-        qs += "(";
         std::vector<model::Product> prods = data->getProducts(pc);
         for (unsigned int i=0; i<prods.size(); i++) {
-            qs += prods[i].getName();
-            qs += ":";
-            qs += std::to_string(prods[i].getPrice()).c_str();
-            qs += "  ";
+            prducts += prods[i].getName();
+            prducts += "(";
+            prducts += pc.getName();
+            prducts += ", ";
+            prducts += prods[i].getProductorName();
+            prducts += "):";
+            prducts += std::to_string(prods[i].getPrice()).c_str();
+            prducts += "\n";
         }
-        qs += ")";
-        qs += '\n';
     }
     // affiche les donnees
     l_pcs->setText(qs);
+    l_productor->setText(prds);
+    l_product->setText(prducts);
 
 
     // recupere les donnees a afficher
-    qs = "";
+    qs = "Admins:\n";
     std::vector<model::Admin> admins = data->getAdmins();
     size = admins.size();
     // pour chaque Admin  on ajoute ses information a qs
@@ -612,4 +595,18 @@ void MainWindow::refresh()
     }
     // affiche les donnees
     l_admins->setText(qs);
+
+    qs = "Commands:\n";
+    std::vector<model::Order> orders = data->getOrders();
+    size = orders.size();
+    for (int i=0; i<size; i++) {
+        model::Order order = orders.at(i);
+        qs += order.getUser().getName();
+        qs += ", ";
+        qs += order.getPC().getName();
+        qs += ", ";
+        qs += order.getProduct().getName();
+        qs += "\n";
+    }
+    l_orders->setText(qs);
 }

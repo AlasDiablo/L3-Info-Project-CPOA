@@ -51,11 +51,7 @@ public:
      */
     void createAdmin(QString name);
 
-    void order(QString product, QString user);
-
-    void deliver(QString product);
-
-    void checkDelivery(QString delivery);
+    void order(QString pc, QString product, QString user);
 };
 
 #endif // CONTROLLER_H

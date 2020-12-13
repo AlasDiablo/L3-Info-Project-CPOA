@@ -19,7 +19,7 @@ SOURCES += \
         order.cpp \
         pc.cpp \
         product.cpp \
-        producteur.cpp \
+        productor.cpp \
         user.cpp
 
 # Default rules for deployment.

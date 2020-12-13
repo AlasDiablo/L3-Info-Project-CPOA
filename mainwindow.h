@@ -8,8 +8,6 @@
  * @version 1.7
  */
 
-#include "user.h"
-#include "pc.h"
 #include "datadb.h"
 #include "controller.h"
 #include "controllerpc.h"
@@ -26,10 +24,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 private:
-    QPushButton *b_Order; /**< Bouton pour creer une Commande */
-    QPushButton *b_Deliver; /**< Bouton pour creer une livraison */
-    QPushButton *b_CheckDelivery; /**< Bouton pour valider une livraison */
-
     QLineEdit *le_PCName; /**< Champ de texte pour entrer le nom d'un PC */
     QLineEdit *le_PCNewName; /**< Champ de texte pour entrer le nouveau nom d'un PC */
     QLabel *l_PCName; /**< Label pour le champ de text PCName */
@@ -65,6 +59,8 @@ private:
     QPushButton *b_RemoveProduct; /**< Bouton pour retirer un Produit */
     QPushButton *b_ChangePriceProduct; /**< Bouton pour modifier le prix d'un Produit */
     QPushButton *b_ChangeNameProduct; /**< Bouton pour modifier le nom d'un Produit */
+
+    QPushButton *b_Order; /**< Bouton pour creer une Commande */
 
     QLabel *l_pcs; /**< Texte affichant la liste des points de collecte */
     QLabel *l_users; /**< Texte affichant la liste des utilisateurs */
@@ -106,6 +102,11 @@ private:
      * @brief createInterfaceList
      */
     void createInterfaceList();
+
+    /**
+     * @brief createInterfaceOther
+     */
+    void createInterfaceOther();
 
     /**
      * @brief deleteButtons
@@ -196,16 +197,6 @@ private slots:
      * @brief handlerOrder
      */
     void handlerOrder();
-
-    /**
-     * @brief handlerDeliver
-     */
-    void handlerDeliver();
-
-    /**
-     * @brief handlerCheckDelivery
-     */
-    void handlerCheckDelivery();
 
     /**
      * @brief handlerOpenPC
