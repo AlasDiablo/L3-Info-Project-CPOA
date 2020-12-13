@@ -122,7 +122,6 @@ namespace model {
 
         void addOrder(model::Order order);
         void removeOrder(model::Order order);
-        void changeOrder(model::Order order, model::Order newOrder);
         std::vector<model::Order> getOrders();
 
 

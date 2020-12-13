@@ -12,12 +12,9 @@ namespace model {
         model::PC pc;
         model::Product product;
         model::User user;
-        bool delivery;
 
     public:
         Order(model::PC pc, model::Product product, model::User user);
-        void setDelivery(bool delivery);
-        bool getDelivery();
         model::Product getProduct();
         model::PC getPC();
         model::User getUser();
