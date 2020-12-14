@@ -5,7 +5,7 @@
  * @file pc.h
  * @brief PC Class
  * @author Safyrus & AlasDiablo
- * @version 1.3
+ * @version 1.6
  */
 
 #include "user.h"

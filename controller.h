@@ -43,6 +43,10 @@ public:
      */
     void changeUser(QString name, QString newName);
 
+    /**
+     * @brief Supprime un utilisateur
+     * @param name le nom de l'utilisateur
+     */
     void deleteUser(QString name);
 
     /**
@@ -51,6 +55,12 @@ public:
      */
     void createAdmin(QString name);
 
+    /**
+     * @brief Créer une commande
+     * @param pc le nom du point de collecte
+     * @param product le nom du produit
+     * @param user le nom de l'utilisateur
+     */
     void order(QString pc, QString product, QString user);
 };
 

@@ -5,7 +5,7 @@
  * @file controllerpc.h
  * @brief Controller PC Class
  * @author Safyrus & AlasDiablo
- * @version 1.3
+ * @version 1.7
  */
 
 #include "datadb.h"
@@ -106,6 +106,11 @@ public:
      */
     void checkPC(QString pc, QString admin);
 
+    /**
+     * @brief Ouvre ou ferme un point de collecte
+     * @param pc le nom du point de collecte
+     * @param user le nom de l'utilisateur
+     */
     void openPC(QString pc, QString user);
 };
 
