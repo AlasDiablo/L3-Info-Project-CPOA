@@ -563,6 +563,8 @@ void MainWindow::refresh()
         qs += ", ";
         qs += (pc.getOpen())?"open":"not open";
         qs += "\n";
+
+        // recupere les donnees a afficher
         std::vector<model::Productor> productors = data->getProductors(pc);
         for (unsigned int j=0; j<productors.size(); j++) {
             prds += std::to_string(j).c_str();
@@ -572,6 +574,8 @@ void MainWindow::refresh()
             prds += pc.getName();
             prds += ")\n";
         }
+
+        // recupere les donnees a afficher
         std::vector<model::Product> prods = data->getProducts(pc);
         for (unsigned int j=0; j<prods.size(); j++) {
             prducts += std::to_string(j).c_str();
@@ -607,6 +611,7 @@ void MainWindow::refresh()
     // affiche les donnees
     l_admins->setText(qs);
 
+    // recupere les donnees a afficher
     qs = "Commands:\n";
     std::vector<model::Order> orders = data->getOrders();
     size = orders.size();
